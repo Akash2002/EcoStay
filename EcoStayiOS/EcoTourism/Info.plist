@@ -7,10 +7,6 @@
 		<string>Bitter-Regular.ttf</string>
 		<string>Bitter-Italic.ttf</string>
 		<string>Bitter-Bold.ttf</string>
-		<string>MiriamLibre-Bold.ttf</string>
-		<string>MiriamLibre-Regular.ttf</string>
-		<string>Comfortaa-Regular.ttf</string>
-		<string>Comfortaa-Bold.ttf</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>accept to get location</string>
