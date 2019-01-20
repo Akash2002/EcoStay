@@ -60,17 +60,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func getData() {
         databaseReference.observe(.value) { (snapshot) in
             for c in snapshot.children {
+                print("Async 1")
                 var userID = (c as? DataSnapshot)?.key ?? ""
                 print(userID)
                 self.databaseReference.child(userID).observe(.value, with: { (snapshot) in
+                    print("Async 2")
                     if let val = snapshot.value as? [String:Any?] {
                         if val["Leased Places"] != nil {
                             print("DO")
                             self.databaseReference.child(userID).child("Leased Places").observe(.value, with: { (snapshot) in
                                 for c in snapshot.children {
+                                    print("Async 3")
                                     var place: Place = Place()
                                     place.name = (c as? DataSnapshot)?.key ?? ""
                                     self.databaseReference.child(userID).child("Leased Places").child(place.name).observe(.value, with: { (snapshot) in
+                                        print("Async 4")
                                         if let val = snapshot.value as? [String:Any?] {
                                             print(val)
                                             print(val["Description"])

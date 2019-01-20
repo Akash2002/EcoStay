@@ -21,28 +21,46 @@ class Amenity {
 }
 
 
-class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    @IBOutlet weak var stepper: UIStepper!
     
     @IBOutlet weak var tableView: UITableView!
     var amenities: [Amenity] = []
-    var pickerArray: [Int] = [1,2,3,4,5]
     
     var auth: Auth = Auth.auth()
     var databaseReference: DatabaseReference = Database.database().reference()
     var uid = ""
     
     @IBOutlet weak var amenitiesField: UITextField!
-    @IBOutlet weak var quantityLabel: UITextField!
+    @IBOutlet weak var quantityLabel: UILabel!
     
-    @IBOutlet weak var editView: UIView!
+    var amenitiesPickerOptions: [String] = ["Bedroom","Kitchen","Lamps","Toiletries","AC Plugs"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.layer.cornerRadius = 10
-        editView.layer.cornerRadius = 10
-        
         uid = (auth.currentUser?.uid)!
         
+        var pickerView = UIPickerView()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        amenitiesField.inputView = pickerView
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return amenitiesPickerOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return amenitiesPickerOptions[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        amenitiesField.text = amenitiesPickerOptions[row]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,11 +73,13 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
         cell?.quantityLabel.text = amenities[indexPath.row].quantity
         return cell ?? UITableViewCell()
     }
+    
     @IBAction func onAddClicked(_ sender: Any) {
+        print("Added")
         var amenity: Amenity = Amenity()
         if amenitiesField.text?.count ?? 0 > 0 {
             amenity.name = amenitiesField.text!
-            if quantityLabel.text?.count ?? 0 == 1 {
+            if quantityLabel.text?.count ?? 0 > 1 {
                 amenity.quantity = quantityLabel.text!
                 amenities.append(amenity)
                 tableView.reloadData()
@@ -74,5 +94,12 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-
+    @IBAction func onStepperValueChanged(_ sender: Any) {
+        quantityLabel.text = "x " + Int(stepper.value).description
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }
