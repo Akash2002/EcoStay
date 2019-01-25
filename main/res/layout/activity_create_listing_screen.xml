@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateListingScreen">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="368dp"
+        android:layout_height="489dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ListingNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="36dp"
+                android:ems="10"
+                android:hint="Listing Name"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="@+id/scrollView3"
+                app:layout_constraintTop_toTopOf="@+id/scrollView3" />
+
+            <EditText
+                android:id="@+id/DescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Description of Listing"
+                android:inputType="textMultiLine"
+                app:layout_constraintStart_toStartOf="@+id/ ListingNameText"
+                app:layout_constraintTop_toBottomOf="@+id/AddressText" />
+
+            <EditText
+                android:id="@+id/AddressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="@+id/ ListingNameText"
+                app:layout_constraintTop_toBottomOf="@+id/ListingNameText" />
+
+            <Button
+                android:id="@+id/submitListingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Submit"
+                app:layout_constraintStart_toStartOf="@+id/ ListingNameText"
+                app:layout_constraintTop_toBottomOf="@+id/BathBox" />
+
+            <Spinner
+                android:id="@+id/BathBox"
+                android:layout_width="214dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/ ListingNameText"
+                app:layout_constraintTop_toBottomOf="@+id/BedsBox" />
+
+            <Spinner
+                android:id="@+id/BedsBox"
+                android:layout_width="214dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/ ListingNameText"
+                app:layout_constraintTop_toBottomOf="@+id/PriceText" />
+
+            <EditText
+                android:id="@+id/PriceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Price per Month"
+                android:inputType="numberDecimal"
+                app:layout_constraintStart_toStartOf="@+id/ ListingNameText"
+                app:layout_constraintTop_toBottomOf="@+id/DescriptionText" />
+
+            <EditText
+                android:id="@+id/HouseTypeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Type of Listing E.x. House, Cabin, etc."
+                android:inputType="textPersonName" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
