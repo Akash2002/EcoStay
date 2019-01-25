@@ -56,10 +56,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             databaseReference = databaseReference.child(currentUserUID)
         }
         
-        self.navigationController?.navigationBar.isHidden = true
-        
         performProfileDataTransaction()
-        
+        tableView.alwaysBounceVertical = false
     }
     
     func performProfileDataTransaction() {
