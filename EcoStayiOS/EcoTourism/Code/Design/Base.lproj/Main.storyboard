@@ -498,39 +498,33 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.91372549020000005" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="123" id="I5e-Gj-2hv" customClass="PlacesCell" customModule="EcoTourism" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="123" id="I5e-Gj-2hv" customClass="PlacesCell" customModule="EcoTourism" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I5e-Gj-2hv" id="d85-gc-GNB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="122.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name of Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt3-06-dUk">
-                                                    <rect key="frame" x="15" y="11" width="345" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="312" height="21"/>
                                                     <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="17"/>
                                                     <color key="textColor" red="0.45098039220000002" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPh-eF-EiG">
-                                                    <rect key="frame" x="15" y="66" width="345" height="18"/>
+                                                    <rect key="frame" x="15" y="66" width="312" height="18"/>
                                                     <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="15"/>
                                                     <color key="textColor" red="0.28235294119999998" green="0.1529411765" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDu-vr-HIM">
-                                                    <rect key="frame" x="15" y="40" width="345" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="15"/>
-                                                    <color key="textColor" red="0.28235294119999998" green="0.1529411765" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMH-0G-zLk">
-                                                    <rect key="frame" x="323" y="95" width="37" height="18"/>
+                                                    <rect key="frame" x="15" y="40" width="312" height="18"/>
                                                     <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="15"/>
                                                     <color key="textColor" red="0.28235294119999998" green="0.1529411765" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rating Val" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XX5-ia-Dkj">
-                                                    <rect key="frame" x="15" y="92" width="67.5" height="20"/>
+                                                    <rect key="frame" x="15" y="92" width="75.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="15"/>
                                                     <color key="textColor" red="0.28235294119999998" green="0.1529411765" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -540,9 +534,7 @@
                                                 <constraint firstItem="UPh-eF-EiG" firstAttribute="leading" secondItem="d85-gc-GNB" secondAttribute="leading" constant="15" id="0QR-bt-9qM"/>
                                                 <constraint firstItem="XX5-ia-Dkj" firstAttribute="top" secondItem="UPh-eF-EiG" secondAttribute="bottom" constant="10" id="2PW-Iv-AgZ"/>
                                                 <constraint firstItem="Kt3-06-dUk" firstAttribute="leading" secondItem="d85-gc-GNB" secondAttribute="leading" constant="15" id="2f4-cd-FDX"/>
-                                                <constraint firstAttribute="bottom" secondItem="VMH-0G-zLk" secondAttribute="bottom" constant="9.5" id="AVN-rX-Lbk"/>
                                                 <constraint firstItem="XX5-ia-Dkj" firstAttribute="leading" secondItem="d85-gc-GNB" secondAttribute="leading" constant="15" id="Ew0-ff-Mgj"/>
-                                                <constraint firstAttribute="trailing" secondItem="VMH-0G-zLk" secondAttribute="trailing" constant="15" id="OI1-7e-VNW"/>
                                                 <constraint firstItem="UPh-eF-EiG" firstAttribute="top" secondItem="iDu-vr-HIM" secondAttribute="bottom" constant="8" id="QaE-sb-Wpr"/>
                                                 <constraint firstAttribute="bottom" secondItem="XX5-ia-Dkj" secondAttribute="bottom" constant="8.5" id="QoI-D3-ryZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="Kt3-06-dUk" secondAttribute="trailing" constant="15" id="ZOf-PQ-3bl"/>
@@ -553,7 +545,7 @@
                                                 <constraint firstItem="Kt3-06-dUk" firstAttribute="top" secondItem="d85-gc-GNB" secondAttribute="top" constant="11" id="rUv-4R-VeT"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.91372549020000005" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.91372549020000005" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="addressLabel" destination="iDu-vr-HIM" id="l0r-RX-rsj"/>
                                             <outlet property="nameLabel" destination="Kt3-06-dUk" id="zP6-E7-8Ls"/>
@@ -567,14 +559,23 @@
                                     <outlet property="delegate" destination="Chc-VY-fqx" id="hvq-CW-LAm"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXW-Fo-lfR">
+                                <rect key="frame" x="16" y="64" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.9625845051855122" blue="0.89835166502511421" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.91372549020000005" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="YJr-Jn-AmD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="uNT-5Y-Gtf"/>
                     <connections>
+                        <outlet property="cellLabelColor" destination="QXW-Fo-lfR" id="7bJ-4f-Tuu"/>
                         <outlet property="placesTableView" destination="aNf-Zb-Pxp" id="Bad-fA-KQa"/>
                         <outlet property="searchDisplayController" destination="vts-0w-QDg" id="7dM-cI-GnS"/>
+                        <segue destination="yDH-S1-Bk5" kind="show" identifier="LeasedPlaceDetailSegue" id="15w-1u-WBL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d19-gM-KaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -588,6 +589,21 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="92" y="-179.46026986506749"/>
+        </scene>
+        <!--Lease Detail View Controller-->
+        <scene sceneID="66G-ps-fgG">
+            <objects>
+                <viewController id="yDH-S1-Bk5" customClass="LeaseDetailViewController" customModule="EcoTourism" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aCg-Jw-c1r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.9137254901960784" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="zlN-xj-x7L"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F4g-E1-kEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="754" y="-179"/>
         </scene>
         <!--Lease-->
         <scene sceneID="Biv-MD-kfD">
@@ -742,7 +758,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1c-7n-7Cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850" y="475"/>
+            <point key="canvasLocation" x="846" y="482"/>
         </scene>
         <!--Amenities-->
         <scene sceneID="kds-l8-lNp">
@@ -861,7 +877,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bdn-E2-FIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="482"/>
+            <point key="canvasLocation" x="1526" y="489"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Fs-pB-JFx">
@@ -1039,7 +1055,7 @@
         <image name="profile.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mqN-lb-4mp"/>
+        <segue reference="nZt-qv-62w"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.45098039220000002" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

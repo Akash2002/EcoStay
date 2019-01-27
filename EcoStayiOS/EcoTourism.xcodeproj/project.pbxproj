@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8303EFBA21FDE9550094D9EE /* LeaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */; };
 		83536E43219CFBC60078522F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83536E42219CFBC60078522F /* AppDelegate.swift */; };
 		83536E4A219CFBC60078522F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83536E48219CFBC60078522F /* Main.storyboard */; };
 		83536E4C219CFBC80078522F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83536E4B219CFBC80078522F /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		784A6127BA5E388B02E9FA27 /* Pods-EcoTourism.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoTourism.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoTourism/Pods-EcoTourism.release.xcconfig"; sourceTree = "<group>"; };
+		8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseDetailViewController.swift; sourceTree = "<group>"; };
 		83536E3F219CFBC60078522F /* EcoTourism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoTourism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83536E42219CFBC60078522F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83536E49219CFBC60078522F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				83FC3F4E21F24718007D3C9E /* AmenitiesViewController.swift */,
 				83FC3F4F21F24718007D3C9E /* ProfileViewController.swift */,
 				83C7499B21F2B40C007309BC /* HomeViewController.swift */,
+				8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				83FC3F5521F24718007D3C9E /* SearchViewController.swift in Sources */,
 				83FC3F5621F24718007D3C9E /* LeaseViewController.swift in Sources */,
 				83FC3F5821F24718007D3C9E /* ProfileViewController.swift in Sources */,
+				8303EFBA21FDE9550094D9EE /* LeaseDetailViewController.swift in Sources */,
 				83C7499C21F2B40C007309BC /* HomeViewController.swift in Sources */,
 				83FC3F5A21F24718007D3C9E /* CreateAccount1ViewController.swift in Sources */,
 				83536E43219CFBC60078522F /* AppDelegate.swift in Sources */,

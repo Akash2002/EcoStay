@@ -48,17 +48,18 @@ class PlacesCell: UITableViewCell {
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var placesTableView: UITableView!
+    @IBOutlet weak var cellLabelColor: UILabel!
     
     var databaseReference: DatabaseReference = Database.database().reference()
     var auth: Auth = Auth.auth()
     var uid: String = ""
     var places: [Place] = []
+    static var passPlace = Place()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         uid = (auth.currentUser?.uid)!
-        //getData()
         test();
         
     }
@@ -69,11 +70,19 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlacesCell
-        cell.addressLabel.text = places[indexPath.row].address
-        cell.nameLabel.text = places[indexPath.row].name
-        cell.priceLabel.text = places[indexPath.row].price
-        cell.ratingVal.text = places[indexPath.row].rating
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = cellLabelColor.textColor
+        }
+        cell.addressLabel.text = self.places[indexPath.row].address
+        cell.nameLabel.text = self.places[indexPath.row].name
+        cell.priceLabel.text = self.places[indexPath.row].price
+        cell.ratingVal.text = self.places[indexPath.row].rating
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SearchViewController.passPlace = places[indexPath.row]
+        performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
     }
     
     func test() {
@@ -139,60 +148,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                 })
             }
-        }
-    }
-    
-    func getData() {
-        databaseReference.observe(.value) { (snapshot) in
-            for c in snapshot.children {
-                print("Async 1")
-                var userID = (c as? DataSnapshot)?.key ?? ""
-                print(userID)
-                self.databaseReference.child(userID).observe(.value, with: { (snapshot) in
-                    print("Async 2")
-                    if let val = snapshot.value as? [String:Any?] {
-                        if val["Leased Places"] != nil {
-                            print("DO")
-                            self.databaseReference.child(userID).child("Leased Places").observe(.value, with: { (snapshot) in
-                                for c in snapshot.children {
-                                    print("Async 3")
-                                    var place: Place = Place()
-                                    place.name = (c as? DataSnapshot)?.key ?? ""
-                                    self.databaseReference.child(userID).child("Leased Places").child(place.name).observe(.value, with: { (snapshot) in
-                                        print("Async 4")
-                                        if let val = snapshot.value as? [String:Any?] {
-                                            print(val)
-                                            print(val["Description"])
-                                            if val["Description"] != nil {
-                                                place.desc = val["Description"] as! String
-                                            }
-                                            if val["Address"] != nil {
-                                                print("Address Success")
-                                                place.address = val["Address"] as! String
-                                            }
-                                            if val["RatingNum"] != nil {
-                                                place.ratingNum = val["RatingNum"] as! String
-                                            }
-                                            if val["Rating"] != nil {
-                                                place.rating = val["Rating"] as! String
-                                            }
-                                            if val["Price"] != nil {
-                                                place.price = val["Price"] as! String
-                                            }
-                                            
-                                            self.places.append(place)
-                                            DispatchQueue.main.async(execute: {
-                                                self.placesTableView.reloadData()
-                                            })
-                                        }
-                                    })
-                                }
-                            })
-                        }
-                    }
-                })
-            }
-            
         }
     }
     
