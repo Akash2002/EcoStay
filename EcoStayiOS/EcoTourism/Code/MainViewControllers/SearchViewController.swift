@@ -18,6 +18,24 @@ class Place {
     var price: String = ""
     var rating: String = ""
     var ratingNum: String = ""
+    
+    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String) {
+        self.name = name
+        self.address = address
+        self.desc = desc
+        self.price = price
+        self.rating = rating
+        self.ratingNum = ratingNum
+    }
+    
+    init() {
+        
+    }
+    
+    func toString() -> String {
+        return self.name + " " + self.address + " " + self.desc + " " + self.price + " " + self.rating + " " + self.price + " " + self.ratingNum
+    }
+    
 }
 
 class PlacesCell: UITableViewCell {
@@ -40,7 +58,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         uid = (auth.currentUser?.uid)!
-        getData()
+        //getData()
+        test();
         
     }
     
@@ -55,6 +74,72 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.priceLabel.text = places[indexPath.row].price
         cell.ratingVal.text = places[indexPath.row].rating
         return cell
+    }
+    
+    func test() {
+        databaseReference.observe(.value) { (snapshot) in
+            self.places.removeAll()
+            print("IN 1")
+            for c in snapshot.children {
+                var userId = (c as? DataSnapshot)?.key ?? ""
+                self.databaseReference.child(userId).observe(.value, with: { (snapshot) in
+                    self.places.removeAll()
+                    print("IN 2")
+                    if let val = snapshot.value as? [String: Any?] {
+                        if val["Leased Places"] != nil {
+                            self.databaseReference.child(userId).child("Leased Places").observe(.value, with: { (snapshot) in
+                                self.places.removeAll()
+                                print("IN 3")
+                                for c in snapshot.children {
+                                        self.databaseReference.child(userId).child("Leased Places").child(((c as? DataSnapshot)?.key)!).observe(.value, with: { (snapshot) in
+                                            //self.places.removeAll()
+                                            print("IN 4")
+                                            if let placeVal = snapshot.value as? [String: Any?] {
+                                                if placeVal["Address"] != nil {
+                                                    if placeVal["Description"] != nil {
+                                                        if placeVal["Price"] != nil {
+                                                            if placeVal["Rating"] != nil {
+                                                                if placeVal["RatingNum"] != nil {
+                                                                    var place = Place(
+                                                                        name: (c as? DataSnapshot)?.key as! String,
+                                                                        address: "Address: " + (placeVal["Address"] as! String),
+                                                                        desc: placeVal["Description"] as! String,
+                                                                        price: "$" + (placeVal["Price"] as! String),
+                                                                        rating: "Rating: " + (placeVal["Rating"] as! String),
+                                                                        ratingNum: placeVal["RatingNum"] as! String
+                                                                    )
+                                                                    var c = 0
+                                                                    for p in self.places {
+                                                                        if p.name != place.name {
+                                                                           c += 1
+                                                                        }
+                                                                    }
+                                                                    if c == self.places.count {
+                                                                        self.places.append(place)
+                                                                    }
+                                                                    
+                                                                    for p in self.places {
+                                                                        print(p.toString())
+                                                                    }
+                                                                    DispatchQueue.main.async(execute: {
+                                                                        self.placesTableView.reloadData()
+                                                                    })
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            
+                                        })
+                                    
+                                }
+                            })
+                        }
+                    }
+                })
+            }
+        }
     }
     
     func getData() {
