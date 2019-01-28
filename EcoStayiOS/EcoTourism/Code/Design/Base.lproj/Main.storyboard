@@ -547,6 +547,7 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.5568627451" green="0.2901960784" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="tintColor" red="0.45098039220000002" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstItem="rhf-uz-a80" firstAttribute="top" secondItem="EsV-bR-kbN" secondAttribute="bottom" constant="8" id="0d0-A4-aoE"/>
                                                         <constraint firstItem="EsV-bR-kbN" firstAttribute="top" secondItem="zms-hr-nsf" secondAttribute="top" constant="8" id="2Lz-O1-U31"/>

@@ -13,9 +13,9 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class Login extends AppCompatActivity {
 
-    TextInputEditText usernameEditText, passwordEditText;
-    TextView newAccount;
-    Button login;
+    private TextInputEditText usernameEditText, passwordEditText;
+    private TextView newAccount;
+    private Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

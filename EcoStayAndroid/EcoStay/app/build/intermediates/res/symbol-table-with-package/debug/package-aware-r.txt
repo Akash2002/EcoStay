@@ -771,8 +771,10 @@ color abc_tint_edittext
 color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
+color accentTextTintColor
 color accent_material_dark
 color accent_material_light
+color actionTintColor
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -840,6 +842,8 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color lightBackgroundColor
+color lightTextTintColor
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1517,6 +1521,7 @@ id textInputLayout2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1557,6 +1562,7 @@ id unlabeled
 id up
 id useLogo
 id vertical
+id view
 id view_offset_helper
 id visible
 id withText
