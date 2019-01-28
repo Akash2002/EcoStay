@@ -12,10 +12,14 @@
 	<string>accept to get location</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>accept to get location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To keep the users better informed of what place they will be renting.</string>
 	<key>NSLocationUsageDescription</key>
 	<string>accept to get location</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To keep the users better informed of what place they will be renting.</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string>public.app-category.travel</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

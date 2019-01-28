@@ -38,15 +38,40 @@ class Place {
     
 }
 
-class PlacesCell: UITableViewCell {
+class PlaceCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var ratingVal: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
 }
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    @IBOutlet weak var viewBgLabel: UILabel!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return places.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell: PlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlaceCell
+        cell.nameLabel.text = places[indexPath.row].name
+        cell.priceLabel.text = places[indexPath.row].price
+        cell.ratingLabel.text = places[indexPath.row].rating
+        cell.layer.cornerRadius = 5
+        cell.cellView.backgroundColor = viewBgLabel.textColor
+        cell.cellView.layer.cornerRadius = 5
+        cell.imageView.layer.cornerRadius = 5
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(places[indexPath.row].name)
+    }
+    
     @IBOutlet weak var placesTableView: UITableView!
     @IBOutlet weak var cellLabelColor: UILabel!
     
@@ -56,33 +81,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var places: [Place] = []
     static var passPlace = Place()
     
+    let leftAndRightPaddings: Double = 4.0
+    let numberOfItemsPerRow: Double = 2.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        collectionView.contentSize = CGSize(width: (collectionView.frame.width - 32)/2, height: collectionView.frame.width/1.5)
+        
         uid = (auth.currentUser?.uid)!
         test();
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return places.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlacesCell
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = cellLabelColor.textColor
-        }
-        cell.addressLabel.text = self.places[indexPath.row].address
-        cell.nameLabel.text = self.places[indexPath.row].name
-        cell.priceLabel.text = self.places[indexPath.row].price
-        cell.ratingVal.text = self.places[indexPath.row].rating
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SearchViewController.passPlace = places[indexPath.row]
-        performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
     }
     
     func test() {
@@ -128,11 +137,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                                                     }
                                                                     
                                                                     for p in self.places {
-                                                                        print(p.toString())
+                                                                       
                                                                     }
-                                                                    DispatchQueue.main.async(execute: {
-                                                                        self.placesTableView.reloadData()
-                                                                    })
+                                                                    self.collectionView.reloadData()
                                                                 }
                                                             }
                                                         }
