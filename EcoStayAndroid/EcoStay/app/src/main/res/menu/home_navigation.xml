@@ -3,16 +3,21 @@
 
     <item
         android:id="@+id/navigation_search"
-        android:title="Search" />
+        android:title="Home"
+        android:icon="@drawable/outline_home_black_48"/>
 
     <item
         android:id="@+id/navigation_browse"
-        android:title="Browse" />
+        android:title="Browse"
+        android:icon="@drawable/outline_search_black_48dp"/>
 
     <item
         android:id="@+id/navigation_myListing"
-        android:title="My Listings"/>
+        android:title="Lease"
+        android:icon="@drawable/outline_note_add_black_48dp"
+        />
     <item
         android:id="@+id/navigation_profile"
-        android:title="Profile" />
+        android:title="Profile"
+        android:icon="@drawable/outline_person_black_48dp"/>
 </menu>

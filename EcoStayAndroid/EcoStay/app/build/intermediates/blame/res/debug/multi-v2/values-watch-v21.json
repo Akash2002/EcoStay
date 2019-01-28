@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Theo\\EcoStayAndroid\\EcoStay\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
+            "outputFile": "/Users/akashveerappan/Desktop/Coding/EcoStay/EcoStayAndroid/EcoStay/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha01.aar\\3d008a79e8adbfef94009fd078f1f64b\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "/Users/akashveerappan/.gradle/caches/transforms-1/files-1.1/appcompat-1.1.0-alpha01.aar/dddff1e5df9547692c4896fdd54e6193/res/values-watch-v21/values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",
