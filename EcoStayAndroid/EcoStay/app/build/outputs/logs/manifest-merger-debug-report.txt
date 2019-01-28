@@ -1,0 +1,183 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\constraintlayout-2.0.0-alpha3.aar\eeedbb7ca779873d8d67d3d347f1c7da\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.material:material:1.1.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha02.aar\5ba5460b0b56ece529799f61167152e4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0-alpha01.aar\3d008a79e8adbfef94009fd078f1f64b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\transition-1.0.0.aar\bcbf4646c740ec08346c6365fa1de336\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\b286e81f00aeb4e111f8fc3d78e95416\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\34df197300f3bdfe2ea4681a87079969\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\05f40584062072733f9ea161e9a91311\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\4360169cb55a60023877db6f8d33d8fc\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\8808f65334f335761053151e40b47b92\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\368bd2ac4682495f3829573492258fc0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.1.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0-alpha02.aar\7c78b013ffe112867b986f3a5587de62\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\activity-1.0.0-alpha02.aar\bdf9063326eeca758cbf823457916ae1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.1.aar\87d1e6a105f21a943773cab0bb658f0b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\608a6bf711f21e72c0eb8e36227a5039\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\d00bf6a57a18d8499fd4f3bc9f70ddd5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\d7eeea1a416665785ba1ebe19f74ed89\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\56125537fda1904839a8e0cdba1a7597\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\93ddf2dc9ea0f7178bebce890a5271b5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\6a1d867b078975b67507ee5245b52978\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\ff3098d751ddd6d4a169f5423ec8c566\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha01.aar\a6194f12539e7f9311f9991919b873e3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha01.aar\3a22edc8da9acca76a7b22598af48c59\AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f276bd16ea5926a972c22c388b5a59df\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\f1a485f83de55dc34189b5670ad0b6ca\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\0d343257504482697a529990edc5354f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\deef2d5999959ab8a2841d5e1bb11da7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\8824d4823f72f93c4bf961b9a4e5dd90\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\816125eeef5aa55c77d2772b99d0b1d5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\21b459c5b330f52d231cd67b409fe2e1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\fe303f67c76e0cf30a973d13fb104779\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\e87b6ab620edb2152a5a533d26d96894\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\2369f67e4c8cef302b8a7348ff5b17ee\AndroidManifest.xml:17:1-22:12
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+	package
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:3:5-26
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-24:12
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:5:5-22:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\constraintlayout-2.0.0-alpha3.aar\eeedbb7ca779873d8d67d3d347f1c7da\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\constraintlayout-2.0.0-alpha3.aar\eeedbb7ca779873d8d67d3d347f1c7da\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.material:material:1.1.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha02.aar\5ba5460b0b56ece529799f61167152e4\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha02.aar\5ba5460b0b56ece529799f61167152e4\AndroidManifest.xml:22:5-20
+MERGED from [androidx.core:core:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha01.aar\a6194f12539e7f9311f9991919b873e3\AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha01.aar\a6194f12539e7f9311f9991919b873e3\AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha01.aar\3a22edc8da9acca76a7b22598af48c59\AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha01.aar\3a22edc8da9acca76a7b22598af48c59\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha01.aar\a6194f12539e7f9311f9991919b873e3\AndroidManifest.xml:22:18-86
+	android:supportsRtl
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.ecostay.Login
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:12:19-40
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:16:27-74
+activity#com.ecostay.Home
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:19:9-42
+	android:name
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:19:19-39
+activity#com.ecostay.CreateAccount
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:20:9-51
+	android:name
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:20:19-48
+activity#com.ecostay.CreateListing
+ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:21:9-60
+	android:name
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:21:19-48
+uses-sdk
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\constraintlayout-2.0.0-alpha3.aar\eeedbb7ca779873d8d67d3d347f1c7da\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\constraintlayout-2.0.0-alpha3.aar\eeedbb7ca779873d8d67d3d347f1c7da\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.material:material:1.1.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha02.aar\5ba5460b0b56ece529799f61167152e4\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha02.aar\5ba5460b0b56ece529799f61167152e4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0-alpha01.aar\3d008a79e8adbfef94009fd078f1f64b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0-alpha01.aar\3d008a79e8adbfef94009fd078f1f64b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\transition-1.0.0.aar\bcbf4646c740ec08346c6365fa1de336\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\transition-1.0.0.aar\bcbf4646c740ec08346c6365fa1de336\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\b286e81f00aeb4e111f8fc3d78e95416\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\b286e81f00aeb4e111f8fc3d78e95416\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\34df197300f3bdfe2ea4681a87079969\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\34df197300f3bdfe2ea4681a87079969\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\05f40584062072733f9ea161e9a91311\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\05f40584062072733f9ea161e9a91311\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\4360169cb55a60023877db6f8d33d8fc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\4360169cb55a60023877db6f8d33d8fc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\8808f65334f335761053151e40b47b92\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\8808f65334f335761053151e40b47b92\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\368bd2ac4682495f3829573492258fc0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\368bd2ac4682495f3829573492258fc0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0-alpha02.aar\7c78b013ffe112867b986f3a5587de62\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0-alpha02.aar\7c78b013ffe112867b986f3a5587de62\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\activity-1.0.0-alpha02.aar\bdf9063326eeca758cbf823457916ae1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0-alpha02] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\activity-1.0.0-alpha02.aar\bdf9063326eeca758cbf823457916ae1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.1.aar\87d1e6a105f21a943773cab0bb658f0b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.1.aar\87d1e6a105f21a943773cab0bb658f0b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\608a6bf711f21e72c0eb8e36227a5039\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\608a6bf711f21e72c0eb8e36227a5039\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\d00bf6a57a18d8499fd4f3bc9f70ddd5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\d00bf6a57a18d8499fd4f3bc9f70ddd5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\d7eeea1a416665785ba1ebe19f74ed89\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\d7eeea1a416665785ba1ebe19f74ed89\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\56125537fda1904839a8e0cdba1a7597\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\56125537fda1904839a8e0cdba1a7597\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\93ddf2dc9ea0f7178bebce890a5271b5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\93ddf2dc9ea0f7178bebce890a5271b5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\6a1d867b078975b67507ee5245b52978\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\6a1d867b078975b67507ee5245b52978\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\ff3098d751ddd6d4a169f5423ec8c566\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\ff3098d751ddd6d4a169f5423ec8c566\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha01.aar\a6194f12539e7f9311f9991919b873e3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha01.aar\a6194f12539e7f9311f9991919b873e3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha01.aar\3a22edc8da9acca76a7b22598af48c59\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha01.aar\3a22edc8da9acca76a7b22598af48c59\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f276bd16ea5926a972c22c388b5a59df\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f276bd16ea5926a972c22c388b5a59df\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\f1a485f83de55dc34189b5670ad0b6ca\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\f1a485f83de55dc34189b5670ad0b6ca\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\0d343257504482697a529990edc5354f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\0d343257504482697a529990edc5354f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\deef2d5999959ab8a2841d5e1bb11da7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\deef2d5999959ab8a2841d5e1bb11da7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\8824d4823f72f93c4bf961b9a4e5dd90\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\8824d4823f72f93c4bf961b9a4e5dd90\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\816125eeef5aa55c77d2772b99d0b1d5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\816125eeef5aa55c77d2772b99d0b1d5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\21b459c5b330f52d231cd67b409fe2e1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\21b459c5b330f52d231cd67b409fe2e1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\fe303f67c76e0cf30a973d13fb104779\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\fe303f67c76e0cf30a973d13fb104779\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\e87b6ab620edb2152a5a533d26d96894\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\e87b6ab620edb2152a5a533d26d96894\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\2369f67e4c8cef302b8a7348ff5b17ee\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\theo\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\2369f67e4c8cef302b8a7348ff5b17ee\AndroidManifest.xml:20:5-44
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+		ADDED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Theo\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
