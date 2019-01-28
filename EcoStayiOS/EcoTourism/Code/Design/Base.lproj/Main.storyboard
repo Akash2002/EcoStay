@@ -517,7 +517,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="177" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="hut.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="Hc4-S5-XfB">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="hut.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Hc4-S5-XfB">
                                                     <rect key="frame" x="0.0" y="0.0" width="177" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="177" id="vm7-Tp-U7d"/>
@@ -1056,7 +1056,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hut.JPG" width="1600" height="1066"/>
+        <image name="hut.jpg" width="1066" height="600"/>
         <image name="outline_assignment_black_24pt_1x.png" width="24" height="24"/>
         <image name="outline_home_black_24pt_1x.png" width="24" height="24"/>
         <image name="outline_portrait_black_24pt_1x.png" width="24" height="24"/>
