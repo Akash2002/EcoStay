@@ -14,8 +14,7 @@ class LeaseDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        place = SearchViewController.passPlace
-        
+        place = SearchViewController.seguePlace
         self.navigationItem.title = place.name
         
     }

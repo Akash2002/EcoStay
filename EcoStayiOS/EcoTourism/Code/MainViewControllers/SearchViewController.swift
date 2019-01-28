@@ -49,8 +49,11 @@ class PlaceCell: UICollectionViewCell {
 class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var viewBgLabel: UILabel!
-    
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var placesTableView: UITableView!
+    @IBOutlet weak var cellLabelColor: UILabel!
+    
+    static var seguePlace: Place = Place()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return places.count
@@ -69,11 +72,9 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(places[indexPath.row].name)
+        SearchViewController.seguePlace = places[indexPath.row]
+        performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
     }
-    
-    @IBOutlet weak var placesTableView: UITableView!
-    @IBOutlet weak var cellLabelColor: UILabel!
     
     var databaseReference: DatabaseReference = Database.database().reference()
     var auth: Auth = Auth.auth()
@@ -87,7 +88,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
         collectionView.contentSize = CGSize(width: (collectionView.frame.width - 32)/2, height: collectionView.frame.width/1.5)
         
         uid = (auth.currentUser?.uid)!
