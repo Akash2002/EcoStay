@@ -10,12 +10,24 @@ import UIKit
 
 class LeaseDetailViewController: UIViewController {
     
+    @IBOutlet weak var priceButtonLabel: UIBarButtonItem!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     var place = Place()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         place = SearchViewController.seguePlace
-        self.navigationItem.title = place.name
+        
+        titleLabel.text = place.name
+        descriptionLabel.text = place.desc
+        
+        priceButtonLabel.isEnabled = false
+        priceButtonLabel.title = "$" + place.price + "/night"
+        
+        
+        
     }
 
 }
