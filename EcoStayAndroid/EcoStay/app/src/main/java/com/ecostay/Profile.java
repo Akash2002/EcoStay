@@ -15,4 +15,20 @@ public class Profile {
         this.birthday = birthday;
         this.password = password;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
 }

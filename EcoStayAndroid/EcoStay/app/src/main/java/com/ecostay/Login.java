@@ -10,9 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
     private TextInputEditText usernameEditText, passwordEditText;
     private TextView newAccount;
     private Button login;
@@ -21,6 +24,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mAuth = FirebaseAuth.getInstance();
 
         login = findViewById(R.id.btnLogin);
         usernameEditText = findViewById(R.id.emailEditText);
@@ -45,4 +50,5 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
 }

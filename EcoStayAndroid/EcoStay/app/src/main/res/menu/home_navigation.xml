@@ -12,7 +12,7 @@
         android:icon="@drawable/outline_search_black_48dp"/>
 
     <item
-        android:id="@+id/navigation_myListing"
+        android:id="@+id/navigation_createListing"
         android:title="Lease"
         android:icon="@drawable/outline_note_add_black_48dp"
         />
