@@ -22,8 +22,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         modButton()
         self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     @IBAction func onLoginClicked(_ sender: UIButton) {

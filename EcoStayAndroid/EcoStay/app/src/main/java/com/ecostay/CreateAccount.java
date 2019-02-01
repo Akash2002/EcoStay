@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -48,15 +50,13 @@ public class CreateAccount extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                System.out.println("Worked");
+                                Toast.makeText(getApplicationContext(), "Worked~!", Toast.LENGTH_LONG).show();
                             }else{
-                                System.out.println("NOt");
+                                FirebaseAuthException e = (FirebaseAuthException) task.getException();
+                                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                             }
                         }
                     });
-
-                Intent goLogin = new Intent(getApplicationContext(), Login.class);
-                startActivity(goLogin);
             }
         });
 

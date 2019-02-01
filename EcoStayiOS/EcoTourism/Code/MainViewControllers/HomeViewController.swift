@@ -13,8 +13,5 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tabBarController?.modifyTabBar(emulator: viewEmulator)
-        
     }
 }

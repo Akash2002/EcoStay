@@ -39,18 +39,23 @@ class Place {
 }
 
 class PlaceCell: UICollectionViewCell {
+//    @IBOutlet weak var nameLabel: UILabel!
+//    @IBOutlet weak var priceLabel: UILabel!
+//    @IBOutlet weak var ratingLabel: UILabel!
+//    @IBOutlet weak var cellView: UIView!
+//    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    
 }
 
 class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var viewBgLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var placesTableView: UITableView!
     @IBOutlet weak var cellLabelColor: UILabel!
     
     static var seguePlace: Place = Place()
@@ -62,12 +67,11 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell: PlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlaceCell
         cell.nameLabel.text = places[indexPath.row].name
-        cell.priceLabel.text = places[indexPath.row].price
+        cell.priceLabel.text = "$" + places[indexPath.row].price + "/night"
         cell.ratingLabel.text = places[indexPath.row].rating
         cell.layer.cornerRadius = 5
-        cell.cellView.backgroundColor = viewBgLabel.textColor
-        cell.cellView.layer.cornerRadius = 5
         cell.imageView.layer.cornerRadius = 5
+        
         return cell
     }
     
@@ -89,8 +93,15 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         super.viewDidLoad()
         
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
-        collectionView.contentSize = CGSize(width: (collectionView.frame.width - 32)/2, height: collectionView.frame.width/1.5)
         
+//        collectionView.layer.shadowColor = UIColor.black.cgColor
+//        collectionView.layer.shadowOffset = CGSize(width: 0, height: 1)
+//        collectionView.layer.shadowOpacity = 1
+//        collectionView.layer.shadowRadius = 1.0
+//        collectionView.clipsToBounds = false
+//        collectionView.layer.masksToBounds = false
+//
+//
         uid = (auth.currentUser?.uid)!
         test();
     }
@@ -123,8 +134,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                                                         name: (c as? DataSnapshot)?.key as! String,
                                                                         address: "Address: " + (placeVal["Address"] as! String),
                                                                         desc: placeVal["Description"] as! String,
-                                                                        price: "$" + (placeVal["Price"] as! String),
-                                                                        rating: "Rating: " + (placeVal["Rating"] as! String),
+                                                                        price: (placeVal["Price"] as! String),
+                                                                        rating: (placeVal["Rating"] as! String),
                                                                         ratingNum: placeVal["RatingNum"] as! String
                                                                     )
                                                                     var c = 0
