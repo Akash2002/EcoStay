@@ -23,6 +23,7 @@
 		834B36C62203D29400E7938E /* cottage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 834B36C52203D29400E7938E /* cottage.jpg */; };
 		834B36C82203D3A100E7938E /* loc.png in Resources */ = {isa = PBXBuildFile; fileRef = 834B36C72203D3A000E7938E /* loc.png */; };
 		834B36CA2203D71900E7938E /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 834B36C92203D71900E7938E /* star.png */; };
+		834B36CC2203F9A400E7938E /* profile_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 834B36CB2203F9A300E7938E /* profile_white.png */; };
 		83536E43219CFBC60078522F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83536E42219CFBC60078522F /* AppDelegate.swift */; };
 		83536E4A219CFBC60078522F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83536E48219CFBC60078522F /* Main.storyboard */; };
 		83536E4C219CFBC80078522F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83536E4B219CFBC80078522F /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		834B36C52203D29400E7938E /* cottage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cottage.jpg; sourceTree = "<group>"; };
 		834B36C72203D3A000E7938E /* loc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loc.png; sourceTree = "<group>"; };
 		834B36C92203D71900E7938E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		834B36CB2203F9A300E7938E /* profile_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_white.png; sourceTree = "<group>"; };
 		83536E3F219CFBC60078522F /* EcoTourism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoTourism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83536E42219CFBC60078522F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83536E49219CFBC60078522F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		83FC3F5C21F24730007D3C9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				834B36CB2203F9A300E7938E /* profile_white.png */,
 				834B36C92203D71900E7938E /* star.png */,
 				834B36C72203D3A000E7938E /* loc.png */,
 				834B36C52203D29400E7938E /* cottage.jpg */,
@@ -324,6 +327,7 @@
 				834B36BD2203C1C700E7938E /* OpenSans-ExtraBold.ttf in Resources */,
 				834B36C82203D3A100E7938E /* loc.png in Resources */,
 				834B36BF2203C1C700E7938E /* OpenSans-Italic.ttf in Resources */,
+				834B36CC2203F9A400E7938E /* profile_white.png in Resources */,
 				83FC3F6B21F247BF007D3C9E /* Comfortaa-Bold.ttf in Resources */,
 				834B36C12203C1C700E7938E /* OpenSans-LightItalic.ttf in Resources */,
 				83E3960121F3F93B00451A20 /* Bitter-Italic.ttf in Resources */,
