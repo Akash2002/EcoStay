@@ -18,6 +18,15 @@ class AmenitiesCell: UITableViewCell {
 class Amenity {
     var name: String = ""
     var quantity: String = ""
+    
+    init(name: String, quantity: String) {
+        self.name = name
+        self.quantity = quantity
+    }
+    
+    init () {
+        
+    }
 }
 
 

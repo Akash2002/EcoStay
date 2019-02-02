@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EcoStay.iml" filepath="$PROJECT_DIR$/EcoStay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/accessiblerecyclerview/accessiblerecyclerview.iml" filepath="$PROJECT_DIR$/accessiblerecyclerview/accessiblerecyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

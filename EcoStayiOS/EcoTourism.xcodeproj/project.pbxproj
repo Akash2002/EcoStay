@@ -10,6 +10,7 @@
 		8303EFBA21FDE9550094D9EE /* LeaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */; };
 		8303EFBC21FE0ED40094D9EE /* PictureUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */; };
 		8309C37C21FE8BE0002F552D /* hut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8309C37B21FE8BE0002F552D /* hut.jpg */; };
+		833CB93E2205FFC0009BC62A /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = 833CB93D2205FFC0009BC62A /* star1.png */; };
 		834B36BB2203C1C700E7938E /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 834B36B92203C1C300E7938E /* OpenSans-Bold.ttf */; };
 		834B36BC2203C1C700E7938E /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 834B36B52203C1C200E7938E /* OpenSans-BoldItalic.ttf */; };
 		834B36BD2203C1C700E7938E /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 834B36B22203C1C100E7938E /* OpenSans-ExtraBold.ttf */; };
@@ -58,6 +59,7 @@
 		8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseDetailViewController.swift; sourceTree = "<group>"; };
 		8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureUploadViewController.swift; sourceTree = "<group>"; };
 		8309C37B21FE8BE0002F552D /* hut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hut.jpg; path = ../hut.jpg; sourceTree = "<group>"; };
+		833CB93D2205FFC0009BC62A /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
 		834B36B12203C1C100E7938E /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		834B36B22203C1C100E7938E /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		834B36B32203C1C100E7938E /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		83FC3F5C21F24730007D3C9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				833CB93D2205FFC0009BC62A /* star1.png */,
 				834B36CB2203F9A300E7938E /* profile_white.png */,
 				834B36C92203D71900E7938E /* star.png */,
 				834B36C72203D3A000E7938E /* loc.png */,
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8309C37C21FE8BE0002F552D /* hut.jpg in Resources */,
+				833CB93E2205FFC0009BC62A /* star1.png in Resources */,
 				83E3960B21F3F9CC00451A20 /* outline_search_black_24pt_1x.png in Resources */,
 				834B36BB2203C1C700E7938E /* OpenSans-Bold.ttf in Resources */,
 				83E3960521F3F99E00451A20 /* outline_portrait_black_24pt_1x.png in Resources */,

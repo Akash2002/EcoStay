@@ -18,14 +18,16 @@ class Place {
     var price: String = ""
     var rating: String = ""
     var ratingNum: String = ""
+    var admin: String = ""
     
-    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String) {
+    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String, admin: String) {
         self.name = name
         self.address = address
         self.desc = desc
         self.price = price
         self.rating = rating
         self.ratingNum = ratingNum
+        self.admin = admin
     }
     
     init() {
@@ -94,14 +96,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
         
-//        collectionView.layer.shadowColor = UIColor.black.cgColor
-//        collectionView.layer.shadowOffset = CGSize(width: 0, height: 1)
-//        collectionView.layer.shadowOpacity = 1
-//        collectionView.layer.shadowRadius = 1.0
-//        collectionView.clipsToBounds = false
-//        collectionView.layer.masksToBounds = false
-//
-//
         uid = (auth.currentUser?.uid)!
         test();
     }
@@ -116,13 +110,14 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                     self.places.removeAll()
                     print("IN 2")
                     if let val = snapshot.value as? [String: Any?] {
+                        var personName = val["Name"]
                         if val["Leased Places"] != nil {
                             self.databaseReference.child(userId).child("Leased Places").observe(.value, with: { (snapshot) in
                                 self.places.removeAll()
                                 print("IN 3")
                                 for c in snapshot.children {
                                         self.databaseReference.child(userId).child("Leased Places").child(((c as? DataSnapshot)?.key)!).observe(.value, with: { (snapshot) in
-                                            //self.places.removeAll()
+                                            var place = Place()
                                             print("IN 4")
                                             if let placeVal = snapshot.value as? [String: Any?] {
                                                 if placeVal["Address"] != nil {
@@ -130,14 +125,30 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                                         if placeVal["Price"] != nil {
                                                             if placeVal["Rating"] != nil {
                                                                 if placeVal["RatingNum"] != nil {
-                                                                    var place = Place(
-                                                                        name: (c as? DataSnapshot)?.key as! String,
-                                                                        address: "Address: " + (placeVal["Address"] as! String),
-                                                                        desc: placeVal["Description"] as! String,
-                                                                        price: (placeVal["Price"] as! String),
-                                                                        rating: (placeVal["Rating"] as! String),
-                                                                        ratingNum: placeVal["RatingNum"] as! String
-                                                                    )
+                                                                    if placeVal["Amenities"] != nil {
+                                                                        self.databaseReference.child(userId).child("Leased Places").child(((c as? DataSnapshot)?.key)!).child("Amenities").observe(.value, with: { (snapshot) in
+                                                                            print("IN %")
+                                                                            if let amenityVal = snapshot.value as? [String: Any?] {
+                                                                                var tempAmenities: [Amenity] = []
+                                                                                var i = 0
+                                                                                for c in amenityVal {
+//                                                                                    tempAmenities[i] = Amenity(name: c.key, quantity: c.value as? String ?? "")
+//                                                                                    i += 1
+//                                                                                    print("TEMP: \(tempAmenities)")
+                                                                                }
+                                                                                place.amenities = tempAmenities
+                                                                                self.collectionView.reloadData()
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                    place.name = (c as? DataSnapshot)?.key as! String
+                                                                    place.address = "Address: " + (placeVal["Address"] as! String)
+                                                                    place.desc = placeVal["Description"] as! String
+                                                                    place.price = (placeVal["Price"] as! String)
+                                                                    place.rating = (placeVal["Rating"] as! String)
+                                                                    place.ratingNum = (placeVal["RatingNum"] as! String)
+                                                                    place.admin = personName as! String
+                                                                    
                                                                     var c = 0
                                                                     for p in self.places {
                                                                         if p.name != place.name {
