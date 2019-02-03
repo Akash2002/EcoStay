@@ -26,6 +26,8 @@ class LoginViewController: UIViewController {
         modButton()
         self.navigationController?.navigationBar.isHidden = true
         
+        testSubstrings()
+        
     }
     
     @IBAction func onLoginClicked(_ sender: UIButton) {
@@ -87,6 +89,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func unwindToOne (_ sender: UIStoryboardSegue) {
         
+    }
+    
+    func testSubstrings () {
+       
     }
     
 }

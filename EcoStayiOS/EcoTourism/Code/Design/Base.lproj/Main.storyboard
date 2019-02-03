@@ -437,13 +437,13 @@
         <!--Navigation Controller-->
         <scene sceneID="0oI-9I-Bd4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GtT-aK-ac8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="JhW-Mg-gny" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ik9-ao-kcw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GtT-aK-ac8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-986" y="-1764"/>
         </scene>
@@ -742,7 +742,7 @@
                                 <rect key="frame" x="16" y="404" width="343" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ZE-Cz-a8S">
                                 <rect key="frame" x="16" y="318" width="343" height="40"/>
@@ -881,7 +881,7 @@
                     <navigationItem key="navigationItem" title="Amenities" id="XnU-ki-vBn">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="bgM-Av-yqL">
                             <connections>
-                                <segue destination="6h4-mB-dJa" kind="show" id="vPD-VO-fCT"/>
+                                <action selector="onNextClicked:" destination="sey-dJ-zsE" id="DBH-6H-xvc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -890,11 +890,12 @@
                         <outlet property="quantityLabel" destination="bB2-ul-aQ4" id="56d-GF-QbZ"/>
                         <outlet property="stepper" destination="Wzp-a5-vJX" id="jhR-tN-bqR"/>
                         <outlet property="tableView" destination="tZr-TX-gKE" id="gUH-lZ-s4w"/>
+                        <segue destination="6h4-mB-dJa" kind="show" identifier="ToPicturesSegue" id="U9x-TB-iJq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bdn-E2-FIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="791" y="482"/>
+            <point key="canvasLocation" x="790" y="482"/>
         </scene>
         <!--Pictures-->
         <scene sceneID="Q40-Qp-2cA">

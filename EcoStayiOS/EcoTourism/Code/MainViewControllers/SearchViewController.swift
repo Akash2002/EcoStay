@@ -41,11 +41,6 @@ class Place {
 }
 
 class PlaceCell: UICollectionViewCell {
-//    @IBOutlet weak var nameLabel: UILabel!
-//    @IBOutlet weak var priceLabel: UILabel!
-//    @IBOutlet weak var ratingLabel: UILabel!
-//    @IBOutlet weak var cellView: UIView!
-//    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -86,7 +81,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     var auth: Auth = Auth.auth()
     var uid: String = ""
     var places: [Place] = []
-    static var passPlace = Place()
     
     let leftAndRightPaddings: Double = 4.0
     let numberOfItemsPerRow: Double = 2.0
@@ -128,41 +122,42 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                                                     if placeVal["Amenities"] != nil {
                                                                         self.databaseReference.child(userId).child("Leased Places").child(((c as? DataSnapshot)?.key)!).child("Amenities").observe(.value, with: { (snapshot) in
                                                                             print("IN %")
-                                                                            if let amenityVal = snapshot.value as? [String: Any?] {
+                                                                            if let amenityVal = snapshot.value as? [String: Int] {
                                                                                 var tempAmenities: [Amenity] = []
                                                                                 var i = 0
                                                                                 for c in amenityVal {
-//                                                                                    tempAmenities[i] = Amenity(name: c.key, quantity: c.value as? String ?? "")
-//                                                                                    i += 1
-//                                                                                    print("TEMP: \(tempAmenities)")
+                                                                                    var tempAmenity = Amenity(name: c.key, quantity: c.value)
+                                                                                    tempAmenities.append(tempAmenity)
+                                                                                    i += 1
                                                                                 }
-                                                                                place.amenities = tempAmenities
-                                                                                self.collectionView.reloadData()
+                                                                                if (i > 0) {
+                                                                                    print("HELLO")
+                                                                                    place.amenities = tempAmenities
+                                                                                    print("Place: \(place.amenities.description)")
+                                                                                }
                                                                             }
+                                                                            place.name = (c as? DataSnapshot)?.key as! String
+                                                                            place.address = "Address: " + (placeVal["Address"] as! String)
+                                                                            place.desc = placeVal["Description"] as! String
+                                                                            place.price = (placeVal["Price"] as! String)
+                                                                            place.rating = (placeVal["Rating"] as! String)
+                                                                            place.ratingNum = (placeVal["RatingNum"] as! String)
+                                                                            place.admin = personName as! String
+                                                                            
+                                                                            var c = 0
+                                                                            for p in self.places {
+                                                                                if p.name != place.name {
+                                                                                    c += 1
+                                                                                }
+                                                                            }
+                                                                            if c == self.places.count {
+                                                                                self.places.append(place)
+                                                                            }
+                                                                            
+                                                                            self.collectionView.reloadData()
                                                                         })
                                                                     }
-                                                                    place.name = (c as? DataSnapshot)?.key as! String
-                                                                    place.address = "Address: " + (placeVal["Address"] as! String)
-                                                                    place.desc = placeVal["Description"] as! String
-                                                                    place.price = (placeVal["Price"] as! String)
-                                                                    place.rating = (placeVal["Rating"] as! String)
-                                                                    place.ratingNum = (placeVal["RatingNum"] as! String)
-                                                                    place.admin = personName as! String
                                                                     
-                                                                    var c = 0
-                                                                    for p in self.places {
-                                                                        if p.name != place.name {
-                                                                           c += 1
-                                                                        }
-                                                                    }
-                                                                    if c == self.places.count {
-                                                                        self.places.append(place)
-                                                                    }
-                                                                    
-                                                                    for p in self.places {
-                                                                       
-                                                                    }
-                                                                    self.collectionView.reloadData()
                                                                 }
                                                             }
                                                         }

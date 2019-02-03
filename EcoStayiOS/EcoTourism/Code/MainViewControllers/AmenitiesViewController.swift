@@ -17,15 +17,19 @@ class AmenitiesCell: UITableViewCell {
 
 class Amenity {
     var name: String = ""
-    var quantity: String = ""
+    var quantity: Int = 0
     
-    init(name: String, quantity: String) {
+    init(name: String, quantity: Int) {
         self.name = name
         self.quantity = quantity
     }
     
     init () {
         
+    }
+    
+    func toString() -> String {
+        return self.name + ": " + String(self.quantity)
     }
 }
 
@@ -79,7 +83,7 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? AmenitiesCell
         cell?.nameLabel.text = amenities[indexPath.row].name
-        cell?.quantityLabel.text = amenities[indexPath.row].quantity
+        cell?.quantityLabel.text = String(amenities[indexPath.row].quantity)
         return cell ?? UITableViewCell()
     }
     
@@ -88,19 +92,27 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
         var amenity: Amenity = Amenity()
         if amenitiesField.text?.count ?? 0 > 0 {
             amenity.name = amenitiesField.text!
-            if quantityLabel.text?.count ?? 0 > 1 {
-                amenity.quantity = quantityLabel.text!
-                amenities.append(amenity)
-                tableView.reloadData()
-            }
+            amenity.quantity = getDesiredSubstringInt(string: quantityLabel.text!)
+            amenities.append(amenity)
+            tableView.reloadData()
         }
     }
     
-    @IBAction func onNextButtonClicked(_ sender: Any) {
+    @IBAction func onNextClicked(_ sender: Any) {
+        if !(amenities.count > 0) {
+            CustomAlert().showAlert(headingAlert: "Not enough Amenities", messageAlert: "Please add more amenities for the customers to stay.", actionTitle: "Retry", viewController: self) { (action) in
+                
+            }
+        }
+        
         for amenity in amenities {
+            print(LeaseViewController.nameOfPlace)
             print("Hello")
             databaseReference.child(uid).child("Leased Places").child(LeaseViewController.nameOfPlace).child("Amenities").child(amenity.name).setValue(amenity.quantity)
         }
+        
+        performSegue(withIdentifier: "ToPicturesSegue", sender: self)
+        
     }
     
     @IBAction func onStepperValueChanged(_ sender: Any) {
@@ -109,6 +121,20 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func getDesiredSubstringInt(string: String) -> Int {
+        var newString: String = ""
+        for s in string {
+            if s != "x" && s != " " {
+                newString = String(s)
+            }
+        }
+        if let converted = Int(newString) {
+            return converted
+        } else {
+            return 0
+        }
     }
     
 }
