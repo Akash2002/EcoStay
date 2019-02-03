@@ -103,15 +103,15 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
             CustomAlert().showAlert(headingAlert: "Not enough Amenities", messageAlert: "Please add more amenities for the customers to stay.", actionTitle: "Retry", viewController: self) { (action) in
                 
             }
+        } else {
+            for amenity in amenities {
+                print(LeaseViewController.nameOfPlace)
+                print("Hello")
+                databaseReference.child(uid).child("Leased Places").child(LeaseViewController.nameOfPlace).child("Amenities").child(amenity.name).setValue(amenity.quantity)
+            }
+            
+            performSegue(withIdentifier: "ToPicturesSegue", sender: self)
         }
-        
-        for amenity in amenities {
-            print(LeaseViewController.nameOfPlace)
-            print("Hello")
-            databaseReference.child(uid).child("Leased Places").child(LeaseViewController.nameOfPlace).child("Amenities").child(amenity.name).setValue(amenity.quantity)
-        }
-        
-        performSegue(withIdentifier: "ToPicturesSegue", sender: self)
         
     }
     
