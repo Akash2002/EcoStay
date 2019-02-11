@@ -11,6 +11,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Home extends AppCompatActivity {
 
+    BottomNavigationView bottomView;
+
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -29,7 +31,8 @@ public class Home extends AppCompatActivity {
                             startActivity(nextScreen);
                             return true;
                         case R.id.navigation_profile:
-
+                            nextScreen = new Intent(getApplicationContext(), ViewProfile.class);
+                            startActivity(nextScreen);
                             return true;
                     }
 
@@ -41,5 +44,8 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        bottomView = findViewById(R.id.btmNav);
+        bottomView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
     }
 }

@@ -1,4 +1,4 @@
-#Wed Jan 30 22:46:44 EST 2019
-base.0=/Users/akashveerappan/Desktop/Coding/EcoStay/EcoStayAndroid/EcoStay/app/build/intermediates/transforms/dexMerger/debug/5
+#Sun Feb 10 21:23:29 EST 2019
+base.0=C\:\\Users\\theo\\Desktop\\EcoStay\\EcoStayAndroid\\EcoStay\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
 path.0=classes.dex
 renamed.0=classes.dex

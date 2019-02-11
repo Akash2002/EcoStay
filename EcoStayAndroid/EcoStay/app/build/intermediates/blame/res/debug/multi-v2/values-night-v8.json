@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/akashveerappan/Desktop/Coding/EcoStay/EcoStayAndroid/EcoStay/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "C:\\Users\\theo\\Desktop\\EcoStay\\EcoStayAndroid\\EcoStay\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/akashveerappan/.gradle/caches/transforms-2/files-2.1/7d001b2f0029a25742a8396bbf09b825/res/values-night-v8/values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593",
-                        "endColumns": "69,83,83,95,101,101,93",
-                        "endOffsets": "120,204,288,384,486,588,682"
-                    }
-                },
-                {
-                    "source": "/Users/akashveerappan/.gradle/caches/transforms-2/files-2.1/ef7eaecbaed5c33b1dd0a170200371f2/res/values-night-v8/values-night-v8.xml",
+                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\5a48f1841b24950f98b79d9d585df7d4\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -28,6 +18,16 @@
                         "startOffsets": "687,775,877,979,1093,1213,1333",
                         "endColumns": "87,101,101,113,119,119,111",
                         "endOffsets": "770,872,974,1088,1208,1328,1440"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\329156379afacc57dc08418c0640ab43\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
                     }
                 }
             ]

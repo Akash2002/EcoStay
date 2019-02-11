@@ -13,8 +13,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtNameDisplay"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -32,9 +30,12 @@
         android:layout_marginEnd="152dp"
         android:layout_marginRight="152dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtNameLabel"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtNameDisplay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -43,11 +44,9 @@
         android:id="@+id/txtEmailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtEmailDisplay"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNameLabel">
 
@@ -65,9 +64,12 @@
         android:layout_marginEnd="152dp"
         android:layout_marginRight="152dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtEmailLabel"
         app:layout_constraintTop_toBottomOf="@+id/txtNameLabel">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtEmailDisplay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -79,8 +81,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtPhoneDisplay"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel">
 
@@ -98,9 +98,12 @@
         android:layout_marginEnd="112dp"
         android:layout_marginRight="112dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtPhoneLabel"
         app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtPhoneDisplay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>

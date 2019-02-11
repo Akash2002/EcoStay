@@ -1,34 +1,23 @@
 package com.ecostay;
 
+import java.util.HashMap;
+
 public class Profile {
 
-    private String name;
-    private String email;
-    private String phoneNumber;
-    private String birthday;
-    private String password; //To be deleted
+    private HashMap hashMap;
 
     public Profile(String name, String email, String phoneNumber, String birthday, String password) {
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.birthday = birthday;
-        this.password = password;
+
+        AccountKeys keys = new AccountKeys();
+
+        hashMap = new HashMap();
+        hashMap.put(keys.getName(), name);
+        hashMap.put(keys.getEmail(), email);
+        hashMap.put(keys.getPhone(), phoneNumber);
+        hashMap.put(keys.getDOB(), birthday);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getBirthday() {
-        return birthday;
+    public HashMap getHashMap(){
+        return hashMap;
     }
 }

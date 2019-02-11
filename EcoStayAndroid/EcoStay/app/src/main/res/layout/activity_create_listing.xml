@@ -8,7 +8,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtListName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -16,19 +16,19 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtListName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Name of Listing"/>
+            android:hint="Name of Listing" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxWidth="250dp"
         android:layout_marginStart="8dp"
@@ -41,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtListName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtDescription"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Description of Listing" />
@@ -48,7 +49,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -60,6 +61,7 @@
         android:layout_marginTop="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtAddress"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Address" />
@@ -67,7 +69,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtType"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -79,6 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtAddress">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtType"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Type of Listing" />
@@ -86,7 +89,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
@@ -98,6 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtType">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtPrice"
             android:hint="Price"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -105,7 +109,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtBed"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -117,6 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtPrice">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtBed"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Number of Bedrooms"
@@ -125,7 +130,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtBath"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -137,6 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtBed">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtBath"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -15,10 +15,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateAccount extends AppCompatActivity {
 
     FirebaseAuth mAuth;
+    FirebaseUser currentUser;
+    FirebaseDatabase database;
+    DatabaseReference ref;
 
     private TextView name, email, phoneNumber, birthday, newPass, confirmPassword;
     private Button createAccount;
@@ -29,6 +35,8 @@ public class CreateAccount extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+
 
         name = findViewById(R.id.txtName);
         email = findViewById(R.id.txtEmail);
@@ -37,23 +45,29 @@ public class CreateAccount extends AppCompatActivity {
         newPass = findViewById(R.id.txtPassNew);
         confirmPassword = findViewById(R.id.txtPassConfirm);
 
-
         createAccount = findViewById(R.id.btnCreateAccount);
         createAccount.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
-                Profile newProfile = new Profile(name.getText().toString(), email.getText().toString(), phoneNumber.getText().toString(), birthday.getText().toString(), newPass.getText().toString());
 
                 mAuth.createUserWithEmailAndPassword(email.getText().toString(), newPass.getText().toString())
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(), "Worked~!", Toast.LENGTH_LONG).show();
+                                Profile newProfile = new Profile(name.getText().toString(), email.getText().toString(), phoneNumber.getText().toString(), birthday.getText().toString(), newPass.getText().toString());
+
+                                currentUser = mAuth.getCurrentUser();
+                                ref = database.getReferenceFromUrl("https://ecotourism-7983b.firebaseio.com/").child(currentUser.getUid());
+                                ref.setValue(newProfile.getHashMap());
+                                ref.child("Leased Places");
+
+                                Intent goHome = new Intent(getApplicationContext(), Home.class);
+                                startActivity(goHome);
+
                             }else{
-                                FirebaseAuthException e = (FirebaseAuthException) task.getException();
-                                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                                FirebaseAuthException e = (FirebaseAuthException )task.getException();
+                                System.out.println("NOt worked" + e);
                             }
                         }
                     });
