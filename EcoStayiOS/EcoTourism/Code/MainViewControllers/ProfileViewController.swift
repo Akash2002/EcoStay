@@ -63,10 +63,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func performProfileDataTransaction() {
         databaseReference.observe(.value) { (snapshot) in
             if let dict = snapshot.value as? [String: Any?] {
-                self.user.email = dict["Email"] as? String ?? ""
-                self.user.name = dict["Name"] as? String ?? ""
-                self.user.dob = dict["DOB"] as? String ?? ""
-                self.user.phone = dict["Phone"] as? String ?? ""
+                self.user.email = dict[DBGlobal.Email.rawValue] as? String ?? ""
+                self.user.name = dict[DBGlobal.Name.rawValue] as? String ?? ""
+                self.user.dob = dict[DBGlobal.DateOfBirth.rawValue] as? String ?? ""
+                self.user.phone = dict[DBGlobal.Phone.rawValue] as? String ?? ""
                 
                 self.nameLabel.text = self.user.name
                 self.emailLabel.text = self.user.email

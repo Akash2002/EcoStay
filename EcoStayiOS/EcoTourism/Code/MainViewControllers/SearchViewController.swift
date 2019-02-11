@@ -104,24 +104,23 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                     self.places.removeAll()
                     print("IN 2")
                     if let val = snapshot.value as? [String: Any?] {
-                        var personName = val["Name"]
-                        if val["Leased Places"] != nil {
-                            self.databaseReference.child(userId).child("Leased Places").observe(.value, with: { (snapshot) in
+                        var personName = val[DBGlobal.Name.rawValue]
+                        if val[DBGlobal.LeasedPlaces.rawValue] != nil {
+                            self.databaseReference.child(userId).child(DBGlobal.LeasedPlaces.rawValue).observe(.value, with: { (snapshot) in
                                 self.places.removeAll()
                                 print("IN 3")
                                 for c in snapshot.children {
-                                        self.databaseReference.child(userId).child("Leased Places").child(((c as? DataSnapshot)?.key)!).observe(.value, with: { (snapshot) in
+                                        self.databaseReference.child(userId).child(DBGlobal.LeasedPlaces.rawValue).child(((c as? DataSnapshot)?.key)!).observe(.value, with: { (snapshot) in
                                             var place = Place()
                                             print("IN 4")
                                             if let placeVal = snapshot.value as? [String: Any?] {
-                                                if placeVal["Address"] != nil {
-                                                    if placeVal["Description"] != nil {
-                                                        if placeVal["Price"] != nil {
-                                                            if placeVal["Rating"] != nil {
-                                                                if placeVal["RatingNum"] != nil {
-                                                                    if placeVal["Amenities"] != nil {
-                                                                        self.databaseReference.child(userId).child("Leased Places").child(((c as? DataSnapshot)?.key)!).child("Amenities").observe(.value, with: { (snapshot) in
-                                                                            print("IN %")
+                                                if placeVal[DBGlobal.Specific.Address.rawValue] != nil {
+                                                    if placeVal[DBGlobal.Specific.Description.rawValue] != nil {
+                                                        if placeVal[DBGlobal.Specific.Price.rawValue] != nil {
+                                                            if placeVal[DBGlobal.Specific.Rating.rawValue] != nil {
+                                                                if placeVal[DBGlobal.Specific.RatingNum.rawValue] != nil {
+                                                                    if placeVal[DBGlobal.Specific.Amenities.rawValue] != nil {
+                                                                        self.databaseReference.child(userId).child(DBGlobal.LeasedPlaces.rawValue).child(((c as? DataSnapshot)?.key)!).child(DBGlobal.Specific.Amenities.rawValue).observe(.value, with: { (snapshot) in
                                                                             if let amenityVal = snapshot.value as? [String: Int] {
                                                                                 var tempAmenities: [Amenity] = []
                                                                                 var i = 0
@@ -137,11 +136,11 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                                                                 }
                                                                             }
                                                                             place.name = (c as? DataSnapshot)?.key as! String
-                                                                            place.address = "Address: " + (placeVal["Address"] as! String)
-                                                                            place.desc = placeVal["Description"] as! String
-                                                                            place.price = (placeVal["Price"] as! String)
-                                                                            place.rating = (placeVal["Rating"] as! String)
-                                                                            place.ratingNum = (placeVal["RatingNum"] as! String)
+                                                                            place.address = "Address: " + (placeVal[DBGlobal.Specific.Address.rawValue] as! String)
+                                                                            place.desc = placeVal[DBGlobal.Specific.Description.rawValue] as! String
+                                                                            place.price = (placeVal[DBGlobal.Specific.Price.rawValue] as! String)
+                                                                            place.rating = (placeVal[DBGlobal.Specific.Rating.rawValue] as! String)
+                                                                            place.ratingNum = (placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String)
                                                                             place.admin = personName as! String
                                                                             
                                                                             var c = 0
