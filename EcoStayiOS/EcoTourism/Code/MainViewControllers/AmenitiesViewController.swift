@@ -107,7 +107,7 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
             for amenity in amenities {
                 print(LeaseViewController.nameOfPlace)
                 print("Hello")
-                databaseReference.child(uid).child("Leased Places").child(LeaseViewController.nameOfPlace).child("Amenities").child(amenity.name).setValue(amenity.quantity)
+                databaseReference.child(uid).child(DBGlobal.LeasedPlaces.rawValue).child(LeaseViewController.nameOfPlace).child(DBGlobal.Specific.Amenities.rawValue).child(amenity.name).setValue(amenity.quantity)
             }
             
             performSegue(withIdentifier: "ToPicturesSegue", sender: self)

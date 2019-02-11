@@ -15,7 +15,7 @@ class OptionsCell: UITableViewCell {
 
 class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var options = ["Description", "Amenities", "Gallery", "Reviews"]
+    var options = ["More Information", "Amenities", "Gallery", "Reviews"]
     var details = ["","3","20","4.5"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,16 +29,27 @@ class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch options[indexPath.row] {
+            case "More Information":
+                performSegue(withIdentifier: "toInfoSegue", sender: self)
+        case "Amenities":
+            performSegue(withIdentifier: "toAmenities", sender: self)
+            default: break
+        }
+    }
+    
+    
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     var place = Place()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         place = SearchViewController.seguePlace
-
+    
         titleLabel.text = place.name
         priceLabel.text = "$" + place.price + "/night"
         

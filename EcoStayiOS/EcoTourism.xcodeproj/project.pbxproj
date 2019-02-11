@@ -10,6 +10,8 @@
 		8303EFBA21FDE9550094D9EE /* LeaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */; };
 		8303EFBC21FE0ED40094D9EE /* PictureUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */; };
 		8309C37C21FE8BE0002F552D /* hut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8309C37B21FE8BE0002F552D /* hut.jpg */; };
+		831C3323220D09CB00C73865 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831C3322220D09CB00C73865 /* DescriptionViewController.swift */; };
+		831C3325220D12BA00C73865 /* AmenitiesDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831C3324220D12BA00C73865 /* AmenitiesDescriptionViewController.swift */; };
 		833CB93E2205FFC0009BC62A /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = 833CB93D2205FFC0009BC62A /* star1.png */; };
 		834B36BB2203C1C700E7938E /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 834B36B92203C1C300E7938E /* OpenSans-Bold.ttf */; };
 		834B36BC2203C1C700E7938E /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 834B36B52203C1C200E7938E /* OpenSans-BoldItalic.ttf */; };
@@ -40,6 +42,7 @@
 		83E3960921F3F9AD00451A20 /* outline_home_black_24pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E3960821F3F9AD00451A20 /* outline_home_black_24pt_1x.png */; };
 		83E3960B21F3F9CC00451A20 /* outline_search_black_24pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E3960A21F3F9CC00451A20 /* outline_search_black_24pt_1x.png */; };
 		83E3960D21F3FA9B00451A20 /* outline_assignment_black_24pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E3960C21F3FA9B00451A20 /* outline_assignment_black_24pt_1x.png */; };
+		83EAC3E32210F8AB00086BA4 /* DBStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EAC3E22210F8AB00086BA4 /* DBStrings.swift */; };
 		83FC3F3821F21F08007D3C9E /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FC3F3721F21F08007D3C9E /* profile.png */; };
 		83FC3F5421F24718007D3C9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC3F4A21F24718007D3C9E /* User.swift */; };
 		83FC3F5521F24718007D3C9E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC3F4C21F24718007D3C9E /* SearchViewController.swift */; };
@@ -59,6 +62,8 @@
 		8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseDetailViewController.swift; sourceTree = "<group>"; };
 		8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureUploadViewController.swift; sourceTree = "<group>"; };
 		8309C37B21FE8BE0002F552D /* hut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hut.jpg; path = ../hut.jpg; sourceTree = "<group>"; };
+		831C3322220D09CB00C73865 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionViewController.swift; path = /Users/akashveerappan/Desktop/Coding/EcoStay/EcoStayiOS/EcoTourism/Code/MainViewControllers/DescriptionViewController.swift; sourceTree = "<absolute>"; };
+		831C3324220D12BA00C73865 /* AmenitiesDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesDescriptionViewController.swift; sourceTree = "<group>"; };
 		833CB93D2205FFC0009BC62A /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
 		834B36B12203C1C100E7938E /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		834B36B22203C1C100E7938E /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 		83E3960821F3F9AD00451A20 /* outline_home_black_24pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outline_home_black_24pt_1x.png; path = "../../../../../../Downloads/outline-home-ios-black/outline_home_black_24pt.xcassets/outline_home_black_24pt.imageset/outline_home_black_24pt_1x.png"; sourceTree = "<group>"; };
 		83E3960A21F3F9CC00451A20 /* outline_search_black_24pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outline_search_black_24pt_1x.png; path = "../../../../../../Downloads/outline-search-ios-black/outline_search_black_24pt.xcassets/outline_search_black_24pt.imageset/outline_search_black_24pt_1x.png"; sourceTree = "<group>"; };
 		83E3960C21F3FA9B00451A20 /* outline_assignment_black_24pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outline_assignment_black_24pt_1x.png; path = "../../../../../../Downloads/outline-assignment-ios-black/outline_assignment_black_24pt.xcassets/outline_assignment_black_24pt.imageset/outline_assignment_black_24pt_1x.png"; sourceTree = "<group>"; };
+		83EAC3E22210F8AB00086BA4 /* DBStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBStrings.swift; sourceTree = "<group>"; };
 		83FC3F3721F21F08007D3C9E /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		83FC3F4A21F24718007D3C9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		83FC3F4C21F24718007D3C9E /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 				83FC3F4A21F24718007D3C9E /* User.swift */,
 				83C7498D21F2AA42007309BC /* ModTabBar.swift */,
 				83C749A521F2B83A007309BC /* AlertHelper.swift */,
+				83EAC3E22210F8AB00086BA4 /* DBStrings.swift */,
 			);
 			path = "Utility Classes";
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 		83FC3F4B21F24718007D3C9E /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				831C3322220D09CB00C73865 /* DescriptionViewController.swift */,
 				83FC3F4C21F24718007D3C9E /* SearchViewController.swift */,
 				83FC3F4D21F24718007D3C9E /* LeaseViewController.swift */,
 				83FC3F4E21F24718007D3C9E /* AmenitiesViewController.swift */,
@@ -196,6 +204,7 @@
 				83C7499B21F2B40C007309BC /* HomeViewController.swift */,
 				8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */,
 				8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */,
+				831C3324220D12BA00C73865 /* AmenitiesDescriptionViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -406,10 +415,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83EAC3E32210F8AB00086BA4 /* DBStrings.swift in Sources */,
 				83C749A621F2B83A007309BC /* AlertHelper.swift in Sources */,
 				83FC3F5921F24718007D3C9E /* LoginViewController.swift in Sources */,
 				8303EFBC21FE0ED40094D9EE /* PictureUploadViewController.swift in Sources */,
+				831C3323220D09CB00C73865 /* DescriptionViewController.swift in Sources */,
 				83FC3F5721F24718007D3C9E /* AmenitiesViewController.swift in Sources */,
+				831C3325220D12BA00C73865 /* AmenitiesDescriptionViewController.swift in Sources */,
 				83C7498E21F2AA42007309BC /* ModTabBar.swift in Sources */,
 				83FC3F5B21F24718007D3C9E /* CreateAccount2ViewController.swift in Sources */,
 				83FC3F5521F24718007D3C9E /* SearchViewController.swift in Sources */,

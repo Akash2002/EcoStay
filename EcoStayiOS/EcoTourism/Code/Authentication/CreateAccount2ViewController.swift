@@ -81,10 +81,10 @@ class CreateAccount2ViewController: UIViewController {
     
     func storeData() {
         databaseReference = databaseReference.child((authentication.currentUser?.uid)!)
-        databaseReference.child("Name").setValue(CreateAccount1ViewController.user.name)
-        databaseReference.child("Email").setValue(CreateAccount1ViewController.user.email)
-        databaseReference.child("Phone").setValue(CreateAccount1ViewController.user.phone)
-        databaseReference.child("DOB").setValue(CreateAccount1ViewController.user.dob)
+        databaseReference.child(DBGlobal.Name.rawValue).setValue(CreateAccount1ViewController.user.name)
+        databaseReference.child(DBGlobal.Email.rawValue).setValue(CreateAccount1ViewController.user.email)
+        databaseReference.child(DBGlobal.Email.rawValue).setValue(CreateAccount1ViewController.user.phone)
+        databaseReference.child(DBGlobal.Email.rawValue).setValue(CreateAccount1ViewController.user.dob)
     }
 
 }
