@@ -32,6 +32,8 @@
 		83536E4C219CFBC80078522F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83536E4B219CFBC80078522F /* Assets.xcassets */; };
 		83536E4F219CFBC80078522F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83536E4D219CFBC80078522F /* LaunchScreen.storyboard */; };
 		83536E57219CFE100078522F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83536E56219CFE100078522F /* GoogleService-Info.plist */; };
+		83C4285622125E5F00CE17F1 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4285522125E5F00CE17F1 /* BookViewController.swift */; };
+		83C428582212666A00CE17F1 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C428572212666A00CE17F1 /* DateUtility.swift */; };
 		83C7498E21F2AA42007309BC /* ModTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7498D21F2AA42007309BC /* ModTabBar.swift */; };
 		83C7499C21F2B40C007309BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7499B21F2B40C007309BC /* HomeViewController.swift */; };
 		83C749A621F2B83A007309BC /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C749A521F2B83A007309BC /* AlertHelper.swift */; };
@@ -86,6 +88,8 @@
 		83536E4E219CFBC80078522F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83536E50219CFBC80078522F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83536E56219CFE100078522F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		83C4285522125E5F00CE17F1 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		83C428572212666A00CE17F1 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		83C7498D21F2AA42007309BC /* ModTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModTabBar.swift; sourceTree = "<group>"; };
 		83C7499B21F2B40C007309BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83C749A521F2B83A007309BC /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				83C7498D21F2AA42007309BC /* ModTabBar.swift */,
 				83C749A521F2B83A007309BC /* AlertHelper.swift */,
 				83EAC3E22210F8AB00086BA4 /* DBStrings.swift */,
+				83C428572212666A00CE17F1 /* DateUtility.swift */,
 			);
 			path = "Utility Classes";
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */,
 				8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */,
 				831C3324220D12BA00C73865 /* AmenitiesDescriptionViewController.swift */,
+				83C4285522125E5F00CE17F1 /* BookViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -429,7 +435,9 @@
 				83FC3F5821F24718007D3C9E /* ProfileViewController.swift in Sources */,
 				8303EFBA21FDE9550094D9EE /* LeaseDetailViewController.swift in Sources */,
 				83C7499C21F2B40C007309BC /* HomeViewController.swift in Sources */,
+				83C428582212666A00CE17F1 /* DateUtility.swift in Sources */,
 				83FC3F5A21F24718007D3C9E /* CreateAccount1ViewController.swift in Sources */,
+				83C4285622125E5F00CE17F1 /* BookViewController.swift in Sources */,
 				83536E43219CFBC60078522F /* AppDelegate.swift in Sources */,
 				83FC3F5421F24718007D3C9E /* User.swift in Sources */,
 			);

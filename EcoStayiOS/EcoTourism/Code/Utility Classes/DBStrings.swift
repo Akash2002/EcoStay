@@ -9,11 +9,13 @@
 import Foundation
 
 enum DBGlobal: String {
+    
     case LeasedPlaces = "Leased Places"
     case DateOfBirth = "DOB"
     case Name = "Name"
     case Phone = "Phone"
     case Email = "Email"
+    
     enum Specific: String {
         case Address = "Address"
         case Amenities = "Amenities"
