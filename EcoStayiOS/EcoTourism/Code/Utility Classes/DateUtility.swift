@@ -10,7 +10,7 @@ import Foundation
 
 class DateUtility {
     
-    func getCurrentDate () -> String {
+    static func getCurrentDate () -> String {
         let date = Date()
         let cal = Calendar.current
         
@@ -24,7 +24,7 @@ class DateUtility {
         return String(month) + "/" + String(day) + "/" + String(year) + " " + String(hour) + ":" + String(minute)
     }
     
-    func getDateDate(date: String) -> Date {
+    static func getDateDate(date: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         if var d: Date = dateFormatter.date(from: date) {
@@ -34,7 +34,7 @@ class DateUtility {
         }
     }
     
-    func getDateString(date: Date) -> String {
+    static func getDateString(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         if var d: String = dateFormatter.string(from: date) {
@@ -42,6 +42,18 @@ class DateUtility {
         } else {
             return "Error Decoding Date"
         }
+    }
+    
+    static func getDuration (date1: Date, date2: Date) -> Int {
+        let form = DateComponentsFormatter()
+        form.maximumUnitCount = 2
+        form.unitsStyle = .full
+        form.allowedUnits = [.year, .month, .day]
+        var s = form.string(from: date1, to: date2)!
+        print ("Duration: " + s)
+        var dIndex = s.index(of: " ")
+        s = s.substring(to: dIndex!)
+        return Int(s)!
     }
     
 }
