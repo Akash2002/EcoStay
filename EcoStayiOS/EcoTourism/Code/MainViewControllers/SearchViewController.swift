@@ -46,6 +46,7 @@ class PlaceCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var mainView: UIView!
     
 }
 
@@ -69,6 +70,16 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.layer.cornerRadius = 5
         cell.imageView.layer.cornerRadius = 5
         
+        cell.mainView.layer.cornerRadius = 10
+        cell.mainView.layer.borderWidth = 1.0
+        cell.mainView.layer.borderColor = UIColor.clear.cgColor
+        cell.mainView.layer.masksToBounds = true;
+        
+        cell.layer.shadowColor = UIColor(rgb: 0xE1E1E2).cgColor
+        cell.layer.shadowOffset = CGSize(width:2.0,height: 4.0)
+        cell.layer.shadowRadius = 2.0
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.masksToBounds = false;
         return cell
     }
     

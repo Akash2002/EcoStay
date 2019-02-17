@@ -21,13 +21,13 @@ class DateUtility {
         let month = cal.component(.month, from: date)
         let day = cal.component(.day, from: date)
         
-        return String(month) + "/" + String(day) + "/" + String(year) + " " + String(hour) + ":" + String(minute)
+        return String(month) + "-" + String(day) + "-" + String(year) + " " + String(hour) + ":" + String(minute)
     }
     
     static func getDateDate(date: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        if var d: Date = dateFormatter.date(from: date) {
+        if let d: Date = dateFormatter.date(from: date) {
             return d
         } else {
             return Date()
@@ -38,7 +38,7 @@ class DateUtility {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         if var d: String = dateFormatter.string(from: date) {
-            return dateFormatter.string(from: date)
+            return d
         } else {
             return "Error Decoding Date"
         }
@@ -54,6 +54,16 @@ class DateUtility {
         var dIndex = s.index(of: " ")
         s = s.substring(to: dIndex!)
         return Int(s)!
+    }
+    
+    static func getDateRange (from: Date, to: Date) -> [Date] {
+        var dates = [Date]()
+        var fromDate = from
+        while fromDate < to {
+            fromDate = Calendar.current.date(byAdding: .day, value: 1, to: fromDate)!
+            dates.append(fromDate)
+        }
+        return dates
     }
     
 }

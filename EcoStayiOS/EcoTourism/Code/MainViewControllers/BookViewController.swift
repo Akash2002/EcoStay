@@ -16,8 +16,12 @@ class BookViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthYearLabel: UILabel!
     
+    var bookedAlreadyBool = false
     
     var selectedDates: [Date] = []
+    var dateRange: [Date] = []
+    
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,33 +48,54 @@ class BookViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(onNextClicked))
         
+        determineAvailability()
+        
+        print(bookedAlreadyBool)
         
     }
     
     @objc func onNextClicked () {
-        
-        var count = 0
-        
-        if selectedDates.count > 0 {
-           selectedDates = selectedDates.sorted(by: { $0.compare($1) == .orderedAscending })
+            var count = 0
             if selectedDates.count > 0 {
-                for i in stride(from: 1, to: selectedDates.count, by: 1) {
-                    if (DateUtility.getDuration(date1: selectedDates[i-1], date2: selectedDates[i]) == 1) {
+               selectedDates = selectedDates.sorted(by: { $0.compare($1) == .orderedAscending })
+                if selectedDates.count > 0 {
+                    for i in stride(from: 1, to: selectedDates.count, by: 1) {
+                        if (DateUtility.getDuration(date1: selectedDates[i-1], date2: selectedDates[i]) == 1) {
+                            
+                            count += 1
+                        }
+                    }
+                    if (count == selectedDates.count - 1) {
                         
-                        count += 1
+                        Database.database().reference().child(Auth.auth().currentUser!.uid).observe(.value) { (snapshot) in
+                            if let value = snapshot.value as? [String: Any?] {
+                                if value["BookedPlaces"] != nil {
+                                    Database.database().reference().child(Auth.auth().currentUser!.uid).child("BookedPlaces").observe(.value, with: { (snapshot) in
+                                        for placeNameKey in snapshot.children {
+                                            if (placeNameKey as? DataSnapshot)!.key != SearchViewController.seguePlace.name {
+                                                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("FromWhen").setValue(DateUtility.getDateString(date: self.selectedDates[0]))
+                                                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("ToWhen").setValue(DateUtility.getDateString(date: self.selectedDates[self.selectedDates.count - 1]))
+                                            } else {
+                                                CustomAlert().showAlert(headingAlert: "Already Booked", messageAlert: "This place has already been booked. Please visit your profile to view your current rentals.", actionTitle: "Ok", viewController: self) { (action) in
+                                                }
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        }
                     }
                 }
-                
-                if (count == selectedDates.count - 1) {
-                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("FromWhen").setValue(DateUtility.getDateString(date: selectedDates[0]))
-                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("ToWhen").setValue(DateUtility.getDateString(date: selectedDates[selectedDates.count - 1]))
+            } else {
+                CustomAlert().showAlert(headingAlert: "No day selected", messageAlert: "Please select a day or a range of days", actionTitle: "Ok", viewController: self) { (action) in
+                    
                 }
-        }
-    
+                
+            }
+        
     }
+}
 
-}
-}
 
 extension BookViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
     
@@ -84,33 +109,53 @@ extension BookViewController: JTAppleCalendarViewDataSource, JTAppleCalendarView
     }
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+        
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "DateCell", for: indexPath) as! DateViewCell
         cell.dateLabel.text = cellState.text
         if cellState.isSelected {
             cell.selectedView.isHidden = false
+            cell.selectedView.layer.cornerRadius = 20
+            cell.selectedView.layer.shadowColor = UIColor.gray.cgColor
+            cell.selectedView.layer.shadowOffset = CGSize.zero
+            cell.selectedView.layer.shadowOpacity = 0.5
+            cell.selectedView.layer.shadowRadius = 5.0
+            cell.dateLabel.textColor = UIColor.white
+            cell.layer.masksToBounds = false
         } else {
-            if cellState.dateBelongsTo != .thisMonth {
-                cell.dateLabel.textColor = UIColor(rgb: 0xE5E6EF)
-            } else {
-                cell.dateLabel.textColor = UIColor(rgb: 0x8790AC)
-            }
             cell.selectedView.isHidden = true
+            
         }
+        
+        if cellState.dateBelongsTo != .thisMonth {
+            cell.dateLabel.textColor = UIColor(rgb: 0xE5E6EF)
+        } else {
+            cell.dateLabel.textColor = UIColor(rgb: 0x8790AC)
+        }
+        
+        for d in dateRange {
+            if d == date {
+                cell.dateLabel.textColor = UIColor(rgb: 0xE5E6EF)
+            }
+        }
+        
         return cell
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         guard let cell = cell as? DateViewCell else {return}
-        cell.selectedView.isHidden = false
-        cell.selectedView.layer.cornerRadius = 5
-        cell.selectedView.layer.shadowColor = UIColor.gray.cgColor
-        cell.selectedView.layer.shadowOffset = CGSize.zero
-        cell.selectedView.layer.shadowOpacity = 0.5
-        cell.selectedView.layer.shadowRadius = 7.0
-        cell.dateLabel.textColor = UIColor.white
-        cell.layer.masksToBounds = false
-        selectedDates.append(cellState.date)
-        
+        if cell.dateLabel.textColor != UIColor(rgb: 0xE5E6EF) {
+            cell.selectedView.isHidden = false
+            cell.selectedView.layer.cornerRadius = 20
+            cell.selectedView.layer.shadowColor = UIColor.gray.cgColor
+            cell.selectedView.layer.shadowOffset = CGSize.zero
+            cell.selectedView.layer.shadowOpacity = 0.5
+            cell.selectedView.layer.shadowRadius = 5.0
+            cell.dateLabel.textColor = UIColor.white
+            cell.layer.masksToBounds = false
+            selectedDates.append(cellState.date)
+        } else {
+            cell.selectedView.isHidden = true
+        }
         
     }
     
@@ -140,6 +185,53 @@ extension BookViewController: JTAppleCalendarViewDataSource, JTAppleCalendarView
         dateFormatter.dateFormat = "YYYY"
         monthYearText += " " + dateFormatter.string(from: date)
         monthYearLabel.text = monthYearText
+    }
+    
+    func bookedAlready () {
+        
+    }
+    
+    func determineAvailability() {
+        count = 0
+        let dbRef = Database.database().reference()
+        dbRef.observe(.value) { (snapshot) in
+            for uid in snapshot.children {
+                dbRef.child((uid as? DataSnapshot)!.key).observe(.value, with: { (snapshot) in
+                    if let value = snapshot.value as? [String: Any?] {
+                        if value["BookedPlaces"] != nil {
+                            dbRef.child((uid as? DataSnapshot)!.key).child("BookedPlaces").observe(.value, with: { (snapshot) in
+                                for placeKey in snapshot.children {
+                                    if (placeKey as? DataSnapshot)!.key ==  SearchViewController.seguePlace.name {
+                                        
+                                        dbRef.child((uid as? DataSnapshot)!.key).child("BookedPlaces").child(SearchViewController.seguePlace.name).observe(.value, with: { (snapshot) in
+                                            
+                                            if let value = snapshot.value as? [String: Any?] {
+                                                
+                                                let fromDate = DateUtility.getDateDate(date: value["FromWhen"] as! String)
+                                                let toDate = DateUtility.getDateDate(date: value["ToWhen"] as! String)
+                                                
+                                                var tempDateRange = DateUtility.getDateRange(from: fromDate, to: toDate)
+                                                
+                                                for d in tempDateRange {
+                                                    self.dateRange.append(d)
+                                                }
+                                                
+                                                self.count+=1
+                                                
+                                                DispatchQueue.main.async(execute: {
+                                                    self.calendarView.reloadData()
+                                                })
+                                            }
+                                            
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    }
+                })
+            }
+        }
     }
 }
 
