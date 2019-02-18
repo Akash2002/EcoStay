@@ -80,6 +80,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.layer.shadowRadius = 2.0
         cell.layer.shadowOpacity = 0.5
         cell.layer.masksToBounds = false;
+        
         return cell
     }
     

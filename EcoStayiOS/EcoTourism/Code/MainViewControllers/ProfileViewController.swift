@@ -32,6 +32,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch profileOptions[indexPath.row] {
+        case "Rental History":
+            performSegue(withIdentifier: "toRentalHistorySegue", sender: self)
+        default:
+            print("Hello")
+        }
+    }
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!

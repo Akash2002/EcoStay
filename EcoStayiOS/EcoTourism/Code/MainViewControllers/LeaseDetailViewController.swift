@@ -17,6 +17,9 @@ class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var options = ["More Information", "Amenities", "Gallery", "Reviews"]
     var details = ["","3","20","4.5"]
+    @IBOutlet weak var mainView: UIView!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count
@@ -43,6 +46,7 @@ class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var tableWrapperView: UIView!
     
     var place = Place()
 
@@ -53,7 +57,29 @@ class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableV
         titleLabel.text = place.name
         priceLabel.text = "$" + place.price + "/night"
         
-        print(place.amenities)
+        mainView.layer.cornerRadius = 10
+        mainView.layer.shadowColor = UIColor(rgb: 0xE1E1E2).cgColor
+        mainView.layer.shadowOffset = CGSize(width:2.0,height: 4.0)
+        mainView.layer.shadowRadius = 2.0
+        mainView.layer.shadowOpacity = 0.5
+        mainView.layer.masksToBounds = false;
+        
+        tableView.layer.cornerRadius = 10
+        tableView.layer.shadowColor = UIColor(rgb: 0xE1E1E2).cgColor
+        tableView.layer.shadowOffset = CGSize(width:2.0,height: 4.0)
+        tableView.layer.shadowRadius = 2.0
+        tableView.layer.shadowOpacity = 0.5
+        tableView.layer.masksToBounds = false;
+        
+        
+        tableWrapperView.layer.cornerRadius = 10
+        tableWrapperView.layer.shadowColor = UIColor(rgb: 0xE1E1E2).cgColor
+        tableWrapperView.layer.shadowOffset = CGSize(width:2.0,height: 4.0)
+        tableWrapperView.layer.shadowRadius = 2.0
+        tableWrapperView.layer.shadowOpacity = 0.5
+        tableWrapperView.layer.masksToBounds = false;
+        
+        
     }
 
 }

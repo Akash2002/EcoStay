@@ -34,6 +34,9 @@
 		83536E57219CFE100078522F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83536E56219CFE100078522F /* GoogleService-Info.plist */; };
 		8397E035221783B800C7AD14 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E034221783B800C7AD14 /* DateViewCell.swift */; };
 		8397E0372217867900C7AD14 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E0362217867900C7AD14 /* BookViewController.swift */; };
+		83BBD3602219C380000AC76D /* PlacesLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BBD35F2219C380000AC76D /* PlacesLibraryViewController.swift */; };
+		83BBD3642219FE06000AC76D /* prev_rented.png in Resources */ = {isa = PBXBuildFile; fileRef = 83BBD3632219FE06000AC76D /* prev_rented.png */; };
+		83BBD3662219FF28000AC76D /* curr_rented.png in Resources */ = {isa = PBXBuildFile; fileRef = 83BBD3652219FF27000AC76D /* curr_rented.png */; };
 		83C428582212666A00CE17F1 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C428572212666A00CE17F1 /* DateUtility.swift */; };
 		83C7498E21F2AA42007309BC /* ModTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7498D21F2AA42007309BC /* ModTabBar.swift */; };
 		83C7499C21F2B40C007309BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7499B21F2B40C007309BC /* HomeViewController.swift */; };
@@ -91,6 +94,9 @@
 		83536E56219CFE100078522F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8397E034221783B800C7AD14 /* DateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewCell.swift; sourceTree = "<group>"; };
 		8397E0362217867900C7AD14 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		83BBD35F2219C380000AC76D /* PlacesLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesLibraryViewController.swift; sourceTree = "<group>"; };
+		83BBD3632219FE06000AC76D /* prev_rented.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prev_rented.png; path = "../../../../CloudFolio/Cloud Folio Android/app/src/main/res/drawable-xxhdpi/prev_rented.png"; sourceTree = "<group>"; };
+		83BBD3652219FF27000AC76D /* curr_rented.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = curr_rented.png; sourceTree = "<group>"; };
 		83C428572212666A00CE17F1 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		83C7498D21F2AA42007309BC /* ModTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModTabBar.swift; sourceTree = "<group>"; };
 		83C7499B21F2B40C007309BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 				8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */,
 				831C3324220D12BA00C73865 /* AmenitiesDescriptionViewController.swift */,
 				8397E0362217867900C7AD14 /* BookViewController.swift */,
+				83BBD35F2219C380000AC76D /* PlacesLibraryViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +238,8 @@
 		83FC3F5C21F24730007D3C9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				83BBD3652219FF27000AC76D /* curr_rented.png */,
+				83BBD3632219FE06000AC76D /* prev_rented.png */,
 				833CB93D2205FFC0009BC62A /* star1.png */,
 				834B36CB2203F9A300E7938E /* profile_white.png */,
 				834B36C92203D71900E7938E /* star.png */,
@@ -331,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83BBD3642219FE06000AC76D /* prev_rented.png in Resources */,
 				8309C37C21FE8BE0002F552D /* hut.jpg in Resources */,
 				833CB93E2205FFC0009BC62A /* star1.png in Resources */,
 				83E3960B21F3F9CC00451A20 /* outline_search_black_24pt_1x.png in Resources */,
@@ -361,6 +371,7 @@
 				834B36CA2203D71900E7938E /* star.png in Resources */,
 				834B36C22203C1C700E7938E /* OpenSans-Regular.ttf in Resources */,
 				834B36C42203C1C700E7938E /* OpenSans-SemiBoldItalic.ttf in Resources */,
+				83BBD3662219FF28000AC76D /* curr_rented.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +440,7 @@
 				83EAC3E32210F8AB00086BA4 /* DBStrings.swift in Sources */,
 				8397E035221783B800C7AD14 /* DateViewCell.swift in Sources */,
 				83C749A621F2B83A007309BC /* AlertHelper.swift in Sources */,
+				83BBD3602219C380000AC76D /* PlacesLibraryViewController.swift in Sources */,
 				83FC3F5921F24718007D3C9E /* LoginViewController.swift in Sources */,
 				8303EFBC21FE0ED40094D9EE /* PictureUploadViewController.swift in Sources */,
 				831C3323220D09CB00C73865 /* DescriptionViewController.swift in Sources */,

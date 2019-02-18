@@ -66,4 +66,12 @@ class DateUtility {
         return dates
     }
     
+    static func isDateInRange (date1: Date, date2: Date, compareDate: Date) -> Bool {
+        if (compareDate < date2) && (compareDate > date1) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
