@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\theo\\Desktop\\EcoStay\\EcoStayAndroid\\EcoStay\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\329156379afacc57dc08418c0640ab43\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\d8b6fbce790556e14fca454cf7f3f107\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

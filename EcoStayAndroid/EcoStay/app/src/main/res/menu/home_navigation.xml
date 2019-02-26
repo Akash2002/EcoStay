@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_createListing"
-        android:title="Lease"
+        android:title="My Listings"
         android:icon="@drawable/outline_note_add_black_48dp"
         />
     <item

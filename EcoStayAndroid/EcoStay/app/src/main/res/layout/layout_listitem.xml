@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:id="@+id/layoutLeaseItem">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/image"
+        android:src="@mipmap/ic_launcher"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtLeaseName"
+        android:layout_toRightOf="@+id/image">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtLeaseName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Test Text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>

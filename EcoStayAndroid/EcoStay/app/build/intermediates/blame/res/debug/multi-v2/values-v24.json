@@ -4,7 +4,17 @@
             "outputFile": "C:\\Users\\theo\\Desktop\\EcoStay\\EcoStayAndroid\\EcoStay\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\9c8eb66a6d2c1fe7500fae4e6f9fec23\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\d8b6fbce790556e14fca454cf7f3f107\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\fe4331275dc1e920b2817c3a4c153a2a\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -18,16 +28,6 @@
                         "startOffsets": "347,413,474,540",
                         "endColumns": "65,60,65,66",
                         "endOffsets": "408,469,535,602"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\329156379afacc57dc08418c0640ab43\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
                     }
                 }
             ]

@@ -24,10 +24,11 @@ public class Home extends AppCompatActivity {
 
                             return true;
                         case R.id.navigation_browse:
-
+                            nextScreen = new Intent(getApplicationContext(), Browse.class);
+                            startActivity(nextScreen);
                             return true;
                         case R.id.navigation_createListing:
-                            nextScreen = new Intent(getApplicationContext(), CreateListing.class);
+                            nextScreen = new Intent(getApplicationContext(), ViewListings.class);
                             startActivity(nextScreen);
                             return true;
                         case R.id.navigation_profile:
