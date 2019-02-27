@@ -7,6 +7,8 @@
 
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class OptionsCell: UITableViewCell {
     @IBOutlet weak var descLabel: UILabel!
@@ -17,6 +19,8 @@ class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var options = ["More Information", "Amenities", "Gallery", "Reviews"]
     var details = ["","3","20","4.5"]
+    var firstTimeBooking = false
+    
     @IBOutlet weak var mainView: UIView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -52,6 +56,7 @@ class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         place = SearchViewController.seguePlace
     
         titleLabel.text = place.name
@@ -81,6 +86,33 @@ class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         
     }
+    
+    @IBAction func bookmarkPlace(_ sender: Any) {
+        Database.database().reference().child((Auth.auth().currentUser?.uid)!).observe(.value) { (snapshot) in
+            if let val = snapshot.value as? [String: Any?] {
+                if val["BookmarkedPlaces"] != nil {
+                    Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookmarkedPlaces").observe(.value, with: { (snapshot) in
+                        for places in snapshot.children {
+                            if (places as? DataSnapshot)?.key != self.place.name {
+                                 Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookmarkedPlaces").child(self.place.name).setValue(0)
+                                
+                            } else {
+                                if (!self.firstTimeBooking) {
+                                    CustomAlert().showAlert(headingAlert: "Already Saved", messageAlert: "You have already saved " + self.place.name + ".", actionTitle: "Ok", viewController: self, handleAction: { (action) in
+                                        
+                                    })
+                                }
+                            }
+                        }
+                    })
+                   
+                } else {
+                    Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookmarkedPlaces").child(self.place.name).setValue(0)
+                }
+            }
+        }
+    }
+    
 
 }
 

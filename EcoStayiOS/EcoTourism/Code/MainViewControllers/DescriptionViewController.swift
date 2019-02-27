@@ -19,7 +19,7 @@ class DescriptionViewController: UIViewController {
         desc.text = SearchViewController.seguePlace.desc
         heading.text = SearchViewController.seguePlace.name + " - " + "Info"
         
+        
     }
     
-
 }

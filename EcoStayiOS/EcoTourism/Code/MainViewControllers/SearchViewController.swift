@@ -50,13 +50,17 @@ class PlaceCell: UICollectionViewCell {
     
 }
 
-class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var viewBgLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cellLabelColor: UILabel!
     
     static var seguePlace: Place = Place()
+    
+    var searchController = UISearchController(searchResultsController: nil)
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return places.count
@@ -103,10 +107,23 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
         
         uid = (auth.currentUser?.uid)!
-        test();
+        loadData();
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Places"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
     }
     
-    func test() {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    
+    func loadData() {
         databaseReference.observe(.value) { (snapshot) in
             self.places.removeAll()
             print("IN 1")
@@ -177,7 +194,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                             }
                                             
                                         })
-                                    
                                 }
                             })
                         }

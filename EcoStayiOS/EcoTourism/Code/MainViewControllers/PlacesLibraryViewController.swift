@@ -43,6 +43,7 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
     var place = RentedPlace()
     var rentedPlaces = [RentedPlace]()
     var leasedPlaces = [Place]()
+    var savedPlaces = [String]()
     
     var dbRef = Database.database().reference().child(Auth.auth().currentUser!.uid)
     
@@ -56,6 +57,7 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
         segmentValue = "Rented"
         processDataBooked()
         processDataLeased()
+        processDataSaved()
         
         tableView.layer.cornerRadius = 10
         tableView.layer.borderWidth = 2
@@ -72,6 +74,8 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
             return rentedPlaces.count
         case "Listed":
             return leasedPlaces.count
+        case "Saved":
+            return savedPlaces.count
         default:
             return rentedPlaces.count
         }
@@ -94,6 +98,12 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
             case "Listed":
                 cell?.titleLabel.text = leasedPlaces[indexPath.row].name
                 cell?.fromToDateLabel.text = leasedPlaces[indexPath.row].price
+                return cell!
+            case "Saved":
+                cell?.titleLabel.text = savedPlaces[indexPath.row]
+                cell?.fromToDateLabel.isHidden = true
+                cell?.currentImageView.isHidden = true
+                cell?.previousImageView.isHidden = true
                 return cell!
             default: return UITableViewCell()
         }
@@ -121,6 +131,25 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
                                         self.tableView.reloadData()
                                     })
                                 }
+                            })
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+    func processDataSaved () {
+        dbRef.observe(.value) { (snapshot) in
+            self.savedPlaces.removeAll()
+            if let value = snapshot.value as? [String: Any?] {
+                if value["BookmarkedPlaces"] != nil {
+                    self.dbRef.child("BookmarkedPlaces").observe(.value, with: { (snapshot) in
+                        for places in snapshot.children {
+                            self.savedPlaces.append(((places as? DataSnapshot)?.key)!)
+                            print("Book saved")
+                            DispatchQueue.main.async(execute: {
+                                self.tableView.reloadData()
                             })
                         }
                     })
