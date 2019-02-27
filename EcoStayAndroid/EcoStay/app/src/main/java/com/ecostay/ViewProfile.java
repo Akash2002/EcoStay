@@ -16,6 +16,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
+
 public class ViewProfile extends AppCompatActivity {
 
     FirebaseAuth mAuth;
@@ -38,11 +40,16 @@ public class ViewProfile extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
 
-        ref = database.getReference(currentUser.getUid() + "/Name");
+        ref = database.getReference(currentUser.getUid());
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                name.setText(dataSnapshot.getValue().toString());
+                AccountKeys keys = new AccountKeys();
+
+                HashMap map = (HashMap) dataSnapshot.getValue();
+                name.setText(map.get(keys.getName()).toString());
+                email.setText(map.get(keys.getEmail()).toString());
+                phone.setText(map.get(keys.getPhone()).toString());
             }
 
             @Override
@@ -51,30 +58,5 @@ public class ViewProfile extends AppCompatActivity {
             }
         });
 
-        ref = database.getReference(currentUser.getUid() + "/Email");
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                email.setText(dataSnapshot.getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        ref = database.getReference(currentUser.getUid() + "/Phone");
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                phone.setText(dataSnapshot.getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 }

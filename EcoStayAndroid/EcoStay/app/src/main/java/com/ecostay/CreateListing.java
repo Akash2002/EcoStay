@@ -54,6 +54,7 @@ public class CreateListing extends AppCompatActivity {
                 ref.child(name.getText().toString());
                 ref = database.getReference(currentUser.getUid() + "/Leased Places/" + name.getText().toString());
                 ref.setValue(newListing.getHashMap());
+                ref.child("Booked Dates");
 
                 Intent goHome = new Intent(getApplicationContext(), Home.class);
                 startActivity(goHome);
