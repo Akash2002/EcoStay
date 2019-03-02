@@ -40,55 +40,57 @@ class Place {
     
 }
 
-class PlaceCell: UICollectionViewCell {
+class PlaceCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var amenitiesLabel: UILabel!
     
 }
 
-class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating {
+class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
-    @IBOutlet weak var viewBgLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var cellLabelColor: UILabel!
-    
-    static var seguePlace: Place = Place()
-    
-    var searchController = UISearchController(searchResultsController: nil)
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return places.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredPlaceArray.count
+        } else {
+            return places.count
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell: PlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlaceCell
-        cell.nameLabel.text = places[indexPath.row].name
-        cell.priceLabel.text = "$" + places[indexPath.row].price + "/night"
-        cell.ratingLabel.text = places[indexPath.row].rating
-        cell.layer.cornerRadius = 5
-        cell.imageView.layer.cornerRadius = 5
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        cell.mainView.layer.cornerRadius = 10
-        cell.mainView.layer.borderWidth = 1.0
-        cell.mainView.layer.borderColor = UIColor.clear.cgColor
-        cell.mainView.layer.masksToBounds = true;
+        var cell: PlaceCell = tableView.dequeueReusableCell(withIdentifier: "placeTableCell", for: indexPath) as! PlaceCell
+        var model = places[indexPath.row]
+        if searchController.isActive && searchController.searchBar.text != "" {
+            model = filteredPlaceArray[indexPath.row]
+        } else {
+            model = places[indexPath.row]
+        }
         
-        cell.layer.shadowColor = UIColor(rgb: 0xE1E1E2).cgColor
-        cell.layer.shadowOffset = CGSize(width:2.0,height: 4.0)
-        cell.layer.shadowRadius = 2.0
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.masksToBounds = false;
+        cell.titleLabel.text = model.name
+        cell.priceLabel.text = "$" + model.price + "/night"
+        cell.ratingLabel.text = model.rating
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    @IBOutlet weak var viewBgLabel: UILabel!
+    @IBOutlet weak var cellLabelColor: UILabel!
+    var tableViewController = UITableViewController()
+    
+    static var seguePlace: Place = Place()
+    
+    var filteredArray = [String]()
+    var placeNameArray = [String]()
+    var filteredPlaceArray = [Place]()
+    
+    var searchController = UISearchController(searchResultsController: nil)
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SearchViewController.seguePlace = places[indexPath.row]
         performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
     }
@@ -104,23 +106,27 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.contentInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
-        
         uid = (auth.currentUser?.uid)!
         loadData();
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Places"
-        navigationItem.searchController = searchController
+        tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
         
+        tableViewController.tableView.delegate = self
+        tableViewController.tableView.dataSource = self
     }
     
     
     func updateSearchResults(for searchController: UISearchController) {
-        
+        print("UPDATE")
+        filteredPlaceArray = places.filter({$0.name.contains(searchController.searchBar.text!)})
+        print(filteredPlaceArray)
+        tableView.reloadData()
     }
+    
     
     
     func loadData() {
@@ -182,7 +188,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                                                                 self.places.append(place)
                                                                             }
                                                                             
-                                                                            self.collectionView.reloadData()
+                                                                            self.tableView.reloadData()
                                                                         })
                                                                     }
                                                                     
