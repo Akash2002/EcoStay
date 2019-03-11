@@ -27,6 +27,8 @@
 		834B36C82203D3A100E7938E /* loc.png in Resources */ = {isa = PBXBuildFile; fileRef = 834B36C72203D3A000E7938E /* loc.png */; };
 		834B36CA2203D71900E7938E /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 834B36C92203D71900E7938E /* star.png */; };
 		834B36CC2203F9A400E7938E /* profile_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 834B36CB2203F9A300E7938E /* profile_white.png */; };
+		834B67092233486100C66425 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B67082233486100C66425 /* ReviewViewController.swift */; };
+		834B670B2233613B00C66425 /* ReviewPlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B670A2233613B00C66425 /* ReviewPlaceDetailViewController.swift */; };
 		83536E43219CFBC60078522F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83536E42219CFBC60078522F /* AppDelegate.swift */; };
 		83536E4A219CFBC60078522F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83536E48219CFBC60078522F /* Main.storyboard */; };
 		83536E4C219CFBC80078522F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83536E4B219CFBC80078522F /* Assets.xcassets */; };
@@ -85,6 +87,8 @@
 		834B36C72203D3A000E7938E /* loc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loc.png; sourceTree = "<group>"; };
 		834B36C92203D71900E7938E /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		834B36CB2203F9A300E7938E /* profile_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_white.png; sourceTree = "<group>"; };
+		834B67082233486100C66425 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		834B670A2233613B00C66425 /* ReviewPlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPlaceDetailViewController.swift; sourceTree = "<group>"; };
 		83536E3F219CFBC60078522F /* EcoTourism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoTourism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83536E42219CFBC60078522F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83536E49219CFBC60078522F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				831C3324220D12BA00C73865 /* AmenitiesDescriptionViewController.swift */,
 				8397E0362217867900C7AD14 /* BookViewController.swift */,
 				83BBD35F2219C380000AC76D /* PlacesLibraryViewController.swift */,
+				834B67082233486100C66425 /* ReviewViewController.swift */,
+				834B670A2233613B00C66425 /* ReviewPlaceDetailViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -409,9 +415,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EcoTourism/Pods-EcoTourism-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/TTGSnackbar/TTGSnackbar.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -419,9 +427,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTGSnackbar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -445,6 +455,7 @@
 				8303EFBC21FE0ED40094D9EE /* PictureUploadViewController.swift in Sources */,
 				831C3323220D09CB00C73865 /* DescriptionViewController.swift in Sources */,
 				83FC3F5721F24718007D3C9E /* AmenitiesViewController.swift in Sources */,
+				834B670B2233613B00C66425 /* ReviewPlaceDetailViewController.swift in Sources */,
 				831C3325220D12BA00C73865 /* AmenitiesDescriptionViewController.swift in Sources */,
 				83C7498E21F2AA42007309BC /* ModTabBar.swift in Sources */,
 				83FC3F5B21F24718007D3C9E /* CreateAccount2ViewController.swift in Sources */,
@@ -455,6 +466,7 @@
 				83C7499C21F2B40C007309BC /* HomeViewController.swift in Sources */,
 				83C428582212666A00CE17F1 /* DateUtility.swift in Sources */,
 				83FC3F5A21F24718007D3C9E /* CreateAccount1ViewController.swift in Sources */,
+				834B67092233486100C66425 /* ReviewViewController.swift in Sources */,
 				8397E0372217867900C7AD14 /* BookViewController.swift in Sources */,
 				83536E43219CFBC60078522F /* AppDelegate.swift in Sources */,
 				83FC3F5421F24718007D3C9E /* User.swift in Sources */,

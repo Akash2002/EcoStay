@@ -17,7 +17,7 @@ class ProfileCell: UITableViewCell {
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var hiddenText: UILabel!
-    var profileOptions = ["Edit", "Rental History", "Reviews", "Settings", "Logout"]
+    var profileOptions = ["Rental History", "Logout"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return profileOptions.count
@@ -36,6 +36,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch profileOptions[indexPath.row] {
         case "Rental History":
             performSegue(withIdentifier: "toRentalHistorySegue", sender: self)
+        case "Logout":
+            do {
+                try Auth.auth().signOut()
+                var storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let StoryBoardViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "LoginController")
+                self.present(StoryBoardViewController, animated: true, completion: nil)
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
         default:
             print("Hello")
         }

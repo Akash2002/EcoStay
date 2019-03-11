@@ -67,6 +67,7 @@ class LeaseViewController: UIViewController, CLLocationManagerDelegate {
         databaseReference.child(DBGlobal.Specific.Description.rawValue).setValue(descriptionField.text)
         databaseReference.child(DBGlobal.Specific.Rating.rawValue).setValue("0")
         databaseReference.child(DBGlobal.Specific.RatingNum.rawValue).setValue("0")
+        databaseReference.child(DBGlobal.Specific.NumRented.rawValue).setValue("0")
     }
     
     @IBAction func onNextClicked(_ sender: Any) {

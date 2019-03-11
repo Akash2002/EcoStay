@@ -22,9 +22,13 @@ class BookViewController: UIViewController {
     var dateRange: [Date] = []
     
     var count = 0
+    var added = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        added = false
+        bookedAlreadyBool = false
         
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
@@ -46,7 +50,7 @@ class BookViewController: UIViewController {
         calendarView.allowsMultipleSelection = true
         calendarView.isRangeSelectionUsed = true
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(onNextClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(onNextClicked))
         
         determineAvailability()
         
@@ -55,44 +59,71 @@ class BookViewController: UIViewController {
     }
     
     @objc func onNextClicked () {
-            var count = 0
+        var count = 0
+        if selectedDates.count > 0 {
+           selectedDates = selectedDates.sorted(by: { $0.compare($1) == .orderedAscending })
             if selectedDates.count > 0 {
-               selectedDates = selectedDates.sorted(by: { $0.compare($1) == .orderedAscending })
-                if selectedDates.count > 0 {
-                    for i in stride(from: 1, to: selectedDates.count, by: 1) {
-                        if (DateUtility.getDuration(date1: selectedDates[i-1], date2: selectedDates[i]) == 1) {
-                            
-                            count += 1
-                        }
+                for i in stride(from: 1, to: selectedDates.count, by: 1) {
+                    if (DateUtility.getDuration(date1: selectedDates[i-1], date2: selectedDates[i]) == 1) {
+                        count += 1
                     }
-                    if (count == selectedDates.count - 1) {
-                        
-                        Database.database().reference().child(Auth.auth().currentUser!.uid).observe(.value) { (snapshot) in
-                            if let value = snapshot.value as? [String: Any?] {
-                                if value["BookedPlaces"] != nil {
-                                    Database.database().reference().child(Auth.auth().currentUser!.uid).child("BookedPlaces").observe(.value, with: { (snapshot) in
-                                        for placeNameKey in snapshot.children {
-                                            if (placeNameKey as? DataSnapshot)!.key != SearchViewController.seguePlace.name {
-                                                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("FromWhen").setValue(DateUtility.getDateString(date: self.selectedDates[0]))
-                                                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("ToWhen").setValue(DateUtility.getDateString(date: self.selectedDates[self.selectedDates.count - 1]))
-                                            } else {
+                }
+                if (count == selectedDates.count - 1) {
+                    Database.database().reference().child(Auth.auth().currentUser!.uid).observe(.value) { (snapshot) in
+                        if let value = snapshot.value as? [String: Any?] {
+                            if value["BookedPlaces"] != nil {
+                                Database.database().reference().child(Auth.auth().currentUser!.uid).child("BookedPlaces").observe(.value, with: { (snapshot) in
+                                    var numChildren = 0
+                                    var temp = 0
+                                    for placeHolder in snapshot.children {
+                                        numChildren += 1
+                                    }
+                                    print("TEMPCHLID\(numChildren)")
+                                    for placeNameKey in snapshot.children {
+                                        if (placeNameKey as? DataSnapshot)!.key == SearchViewController.seguePlace.name {
+                                            print(SearchViewController.seguePlace.name)
+                                            if !self.bookedAlreadyBool {
                                                 CustomAlert().showAlert(headingAlert: "Already Booked", messageAlert: "This place has already been booked. Please visit your profile to view your current rentals.", actionTitle: "Ok", viewController: self) { (action) in
                                                 }
                                             }
+                                        } else {
+                                           
+                                            temp += 1
+                                            if numChildren == temp {
+                                                
+                                                print("Book that damn place")
+                                            Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("FromWhen").setValue(DateUtility.getDateString(date: self.selectedDates[0]))
+                                            Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("ToWhen").setValue(DateUtility.getDateString(date: self.selectedDates[self.selectedDates.count - 1]))
+                                            Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("Rated").setValue("NO")
+                                                
+                                                self.bookedAlreadyBool = true
+                                                
+                                                self.addRentNumToPlace()
+                                                self.navigationController?.popViewController(animated: true)
+                                            }
+                                            
                                         }
-                                    })
-                                }
+                                        print("TEMP\(temp)")
+                                    }
+                                })
+                            } else {
+                                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("FromWhen").setValue(DateUtility.getDateString(date: self.selectedDates[0]))
+                                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("ToWhen").setValue(DateUtility.getDateString(date: self.selectedDates[self.selectedDates.count - 1]))
+                                Database.database().reference().child((Auth.auth().currentUser?.uid)!).child("BookedPlaces").child(SearchViewController.seguePlace.name).child("Rated").setValue("NO")
+                                self.bookedAlreadyBool = true
+                                self.addRentNumToPlace()
+                                
+                                self.navigationController?.popViewController(animated: true)
                             }
                         }
                     }
                 }
-            } else {
-                CustomAlert().showAlert(headingAlert: "No day selected", messageAlert: "Please select a day or a range of days", actionTitle: "Ok", viewController: self) { (action) in
-                    
-                }
+            }
+        } else {
+            CustomAlert().showAlert(headingAlert: "No day selected", messageAlert: "Please select a day or a range of days", actionTitle: "Ok", viewController: self) { (action) in
                 
             }
-        
+        }
     }
 }
 
@@ -233,6 +264,37 @@ extension BookViewController: JTAppleCalendarViewDataSource, JTAppleCalendarView
             }
         }
     }
+    
+    func addRentNumToPlace() {
+        Database.database().reference().observe(.value) { (snapshot) in
+            for userKey in snapshot.children {
+                Database.database().reference().child((userKey as? DataSnapshot)!.key).observe(.value, with: { (snapshot) in
+                    if let val = snapshot.value as? [String: Any] {
+                        if val["Leased Places"] != nil {
+                            Database.database().reference().child((userKey as? DataSnapshot)!.key).child(DBGlobal.LeasedPlaces.rawValue).observe(.value, with: { (snapshot) in
+                                for place in snapshot.children {
+                                    if (place as? DataSnapshot)!.key == SearchViewController.seguePlace.name {
+                                        Database.database().reference().child((userKey as? DataSnapshot)!.key).child(DBGlobal.LeasedPlaces.rawValue).child(SearchViewController.seguePlace.name).child(DBGlobal.Specific.NumRented.rawValue).observe(.value, with: { (snapshot) in
+                                            var numRented = 0
+                                            if var val = Int(snapshot.value as! String) {
+                                                numRented = val
+                                                if !self.added {
+                                                    numRented += 1
+                                                    Database.database().reference().child((userKey as? DataSnapshot)!.key).child(DBGlobal.LeasedPlaces.rawValue).child(SearchViewController.seguePlace.name).child(DBGlobal.Specific.NumRented.rawValue).setValue(String(numRented))
+                                                    self.added = true
+                                                }
+                                            }
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    }
+                })
+            }
+        }
+    }
+    
 }
 
 
@@ -253,3 +315,4 @@ extension UIColor {
         )
     }
 }
+

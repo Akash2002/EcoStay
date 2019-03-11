@@ -18,6 +18,12 @@ class PictureUploadViewController: UIViewController, UIImagePickerControllerDele
         
         imagePickerController.delegate = self
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Finish", style: .done, target: self, action: #selector(finishClicked))
+        
+    }
+    
+    @objc func finishClicked () {
+        
     }
     
     @IBAction func uploadImage(_ sender: Any) {

@@ -83,8 +83,8 @@ class CreateAccount2ViewController: UIViewController {
         databaseReference = databaseReference.child((authentication.currentUser?.uid)!)
         databaseReference.child(DBGlobal.Name.rawValue).setValue(CreateAccount1ViewController.user.name)
         databaseReference.child(DBGlobal.Email.rawValue).setValue(CreateAccount1ViewController.user.email)
-        databaseReference.child(DBGlobal.Email.rawValue).setValue(CreateAccount1ViewController.user.phone)
-        databaseReference.child(DBGlobal.Email.rawValue).setValue(CreateAccount1ViewController.user.dob)
+        databaseReference.child(DBGlobal.Phone.rawValue).setValue(CreateAccount1ViewController.user.phone)
+        databaseReference.child(DBGlobal.DateOfBirth.rawValue).setValue(CreateAccount1ViewController.user.dob)
     }
 
 }

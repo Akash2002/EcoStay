@@ -48,7 +48,7 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var amenitiesField: UITextField!
     @IBOutlet weak var quantityLabel: UILabel!
     
-    var amenitiesPickerOptions: [String] = ["Bedroom","Kitchen","Lamps","Toiletries","AC Plugs"]
+    var amenitiesPickerOptions: [String] = ["Bedroom","Kitchen","Bathrooms", "Conservation Parks", "Gardens", "Trail", "Pond"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,9 +108,9 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
                 print(LeaseViewController.nameOfPlace)
                 print("Hello")
                 databaseReference.child(uid).child(DBGlobal.LeasedPlaces.rawValue).child(LeaseViewController.nameOfPlace).child(DBGlobal.Specific.Amenities.rawValue).child(amenity.name).setValue(amenity.quantity)
+                navigationController?.popViewController(animated: true)
             }
             
-            performSegue(withIdentifier: "ToPicturesSegue", sender: self)
         }
         
     }

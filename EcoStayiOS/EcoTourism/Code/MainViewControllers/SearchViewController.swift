@@ -19,8 +19,10 @@ class Place {
     var rating: String = ""
     var ratingNum: String = ""
     var admin: String = ""
+    var numRented: String = ""
+    var popularityConstant: String = ""
     
-    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String, admin: String) {
+    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String, admin: String, numRented: String) {
         self.name = name
         self.address = address
         self.desc = desc
@@ -46,6 +48,7 @@ class PlaceCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var amenitiesLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
 }
 
@@ -72,6 +75,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         cell.titleLabel.text = model.name
         cell.priceLabel.text = "$" + model.price + "/night"
         cell.ratingLabel.text = model.rating
+        cell.addressLabel.text = model.address
         
         return cell
     }
@@ -91,7 +95,11 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SearchViewController.seguePlace = places[indexPath.row]
+        if searchController.isActive && searchController.searchBar.text != "" {
+            SearchViewController.seguePlace = filteredPlaceArray[indexPath.row]
+        } else {
+            SearchViewController.seguePlace = places[indexPath.row]
+        }
         performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
     }
     
@@ -117,6 +125,8 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         
         tableViewController.tableView.delegate = self
         tableViewController.tableView.dataSource = self
+        
+        navigationItem.title = "Search"
     }
     
     
@@ -132,18 +142,15 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     func loadData() {
         databaseReference.observe(.value) { (snapshot) in
             self.places.removeAll()
-            print("IN 1")
             for c in snapshot.children {
                 var userId = (c as? DataSnapshot)?.key ?? ""
                 self.databaseReference.child(userId).observe(.value, with: { (snapshot) in
                     self.places.removeAll()
-                    print("IN 2")
                     if let val = snapshot.value as? [String: Any?] {
                         var personName = val[DBGlobal.Name.rawValue]
                         if val[DBGlobal.LeasedPlaces.rawValue] != nil {
                             self.databaseReference.child(userId).child(DBGlobal.LeasedPlaces.rawValue).observe(.value, with: { (snapshot) in
                                 self.places.removeAll()
-                                print("IN 3")
                                 for c in snapshot.children {
                                         self.databaseReference.child(userId).child(DBGlobal.LeasedPlaces.rawValue).child(((c as? DataSnapshot)?.key)!).observe(.value, with: { (snapshot) in
                                             var place = Place()
@@ -174,8 +181,25 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
                                                                             place.address = "Address: " + (placeVal[DBGlobal.Specific.Address.rawValue] as! String)
                                                                             place.desc = placeVal[DBGlobal.Specific.Description.rawValue] as! String
                                                                             place.price = (placeVal[DBGlobal.Specific.Price.rawValue] as! String)
-                                                                            place.rating = (placeVal[DBGlobal.Specific.Rating.rawValue] as! String)
-                                                                            place.ratingNum = (placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String)
+                                                                            if let ratingNum = Double((placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String)) {
+                                                                                if ratingNum != 0 {
+                                                                                    place.ratingNum = String(ratingNum)
+                                                                                    if let rating = Double((placeVal[DBGlobal.Specific.Rating.rawValue] as! String)) {
+                                                                                        place.rating = String(rating/ratingNum)
+                                                                                    }
+                                                                                } else {
+                                                                                    place.ratingNum = String(0)
+                                                                                    place.rating = String(0)
+                                                                                }
+                                                                            }
+                                                                            
+                                                                            if let numRented = Int((placeVal[DBGlobal.Specific.NumRented.rawValue] as! String)) {
+                                                                                if numRented != 0 {
+                                                                                    place.numRented = String(numRented)
+                                                                                } else {
+                                                                                    place.numRented = String(0)
+                                                                                }
+                                                                            }
                                                                             place.admin = personName as! String
                                                                             
                                                                             var c = 0
