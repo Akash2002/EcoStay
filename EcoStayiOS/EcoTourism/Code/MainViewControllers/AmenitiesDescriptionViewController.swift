@@ -36,6 +36,7 @@ class AmenitiesDescriptionViewController: UIViewController, UITableViewDataSourc
         for amenity in amenities {
             print(amenity.name)
         }
+        navigationItem.title = "Amenities"
     }
     
 

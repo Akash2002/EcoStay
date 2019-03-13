@@ -108,7 +108,7 @@ class AmenitiesViewController: UIViewController, UITableViewDelegate, UITableVie
                 print(LeaseViewController.nameOfPlace)
                 print("Hello")
                 databaseReference.child(uid).child(DBGlobal.LeasedPlaces.rawValue).child(LeaseViewController.nameOfPlace).child(DBGlobal.Specific.Amenities.rawValue).child(amenity.name).setValue(amenity.quantity)
-                navigationController?.popViewController(animated: true)
+                self.performSegue(withIdentifier: "ToPicturesSegue", sender: self)
             }
             
         }

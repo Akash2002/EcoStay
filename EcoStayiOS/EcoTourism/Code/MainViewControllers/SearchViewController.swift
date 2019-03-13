@@ -21,8 +21,10 @@ class Place {
     var admin: String = ""
     var numRented: String = ""
     var popularityConstant: String = ""
+    var type = ""
+    var adminKey = ""
     
-    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String, admin: String, numRented: String) {
+    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String, admin: String, numRented: String, type: String) {
         self.name = name
         self.address = address
         self.desc = desc
@@ -30,6 +32,7 @@ class Place {
         self.rating = rating
         self.ratingNum = ratingNum
         self.admin = admin
+        self.type = type
     }
     
     init() {
@@ -49,37 +52,11 @@ class PlaceCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var amenitiesLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     
 }
 
 class SearchViewController: UITableViewController, UISearchResultsUpdating {
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredPlaceArray.count
-        } else {
-            return places.count
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var cell: PlaceCell = tableView.dequeueReusableCell(withIdentifier: "placeTableCell", for: indexPath) as! PlaceCell
-        var model = places[indexPath.row]
-        if searchController.isActive && searchController.searchBar.text != "" {
-            model = filteredPlaceArray[indexPath.row]
-        } else {
-            model = places[indexPath.row]
-        }
-        
-        cell.titleLabel.text = model.name
-        cell.priceLabel.text = "$" + model.price + "/night"
-        cell.ratingLabel.text = model.rating
-        cell.addressLabel.text = model.address
-        
-        return cell
-    }
-    
     
     @IBOutlet weak var viewBgLabel: UILabel!
     @IBOutlet weak var cellLabelColor: UILabel!
@@ -90,18 +67,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     var filteredArray = [String]()
     var placeNameArray = [String]()
     var filteredPlaceArray = [Place]()
-    
-    var searchController = UISearchController(searchResultsController: nil)
-    
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            SearchViewController.seguePlace = filteredPlaceArray[indexPath.row]
-        } else {
-            SearchViewController.seguePlace = places[indexPath.row]
-        }
-        performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
-    }
+    var filteredOptionDetailPlaceArray = [Place]()
     
     var databaseReference: DatabaseReference = Database.database().reference()
     var auth: Auth = Auth.auth()
@@ -110,6 +76,76 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
     let leftAndRightPaddings: Double = 4.0
     let numberOfItemsPerRow: Double = 2.0
+    
+    var searchController = UISearchController(searchResultsController: nil)
+    
+    static var filterOptionType: [Int: String] = [:]
+    static var ratingRange: (Double, Double) = (0,0)
+    static var priceRange = (0,0)
+    static var didFilter = false
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredPlaceArray.count
+        } else {
+            if !SearchViewController.didFilter {
+                return places.count
+            } else {
+                return filteredOptionDetailPlaceArray.count
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if !SearchViewController.didFilter {
+            var cell: PlaceCell = tableView.dequeueReusableCell(withIdentifier: "placeTableCell", for: indexPath) as! PlaceCell
+            var model = places[indexPath.row]
+            if searchController.isActive && searchController.searchBar.text != "" {
+                model = filteredPlaceArray[indexPath.row]
+            } else {
+                model = places[indexPath.row]
+            }
+            
+            cell.titleLabel.text = model.name
+            cell.priceLabel.text = "$" + model.price + "/night"
+            cell.ratingLabel.text = model.rating
+            cell.addressLabel.text = model.address
+            cell.typeLabel.text = model.type
+            
+            return cell
+            
+        } else {
+            var cell: PlaceCell = tableView.dequeueReusableCell(withIdentifier: "placeTableCell", for: indexPath) as! PlaceCell
+            var model = filteredOptionDetailPlaceArray[indexPath.row]
+            if searchController.isActive && searchController.searchBar.text != "" {
+                model = filteredPlaceArray[indexPath.row]
+            } else {
+                model = filteredOptionDetailPlaceArray[indexPath.row]
+            }
+            
+            cell.titleLabel.text = model.name
+            cell.priceLabel.text = "$" + model.price + "/night"
+            cell.ratingLabel.text = model.rating
+            cell.addressLabel.text = model.address
+            cell.typeLabel.text = model.type
+            
+            return cell
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            SearchViewController.seguePlace = filteredPlaceArray[indexPath.row]
+        } else {
+            if !SearchViewController.didFilter {
+                SearchViewController.seguePlace = places[indexPath.row]
+            } else {
+                 SearchViewController.seguePlace = filteredOptionDetailPlaceArray[indexPath.row]
+            }
+        }
+        performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,9 +162,66 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         tableViewController.tableView.delegate = self
         tableViewController.tableView.dataSource = self
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(onFilterClicked))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(onResetClicked))
+        
         navigationItem.title = "Search"
+        
     }
     
+    @objc func onResetClicked () {
+        SearchViewController.didFilter = false
+        tableView.reloadData()
+    }
+    
+    func updateTableViewWithFilterOptions () {
+        filteredOptionDetailPlaceArray.removeAll()
+        if SearchViewController.didFilter {
+            if places != nil {
+                for i in stride(from: 0, to: places.count, by: 1) {
+                    if let price = Int(places[i].price) {
+                        if price >= SearchViewController.priceRange.0 && price <= SearchViewController.priceRange.1 {
+                            if let rating = Double(places[i].rating) {
+                                if let ratingNum = Double(places[i].ratingNum) {
+                                    if ratingNum != 0 {
+                                        var ratingValue = (rating/ratingNum)
+                                        if ratingValue >= SearchViewController.ratingRange.0 && ratingValue <= SearchViewController.ratingRange.1 {
+                                            for (key,value) in SearchViewController.filterOptionType {
+                                                if value == places[i].type {
+                                                    filteredOptionDetailPlaceArray.append(places[i])
+                                                    print(places[i].toString())
+                                                    tableView.reloadData()
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        for (key,value) in SearchViewController.filterOptionType {
+                                            if value == places[i].type {
+                                                filteredOptionDetailPlaceArray.append(places[i])
+                                                print(places[i].toString())
+                                                tableView.reloadData()
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+    }
+    
+    @objc func onFilterClicked () {
+        var storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let StoryBoardViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "FilterPage")
+        self.present(StoryBoardViewController, animated: true, completion: nil)
+    }
     
     func updateSearchResults(for searchController: UISearchController) {
         print("UPDATE")
@@ -136,8 +229,6 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         print(filteredPlaceArray)
         tableView.reloadData()
     }
-    
-    
     
     func loadData() {
         databaseReference.observe(.value) { (snapshot) in
@@ -180,7 +271,9 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
                                                                             place.name = (c as? DataSnapshot)?.key as! String
                                                                             place.address = "Address: " + (placeVal[DBGlobal.Specific.Address.rawValue] as! String)
                                                                             place.desc = placeVal[DBGlobal.Specific.Description.rawValue] as! String
+                                                                            place.adminKey = userId
                                                                             place.price = (placeVal[DBGlobal.Specific.Price.rawValue] as! String)
+                                                                            place.type = (placeVal["Type"] as! String)
                                                                             if let ratingNum = Double((placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String)) {
                                                                                 if ratingNum != 0 {
                                                                                     place.ratingNum = String(ratingNum)
@@ -213,6 +306,9 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
                                                                             }
                                                                             
                                                                             self.tableView.reloadData()
+                                                                            DispatchQueue.main.async(execute: {
+                                                                                self.updateTableViewWithFilterOptions()
+                                                                            })
                                                                         })
                                                                     }
                                                                     

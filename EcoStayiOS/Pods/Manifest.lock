@@ -11,6 +11,9 @@ PODS:
   - Firebase/Database (5.12.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (= 5.0.3)
+  - Firebase/Storage (5.12.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.3)
   - FirebaseAnalytics (5.3.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.3)
@@ -35,12 +38,28 @@ PODS:
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseStorage (3.0.3):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleAppMeasurement (5.3.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - GoogleSignIn (4.4.0):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.2.0):
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - GoogleToolboxForMac/Defines (2.2.0)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.0)":
+    - GoogleToolboxForMac/DebugUtils (= 2.2.0)
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - GoogleUtilities/AppDelegateSwizzler (5.3.6):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -68,14 +87,18 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - TTGSnackbar (1.7.5)
+  - TTRangeSlider (1.0.6)
 
 DEPENDENCIES:
   - Cosmos
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - Firebase/Storage
+  - GoogleSignIn
   - JTAppleCalendar (~> 7.0)
   - TTGSnackbar
+  - TTRangeSlider
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -87,13 +110,17 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseDatabase
     - FirebaseInstanceID
+    - FirebaseStorage
     - GoogleAppMeasurement
+    - GoogleSignIn
+    - GoogleToolboxForMac
     - GoogleUtilities
     - GTMSessionFetcher
     - JTAppleCalendar
     - leveldb-library
     - nanopb
     - TTGSnackbar
+    - TTRangeSlider
 
 SPEC CHECKSUMS:
   Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
@@ -104,14 +131,18 @@ SPEC CHECKSUMS:
   FirebaseCore: 027d350adc039aa5483357c6f56556f117c5170e
   FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
+  FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
+  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
+  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   JTAppleCalendar: abb30678f42a4ef8a340a932b1dcb8c85a33dac2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   TTGSnackbar: 2cf4e7b6ffbe5cddf248a73f3ee952b71bee8ea3
+  TTRangeSlider: 78188bea83f6471a06f75adbc88da5e990baeafe
 
-PODFILE CHECKSUM: a67fcf1b3c41820afabcaa51f07fbae9cc6f49e3
+PODFILE CHECKSUM: e728fd4e806da515fedac57d0787a9b5f78f595c
 
 COCOAPODS: 1.5.3

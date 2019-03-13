@@ -13,7 +13,7 @@ import TTGSnackbar
 
 class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var options = ["More Information", "Amenities", "Reviews"]
+    var options = ["More Information", "Amenities", "Gallery", "Reviews"]
     
     @IBOutlet weak var mainView: UIView!
     
@@ -35,12 +35,13 @@ class LeaseDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 performSegue(withIdentifier: "toInfoSegue", sender: self)
             case "Amenities":
                 performSegue(withIdentifier: "toAmenities", sender: self)
+            case "Gallery":
+                performSegue(withIdentifier: "toGallerySegue", sender: self)
             case "Reviews":
                 performSegue(withIdentifier: "toReviewDetailSegue", sender: self)
             default: break
         }
     }
-    
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

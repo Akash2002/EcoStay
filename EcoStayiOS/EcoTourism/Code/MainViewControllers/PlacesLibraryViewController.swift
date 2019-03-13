@@ -49,6 +49,7 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
     var savedPlaces = [String]()
     var alert = CustomAlert()
     static var reviewPlace = ""
+    static var seguePlace = Place()
     
     var dbRef = Database.database().reference().child(Auth.auth().currentUser!.uid)
     
@@ -155,10 +156,22 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch segmentValue {
+        case "Listed":
+            PlacesLibraryViewController.seguePlace = leasedPlaces[indexPath.row]
+            performSegue(withIdentifier: "toEditListedPlace", sender: self)
+        default:
+            PlacesLibraryViewController.seguePlace = Place()
+        }
+    }
+    
     @IBAction func onSegmentValueChange(_ sender: Any) {
         segmentValue = segmentHeaders[segmentControl.selectedSegmentIndex]
         tableView.reloadData()
     }
+    
+    
     
     func processDataRented() {
         dbRef.observe(.value) { (snapshot) in

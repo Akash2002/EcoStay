@@ -10,6 +10,7 @@
 		8303EFBA21FDE9550094D9EE /* LeaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */; };
 		8303EFBC21FE0ED40094D9EE /* PictureUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */; };
 		8309C37C21FE8BE0002F552D /* hut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8309C37B21FE8BE0002F552D /* hut.jpg */; };
+		830D15852236053D00491A29 /* ListedPlaceEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830D15842236053D00491A29 /* ListedPlaceEditViewController.swift */; };
 		831C3323220D09CB00C73865 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831C3322220D09CB00C73865 /* DescriptionViewController.swift */; };
 		831C3325220D12BA00C73865 /* AmenitiesDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831C3324220D12BA00C73865 /* AmenitiesDescriptionViewController.swift */; };
 		833CB93E2205FFC0009BC62A /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = 833CB93D2205FFC0009BC62A /* star1.png */; };
@@ -43,6 +44,8 @@
 		83C7498E21F2AA42007309BC /* ModTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7498D21F2AA42007309BC /* ModTabBar.swift */; };
 		83C7499C21F2B40C007309BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7499B21F2B40C007309BC /* HomeViewController.swift */; };
 		83C749A621F2B83A007309BC /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C749A521F2B83A007309BC /* AlertHelper.swift */; };
+		83D0E7D12237409A00C092BC /* AdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D0E7D02237409A00C092BC /* AdminTableViewController.swift */; };
+		83D0E7D32237F90000C092BC /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D0E7D22237F90000C092BC /* FilterViewController.swift */; };
 		83E3960121F3F93B00451A20 /* Bitter-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E395FE21F3F93A00451A20 /* Bitter-Italic.ttf */; };
 		83E3960221F3F93B00451A20 /* Bitter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E395FF21F3F93B00451A20 /* Bitter-Regular.ttf */; };
 		83E3960321F3F93B00451A20 /* Bitter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E3960021F3F93B00451A20 /* Bitter-Bold.ttf */; };
@@ -50,6 +53,7 @@
 		83E3960921F3F9AD00451A20 /* outline_home_black_24pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E3960821F3F9AD00451A20 /* outline_home_black_24pt_1x.png */; };
 		83E3960B21F3F9CC00451A20 /* outline_search_black_24pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E3960A21F3F9CC00451A20 /* outline_search_black_24pt_1x.png */; };
 		83E3960D21F3FA9B00451A20 /* outline_assignment_black_24pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E3960C21F3FA9B00451A20 /* outline_assignment_black_24pt_1x.png */; };
+		83E413BB22385E0100F85DDE /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E413BA22385E0100F85DDE /* GalleryViewController.swift */; };
 		83EAC3E32210F8AB00086BA4 /* DBStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EAC3E22210F8AB00086BA4 /* DBStrings.swift */; };
 		83FC3F3821F21F08007D3C9E /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FC3F3721F21F08007D3C9E /* profile.png */; };
 		83FC3F5421F24718007D3C9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC3F4A21F24718007D3C9E /* User.swift */; };
@@ -70,6 +74,7 @@
 		8303EFB921FDE9550094D9EE /* LeaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseDetailViewController.swift; sourceTree = "<group>"; };
 		8303EFBB21FE0ED40094D9EE /* PictureUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureUploadViewController.swift; sourceTree = "<group>"; };
 		8309C37B21FE8BE0002F552D /* hut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hut.jpg; path = ../hut.jpg; sourceTree = "<group>"; };
+		830D15842236053D00491A29 /* ListedPlaceEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListedPlaceEditViewController.swift; sourceTree = "<group>"; };
 		831C3322220D09CB00C73865 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionViewController.swift; path = /Users/akashveerappan/Desktop/Coding/EcoStay/EcoStayiOS/EcoTourism/Code/MainViewControllers/DescriptionViewController.swift; sourceTree = "<absolute>"; };
 		831C3324220D12BA00C73865 /* AmenitiesDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesDescriptionViewController.swift; sourceTree = "<group>"; };
 		833CB93D2205FFC0009BC62A /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
@@ -105,6 +110,8 @@
 		83C7498D21F2AA42007309BC /* ModTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModTabBar.swift; sourceTree = "<group>"; };
 		83C7499B21F2B40C007309BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83C749A521F2B83A007309BC /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		83D0E7D02237409A00C092BC /* AdminTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTableViewController.swift; sourceTree = "<group>"; };
+		83D0E7D22237F90000C092BC /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		83E395FE21F3F93A00451A20 /* Bitter-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bitter-Italic.ttf"; path = "../../../../../Downloads/Bitter/Bitter-Italic.ttf"; sourceTree = "<group>"; };
 		83E395FF21F3F93B00451A20 /* Bitter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bitter-Regular.ttf"; path = "../../../../../Downloads/Bitter/Bitter-Regular.ttf"; sourceTree = "<group>"; };
 		83E3960021F3F93B00451A20 /* Bitter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bitter-Bold.ttf"; path = "../../../../../Downloads/Bitter/Bitter-Bold.ttf"; sourceTree = "<group>"; };
@@ -112,6 +119,7 @@
 		83E3960821F3F9AD00451A20 /* outline_home_black_24pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outline_home_black_24pt_1x.png; path = "../../../../../../Downloads/outline-home-ios-black/outline_home_black_24pt.xcassets/outline_home_black_24pt.imageset/outline_home_black_24pt_1x.png"; sourceTree = "<group>"; };
 		83E3960A21F3F9CC00451A20 /* outline_search_black_24pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outline_search_black_24pt_1x.png; path = "../../../../../../Downloads/outline-search-ios-black/outline_search_black_24pt.xcassets/outline_search_black_24pt.imageset/outline_search_black_24pt_1x.png"; sourceTree = "<group>"; };
 		83E3960C21F3FA9B00451A20 /* outline_assignment_black_24pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outline_assignment_black_24pt_1x.png; path = "../../../../../../Downloads/outline-assignment-ios-black/outline_assignment_black_24pt.xcassets/outline_assignment_black_24pt.imageset/outline_assignment_black_24pt_1x.png"; sourceTree = "<group>"; };
+		83E413BA22385E0100F85DDE /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		83EAC3E22210F8AB00086BA4 /* DBStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBStrings.swift; sourceTree = "<group>"; };
 		83FC3F3721F21F08007D3C9E /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		83FC3F4A21F24718007D3C9E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -227,6 +235,10 @@
 				83BBD35F2219C380000AC76D /* PlacesLibraryViewController.swift */,
 				834B67082233486100C66425 /* ReviewViewController.swift */,
 				834B670A2233613B00C66425 /* ReviewPlaceDetailViewController.swift */,
+				830D15842236053D00491A29 /* ListedPlaceEditViewController.swift */,
+				83D0E7D02237409A00C092BC /* AdminTableViewController.swift */,
+				83D0E7D22237F90000C092BC /* FilterViewController.swift */,
+				83E413BA22385E0100F85DDE /* GalleryViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -298,6 +310,7 @@
 				83536E3C219CFBC60078522F /* Frameworks */,
 				83536E3D219CFBC60078522F /* Resources */,
 				FD56BBC84A365B68930423A9 /* [CP] Embed Pods Frameworks */,
+				64B3D4478C12CE7D4E84A566 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -384,6 +397,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		64B3D4478C12CE7D4E84A566 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EcoTourism/Pods-EcoTourism-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EcoTourism/Pods-EcoTourism-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DBFB54B4A1C0BB9A02A8C5C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,9 +452,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-EcoTourism/Pods-EcoTourism-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/TTGSnackbar/TTGSnackbar.framework",
+				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -429,9 +466,11 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTGSnackbar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -452,6 +491,7 @@
 				83C749A621F2B83A007309BC /* AlertHelper.swift in Sources */,
 				83BBD3602219C380000AC76D /* PlacesLibraryViewController.swift in Sources */,
 				83FC3F5921F24718007D3C9E /* LoginViewController.swift in Sources */,
+				830D15852236053D00491A29 /* ListedPlaceEditViewController.swift in Sources */,
 				8303EFBC21FE0ED40094D9EE /* PictureUploadViewController.swift in Sources */,
 				831C3323220D09CB00C73865 /* DescriptionViewController.swift in Sources */,
 				83FC3F5721F24718007D3C9E /* AmenitiesViewController.swift in Sources */,
@@ -461,10 +501,13 @@
 				83FC3F5B21F24718007D3C9E /* CreateAccount2ViewController.swift in Sources */,
 				83FC3F5521F24718007D3C9E /* SearchViewController.swift in Sources */,
 				83FC3F5621F24718007D3C9E /* LeaseViewController.swift in Sources */,
+				83E413BB22385E0100F85DDE /* GalleryViewController.swift in Sources */,
+				83D0E7D12237409A00C092BC /* AdminTableViewController.swift in Sources */,
 				83FC3F5821F24718007D3C9E /* ProfileViewController.swift in Sources */,
 				8303EFBA21FDE9550094D9EE /* LeaseDetailViewController.swift in Sources */,
 				83C7499C21F2B40C007309BC /* HomeViewController.swift in Sources */,
 				83C428582212666A00CE17F1 /* DateUtility.swift in Sources */,
+				83D0E7D32237F90000C092BC /* FilterViewController.swift in Sources */,
 				83FC3F5A21F24718007D3C9E /* CreateAccount1ViewController.swift in Sources */,
 				834B67092233486100C66425 /* ReviewViewController.swift in Sources */,
 				8397E0372217867900C7AD14 /* BookViewController.swift in Sources */,

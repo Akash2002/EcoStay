@@ -2,26 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>OpenSans-Bold.ttf</string>
-		<string>OpenSans-Regular.ttf</string>
-		<string>Bitter-Regular.ttf</string>
-		<string>Bitter-Italic.ttf</string>
-		<string>Bitter-Bold.ttf</string>
-	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>accept to get location</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>accept to get location</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To keep the users better informed of what place they will be renting.</string>
-	<key>NSLocationUsageDescription</key>
-	<string>accept to get location</string>
-	<key>NSCameraUsageDescription</key>
-	<string>To keep the users better informed of what place they will be renting.</string>
-	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.travel</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -36,10 +16,41 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1019760776639-usbe6doscji883v7npe3l9phvik6lcrd</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.travel</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>To keep the users better informed of what place they will be renting.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>accept to get location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>accept to get location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>accept to get location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To keep the users better informed of what place they will be renting.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>Bitter-Regular.ttf</string>
+		<string>Bitter-Italic.ttf</string>
+		<string>Bitter-Bold.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

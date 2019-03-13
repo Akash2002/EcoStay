@@ -11,15 +11,15 @@ import MapKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class LeaseViewController: UIViewController, CLLocationManagerDelegate {
+class LeaseViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-
     var locationManager: CLLocationManager = CLLocationManager()
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var priceField: UITextField!
+    @IBOutlet weak var typeField: UITextField!
     
     var isName: Bool = false
     var isDesc: Bool = false
@@ -34,6 +34,7 @@ class LeaseViewController: UIViewController, CLLocationManagerDelegate {
     var databaseReference: DatabaseReference = Database.database().reference()
     
     var currentUID: String = ""
+    var types = ["House","Town Home", "Cottage", "Hut", "Treehouse"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,28 @@ class LeaseViewController: UIViewController, CLLocationManagerDelegate {
         currentUID = auth.currentUser?.uid ?? ""
         databaseReference = databaseReference.child(currentUID)
         priceField.keyboardType = .numberPad
+        
+        var pickerView = UIPickerView()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        typeField.inputView = pickerView
+        
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return types.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return types[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        typeField.text = types[row]
     }
     
     @IBAction func onMapCoordClick(_ sender: Any) {
@@ -65,6 +88,8 @@ class LeaseViewController: UIViewController, CLLocationManagerDelegate {
         databaseReference.child(DBGlobal.Specific.Price.rawValue).setValue(priceField.text)
         databaseReference.child(DBGlobal.Specific.Address.rawValue).setValue(addressField.text)
         databaseReference.child(DBGlobal.Specific.Description.rawValue).setValue(descriptionField.text)
+        
+        databaseReference.child("Type").setValue(typeField.text)
         databaseReference.child(DBGlobal.Specific.Rating.rawValue).setValue("0")
         databaseReference.child(DBGlobal.Specific.RatingNum.rawValue).setValue("0")
         databaseReference.child(DBGlobal.Specific.NumRented.rawValue).setValue("0")

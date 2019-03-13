@@ -43,6 +43,7 @@ class ReviewPlaceDetailViewController: UIViewController, UITableViewDataSource, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Reviews"
         
         Database.database().reference().observe(.value) { (snapshot) in
             for name in snapshot.children {
