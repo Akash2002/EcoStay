@@ -14,38 +14,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="30dp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtStartDate"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edttxtStartDate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:editable="false"
-            android:text="Start Date:" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtEndDate"
-        app:layout_constraintTop_toBottomOf="@+id/txtStartDate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edttxtEndDate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:editable="false"
-            android:text="End Date: " />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnConfirmBook"
         android:text="Confirm"
@@ -55,7 +23,40 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEndDate" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEndDate" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btmNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/home_navigation">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Date:"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"
+        android:id="@+id/btnStartDate"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Date:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartDate"
+        android:layout_marginTop="24dp"
+        android:id="@+id/btnEndDate"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,17 +39,23 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("EditText",usernameEditText.getText().toString());
-                Log.i("EditText",passwordEditText.getText().toString());
-                mAuth.signInWithEmailAndPassword(usernameEditText.getText().toString(), passwordEditText.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Intent goToHome = new Intent(getApplicationContext(), Home.class);
-                            startActivity(goToHome);
+                String user = usernameEditText.getText().toString();
+                String pass = passwordEditText.getText().toString();
+
+                if(user.equals("admin") && pass.equals("admin")){
+                    Intent goAdminView = new Intent(getApplicationContext(), AdminView.class);
+                    startActivity(goAdminView);
+                }else {
+                    mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Intent goToHome = new Intent(getApplicationContext(), Home.class);
+                                startActivity(goToHome);
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
 

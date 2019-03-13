@@ -36,4 +36,6 @@ public class LeasedKeys {
     public String getBath(){
         return "Bath";
     }
+
+    public String getRating() { return "Rating"; }
 }

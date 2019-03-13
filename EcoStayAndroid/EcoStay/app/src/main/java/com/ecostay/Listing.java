@@ -18,7 +18,7 @@ public class Listing {
 //    private double price;
 //    private ArrayList<String> reviews;
 
-    public Listing(String name, String description, String address, String typeOfHouse, double price, int bed, int bath) {
+    public Listing(String name, String description, String address, String typeOfHouse, String price, String bed, String bath) {
         hashMap = new HashMap();
         amenitiesMap = new HashMap();
         LeasedKeys keys = new LeasedKeys();
@@ -32,6 +32,25 @@ public class Listing {
         hashMap.put(keys.getPrice(), price);
         hashMap.put(keys.getAmenities(), amenitiesMap);
         hashMap.put(keys.getType(), typeOfHouse);
+        hashMap.put(keys.getRating(), "0");
+        hashMap.put("NumRated", "0");
+        hashMap.put("NumRented", "0");
+        hashMap.put("RatingNum", "0");
+
+    }
+
+    public Listing() {
+    }
+
+    public Listing(String name, String price, String rating, String user) {
+        hashMap = new HashMap();
+        LeasedKeys keys = new LeasedKeys();
+
+        hashMap.put(keys.getName(), name);
+        hashMap.put(keys.getPrice(), price);
+        hashMap.put(keys.getRating(), rating);
+        hashMap.put("Uid", user);
+
     }
 
     public HashMap getHashMap(){

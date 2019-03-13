@@ -26,8 +26,11 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.ecostay.AdminView" />
+        <activity android:name="com.ecostay.EditListing" />
         <activity android:name="com.ecostay.Booking" />
         <activity android:name="com.ecostay.Browse" />
+        <activity android:name="com.ecostay.BrowseListingInfo" />
         <activity android:name="com.ecostay.ListingInfo" />
         <activity android:name="com.ecostay.ViewListings" />
         <activity android:name="com.ecostay.ViewProfile" />

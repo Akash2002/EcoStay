@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\theo\\Desktop\\EcoStay\\EcoStayAndroid\\EcoStay\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-as\\values-as.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\2fa658ec98280935f7dbac965dd4d872\\res\\values-as\\values.xml",
+                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\3895e838c4f34dc62bb89a8193b497a5\\res\\values-as\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\f4bb3fb35c11c7fb609b2c90184cc30a\\res\\values-as\\values.xml",
+                    "source": "C:\\Users\\theo\\.gradle\\caches\\transforms-2\\files-2.1\\250f1594cc1ef6fc99ff52c4f959ae74\\res\\values-as\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
