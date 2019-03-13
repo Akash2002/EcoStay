@@ -17,7 +17,8 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtListName"
@@ -38,7 +39,8 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtListName">
+        app:layout_constraintTop_toBottomOf="@+id/txtListName"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtDescription"
@@ -58,7 +60,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDescription"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtAddress"
@@ -78,7 +81,8 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAddress">
+        app:layout_constraintTop_toBottomOf="@+id/txtAddress"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtType"
@@ -98,7 +102,8 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtType">
+        app:layout_constraintTop_toBottomOf="@+id/txtType"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtPrice"
@@ -118,7 +123,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPrice">
+        app:layout_constraintTop_toBottomOf="@+id/txtPrice"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtBed"
@@ -139,7 +145,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBed">
+        app:layout_constraintTop_toBottomOf="@+id/txtBed"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtBath"
@@ -162,4 +169,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtBath" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btmNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/home_navigation">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

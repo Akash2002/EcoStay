@@ -11,24 +11,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        tools:layout_editor_absoluteX="16dp"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/edttxtListingName"/>
+            android:id="@+id/edttxtListingName"
+            android:editable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtListingAddress"
-        app:layout_constraintTop_toBottomOf="@+id/txtListingName">
+        app:layout_constraintTop_toBottomOf="@+id/txtListingName"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/edttxtListingAddress"/>
+            android:id="@+id/edttxtListingAddress"
+            android:editable="false"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,12 +40,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtListingDescription"
-        app:layout_constraintTop_toBottomOf="@+id/txtListingAddress">
+        app:layout_constraintTop_toBottomOf="@+id/txtListingAddress"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/edttxtListingDescription"/>
+            android:id="@+id/edttxtListingDescription"
+            android:editable="false"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,12 +55,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtListingPrice"
-        app:layout_constraintTop_toBottomOf="@+id/txtListingDescription">
+        app:layout_constraintTop_toBottomOf="@+id/txtListingDescription"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/edttxtListingPrice"/>
+            android:id="@+id/edttxtListingPrice"
+            android:editable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -71,4 +79,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtListingPrice" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btmNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/home_navigation">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete This Listing"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBook" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit This Listing"
+        android:id="@+id/btnEdit"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnBook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +28,35 @@ public class CreateListing extends AppCompatActivity {
     TextInputEditText name, description, address, type, price, bed, bath;
     Button createListing;
 
+    BottomNavigationView bottomNavigationView;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent nextScreen;
+
+                    switch(item.getItemId()){
+                        case R.id.navigation_search:
+                            nextScreen = new Intent(getApplicationContext(), Home.class);
+                            startActivity(nextScreen);
+                            return true;
+                        case R.id.navigation_browse:
+                            nextScreen = new Intent(getApplicationContext(), Browse.class);
+                            startActivity(nextScreen);
+                            return true;
+                        case R.id.navigation_createListing:
+                            return true;
+                        case R.id.navigation_profile:
+                            nextScreen = new Intent(getApplicationContext(), ViewProfile.class);
+                            startActivity(nextScreen);
+                            return true;
+                    }
+
+                    return false;
+                }
+            };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +66,9 @@ public class CreateListing extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         ref = database.getReference(currentUser.getUid() + "/Listed Places");
+
+        bottomNavigationView = findViewById(R.id.btmNav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         createListing = findViewById(R.id.btnCreateListing);
         createListing.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +83,7 @@ public class CreateListing extends AppCompatActivity {
                 bath = findViewById(R.id.edttxtBath);
 
                 Listing newListing = new Listing(name.getText().toString(), description.getText().toString(), address.getText().toString(),type.getText().toString(),
-                        Double.parseDouble(price.getText().toString()), Integer.parseInt(bed.getText().toString()), Integer.parseInt(bath.getText().toString()));
+                        price.getText().toString(), bed.getText().toString(), bath.getText().toString());
 
                 ref.child(name.getText().toString());
                 ref = database.getReference(currentUser.getUid() + "/Leased Places/" + name.getText().toString());

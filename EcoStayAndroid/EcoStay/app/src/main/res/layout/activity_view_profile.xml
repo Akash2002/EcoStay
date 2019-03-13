@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:isScrollContainer="true"
+    android:scrollbars="vertical"
     tools:context=".ViewProfile">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -12,32 +14,36 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:editable="false"
             android:text="Name:" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtNameDisplay"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginRight="152dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txtNameLabel"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtNameDisplay"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:editable="false"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="end"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -46,32 +52,36 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNameLabel">
+        app:layout_constraintTop_toBottomOf="@+id/txtNameLabel"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:editable="false"
             android:text="Email:" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtEmailDisplay"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginRight="152dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txtEmailLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txtNameLabel">
+        app:layout_constraintTop_toBottomOf="@+id/txtNameLabel"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtEmailDisplay"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:editable="false"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="end"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -80,53 +90,76 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel">
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Phone Number:" />
+            android:editable="false"
+            android:text="Phone Number:"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="end"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtPhoneDisplay"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginRight="112dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txtPhoneLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel">
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel"
+        app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edttxtPhoneDisplay"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:editable="false"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="end"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtPassChange"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPassChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPhoneDisplay"
+        android:text="Change Password"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btmNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="bottom"
+        android:keepScreenOn="false"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPhoneLabel"
-        app:layout_constraintVertical_bias="0.057">
+        app:menu="@menu/home_navigation">
 
-        <com.google.android.material.textfield.TextInputEditText
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpagerProfile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btmNav"
+        app:layout_constraintTop_toBottomOf="@+id/btnPassChange">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayoutMyListings"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Change Password" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </androidx.viewpager.widget.ViewPager>
 </androidx.constraintlayout.widget.ConstraintLayout>

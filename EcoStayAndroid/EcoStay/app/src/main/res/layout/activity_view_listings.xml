@@ -10,8 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rvViewListings"
+        app:layout_constraintBottom_toTopOf="@+id/btmNav"
 
-    ></androidx.recyclerview.widget.RecyclerView>
+    />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="80dp"
@@ -19,8 +20,38 @@
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rvViewListings"
+        app:layout_constraintBottom_toTopOf="@+id/btmNav"
         app:layout_constraintEnd_toEndOf="@+id/rvViewListings"
-        android:id="@+id/btnNewListing"/>
+        android:id="@+id/btnNewListing"
+        android:pointerIcon="alias"/>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btmNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/home_navigation">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDefaultListing"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:boxBackgroundColor="@android:color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="You don't have any listings yet"
+            android:editable="false"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

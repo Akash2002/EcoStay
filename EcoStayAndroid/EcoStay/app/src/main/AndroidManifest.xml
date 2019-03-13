@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Booking"></activity>
+        <activity android:name=".EditListing"></activity>
+        <activity android:name=".Booking" />
         <activity android:name=".Browse" />
+        <activity android:name=".BrowseListingInfo"/>
         <activity android:name=".ListingInfo" />
         <activity android:name=".ViewListings" />
         <activity android:name=".ViewProfile" />

@@ -2,10 +2,16 @@ package com.ecostay;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,10 +33,44 @@ public class ViewProfile extends AppCompatActivity {
 
     TextInputEditText name, email, phone, password;
 
+    BottomNavigationView bottomNavigationView;
+
+    private ViewPager mViewPager;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent nextScreen;
+
+                    switch(item.getItemId()){
+                        case R.id.navigation_search:
+                            nextScreen = new Intent(getApplicationContext(), Home.class);
+                            startActivity(nextScreen);
+                            return true;
+                        case R.id.navigation_browse:
+                            nextScreen = new Intent(getApplicationContext(), Browse.class);
+                            startActivity(nextScreen);
+                            return true;
+                        case R.id.navigation_createListing:
+                            nextScreen = new Intent(getApplicationContext(), ViewListings.class);
+                            startActivity(nextScreen);
+                            return true;
+                        case R.id.navigation_profile:
+                            return true;
+                    }
+
+                    return false;
+                }
+            };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
+
+        bottomNavigationView = findViewById(R.id.btmNav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         name = findViewById(R.id.edttxtNameDisplay);
         email = findViewById(R.id.edttxtEmailDisplay);
@@ -39,6 +79,9 @@ public class ViewProfile extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
+
+        mViewPager = findViewById(R.id.viewpagerProfile);
+        setUpViewPager(mViewPager);
 
         ref = database.getReference(currentUser.getUid());
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -57,6 +100,14 @@ public class ViewProfile extends AppCompatActivity {
 
             }
         });
+    }
 
+    private void setUpViewPager(ViewPager viewPager){
+        SectionViewAdapter adapter = new SectionViewAdapter(getSupportFragmentManager());
+        adapter.addFragment(new CurrentBooking(), "Current Booking");
+        adapter.addFragment(new PastBookings(), "Past Bookings");
+        adapter.addFragment(new ViewBookedListings(), "Upcoming Bookings");
+        adapter.addFragment(new ViewBookmarked(), "Book marked");
+        viewPager.setAdapter(adapter);
     }
 }

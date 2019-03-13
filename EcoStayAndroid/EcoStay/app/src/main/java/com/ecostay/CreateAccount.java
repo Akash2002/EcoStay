@@ -61,7 +61,8 @@ public class CreateAccount extends AppCompatActivity {
                                 ref = database.getReferenceFromUrl("https://ecotourism-7983b.firebaseio.com/").child(currentUser.getUid());
                                 ref.setValue(newProfile.getHashMap());
                                 ref.child("Leased Places");
-                                ref.child("Booked Places");
+                                ref.child("BookedPlaces");
+                                ref.child("BookmarkedPlaces");
 
                                 Intent goHome = new Intent(getApplicationContext(), Home.class);
                                 startActivity(goHome);

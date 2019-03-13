@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,23 +24,57 @@ import java.util.HashMap;
 public class ListingInfo extends AppCompatActivity {
 
     TextInputEditText name, address, description, price;
-    MaterialButton booking;
+    MaterialButton booking, delete, edit;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    FirebaseUser user = mAuth.getCurrentUser();
+
+    BottomNavigationView bottomNavigationView;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent nextScreen;
+
+                    switch(item.getItemId()){
+                        case R.id.navigation_search:
+                            nextScreen = new Intent(getApplicationContext(), Home.class);
+                            startActivity(nextScreen);
+                            return true;
+                        case R.id.navigation_browse:
+                            nextScreen = new Intent(getApplicationContext(), Browse.class);
+                            startActivity(nextScreen);
+                            return true;
+                        case R.id.navigation_createListing:
+                            nextScreen = new Intent(getApplicationContext(), ViewListings.class);
+                            startActivity(nextScreen);
+                            return true;
+                        case R.id.navigation_profile:
+                            nextScreen = new Intent(getApplicationContext(), ViewProfile.class);
+                            startActivity(nextScreen);
+                            return true;
+                    }
+
+                    return false;
+                }
+            };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listing_info);
 
+        bottomNavigationView = findViewById(R.id.btmNav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+
         name = findViewById(R.id.edttxtListingName);
         address = findViewById(R.id.edttxtListingAddress);
         description = findViewById(R.id.edttxtListingDescription);
         price = findViewById(R.id.edttxtListingPrice);
         booking = findViewById(R.id.btnBook);
+        delete = findViewById(R.id.btnDelete);
+        edit = findViewById(R.id.btnEdit);
 
         ref = database.getReference(getIntent().getExtras().get("User") + "/Leased Places/" + getIntent().getExtras().get("Listing Path"));
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -65,6 +101,24 @@ public class ListingInfo extends AppCompatActivity {
                 goToBooking.putExtra("List Name", name.getText().toString());
                 goToBooking.putExtra("User", getIntent().getExtras().get("User").toString());
                 startActivity(goToBooking);
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ref.setValue(null);
+                Intent goMyListings = new Intent(getApplicationContext(), ViewListings.class);
+                startActivity(goMyListings);
+            }
+        });
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goEdit = new Intent(getApplicationContext(), EditListing.class);
+                goEdit.putExtra("Listing Path", getIntent().getExtras().get("Listing Path").toString());
+                startActivity(goEdit);
             }
         });
     }

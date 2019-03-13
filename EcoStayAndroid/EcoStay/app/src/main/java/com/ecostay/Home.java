@@ -21,7 +21,6 @@ public class Home extends AppCompatActivity {
 
                     switch(item.getItemId()){
                         case R.id.navigation_search:
-
                             return true;
                         case R.id.navigation_browse:
                             nextScreen = new Intent(getApplicationContext(), Browse.class);
