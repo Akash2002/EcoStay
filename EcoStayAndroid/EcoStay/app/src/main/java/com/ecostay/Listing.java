@@ -39,6 +39,20 @@ public class Listing {
 
     }
 
+    public Listing() {
+    }
+
+    public Listing(String name, String price, String rating, String user) {
+        hashMap = new HashMap();
+        LeasedKeys keys = new LeasedKeys();
+
+        hashMap.put(keys.getName(), name);
+        hashMap.put(keys.getPrice(), price);
+        hashMap.put(keys.getRating(), rating);
+        hashMap.put("Uid", user);
+
+    }
+
     public HashMap getHashMap(){
         return hashMap;
     }

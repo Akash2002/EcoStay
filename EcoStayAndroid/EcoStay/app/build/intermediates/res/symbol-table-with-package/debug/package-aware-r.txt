@@ -1416,6 +1416,7 @@ id blocking
 id bottom
 id bounce
 id btmNav
+id btnAdminDelete
 id btnBook
 id btnBookmark
 id btnConfirmBook
@@ -1530,6 +1531,7 @@ id jumpToStart
 id labeled
 id largeLabel
 id layoutLeaseItem
+id layoutLeaseItemAdmin
 id left
 id light
 id line1
@@ -1584,9 +1586,11 @@ id right
 id right_icon
 id right_side
 id rounded
+id rvAdmin
 id rvBookmark
 id rvBrowse
 id rvCurrentBooking
+id rvHome
 id rvPastBookings
 id rvUpcomingBookings
 id rvViewListings
@@ -1710,6 +1714,7 @@ id txtPhone
 id txtPhoneDisplay
 id txtPhoneLabel
 id txtPrice
+id txtRatingLabel
 id txtType
 id unchecked
 id uniform
@@ -1780,6 +1785,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_admin_view
 layout activity_booking
 layout activity_browse
 layout activity_browse_listing_info
@@ -1807,6 +1813,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout layout_listitem
+layout layout_listitem_admin
 layout material_alert_dialog
 layout material_alert_dialog_title
 layout mtrl_layout_snackbar

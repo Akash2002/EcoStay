@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
 MERGED from [com.google.android.material:material:1.1.0-alpha03] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\972e4fa5d0d2beddf1d37ce78587b183\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\1d4d2a3cb1dde59def3c9c7a49aeb6b9\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.1.0-alpha01] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\c369269d0ae7bca45639e306ffefa25b\AndroidManifest.xml:17:1-22:12
@@ -60,25 +60,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\theo\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\ddf2387a982a4a816e594dfa0d0c9722\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\eb92a32cb58e3c32dd9a8eef7714e341\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\dcd396ec71fe5e74947b73c358d568d9\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
 	package
 		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:3:5-26
 		INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:5:5-29:19
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:5:5-30:19
 MERGED from [com.google.android.material:material:1.1.0-alpha03] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\972e4fa5d0d2beddf1d37ce78587b183\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0-alpha03] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\972e4fa5d0d2beddf1d37ce78587b183\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-alpha3] C:\Users\theo\.gradle\caches\transforms-2\files-2.1\1d4d2a3cb1dde59def3c9c7a49aeb6b9\AndroidManifest.xml:9:5-20
@@ -139,60 +139,64 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] C:\Users\theo\.gradle\c
 		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.ecostay.AdminView
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:12:9-56
+	android:name
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:12:19-44
 activity#com.ecostay.EditListing
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:12:9-58
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:13:9-49
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:12:19-46
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:13:19-46
 activity#com.ecostay.Booking
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:13:9-45
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:14:9-45
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:13:19-42
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:14:19-42
 activity#com.ecostay.Browse
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:14:9-44
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:15:9-44
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:14:19-41
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:15:19-41
 activity#com.ecostay.BrowseListingInfo
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:15:9-54
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:16:9-55
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:15:19-52
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:16:19-52
 activity#com.ecostay.ListingInfo
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:16:9-49
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:17:9-49
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:16:19-46
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:17:19-46
 activity#com.ecostay.ViewListings
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:17:9-50
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:18:9-50
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:17:19-47
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:18:19-47
 activity#com.ecostay.ViewProfile
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:18:9-49
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:19:9-49
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:18:19-46
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:19:19-46
 activity#com.ecostay.Login
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:19:9-25:20
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:20:9-26:20
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:19:19-40
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:20:19-40
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:24:27-74
 activity#com.ecostay.Home
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:26:9-42
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:27:9-42
 	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:26:19-39
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:27:19-39
 activity#com.ecostay.CreateAccount
-ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:27:9-51
-	android:name
-		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:27:19-48
-activity#com.ecostay.CreateListing
 ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:28:9-51
 	android:name
 		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:28:19-48
+activity#com.ecostay.CreateListing
+ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:29:9-51
+	android:name
+		ADDED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml:29:19-48
 uses-sdk
 INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\theo\Desktop\EcoStay\EcoStayAndroid\EcoStay\app\src\main\AndroidManifest.xml
