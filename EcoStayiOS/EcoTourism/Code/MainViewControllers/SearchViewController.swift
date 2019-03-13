@@ -19,8 +19,10 @@ class Place {
     var rating: String = ""
     var ratingNum: String = ""
     var admin: String = ""
+    var numRented: String = ""
+    var popularityConstant: String = ""
     
-    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String, admin: String) {
+    init(name: String, address: String, desc: String, price: String, rating: String, ratingNum: String, admin: String, numRented: String) {
         self.name = name
         self.address = address
         self.desc = desc
@@ -40,52 +42,64 @@ class Place {
     
 }
 
-class PlaceCell: UICollectionViewCell {
+class PlaceCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var amenitiesLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
 }
 
-class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
-    @IBOutlet weak var viewBgLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var cellLabelColor: UILabel!
-    
-    static var seguePlace: Place = Place()
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return places.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredPlaceArray.count
+        } else {
+            return places.count
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell: PlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlaceCell
-        cell.nameLabel.text = places[indexPath.row].name
-        cell.priceLabel.text = "$" + places[indexPath.row].price + "/night"
-        cell.ratingLabel.text = places[indexPath.row].rating
-        cell.layer.cornerRadius = 5
-        cell.imageView.layer.cornerRadius = 5
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        cell.mainView.layer.cornerRadius = 10
-        cell.mainView.layer.borderWidth = 1.0
-        cell.mainView.layer.borderColor = UIColor.clear.cgColor
-        cell.mainView.layer.masksToBounds = true;
+        var cell: PlaceCell = tableView.dequeueReusableCell(withIdentifier: "placeTableCell", for: indexPath) as! PlaceCell
+        var model = places[indexPath.row]
+        if searchController.isActive && searchController.searchBar.text != "" {
+            model = filteredPlaceArray[indexPath.row]
+        } else {
+            model = places[indexPath.row]
+        }
         
-        cell.layer.shadowColor = UIColor(rgb: 0xE1E1E2).cgColor
-        cell.layer.shadowOffset = CGSize(width:2.0,height: 4.0)
-        cell.layer.shadowRadius = 2.0
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.masksToBounds = false;
+        cell.titleLabel.text = model.name
+        cell.priceLabel.text = "$" + model.price + "/night"
+        cell.ratingLabel.text = model.rating
+        cell.addressLabel.text = model.address
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        SearchViewController.seguePlace = places[indexPath.row]
+    
+    @IBOutlet weak var viewBgLabel: UILabel!
+    @IBOutlet weak var cellLabelColor: UILabel!
+    var tableViewController = UITableViewController()
+    
+    static var seguePlace: Place = Place()
+    
+    var filteredArray = [String]()
+    var placeNameArray = [String]()
+    var filteredPlaceArray = [Place]()
+    
+    var searchController = UISearchController(searchResultsController: nil)
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            SearchViewController.seguePlace = filteredPlaceArray[indexPath.row]
+        } else {
+            SearchViewController.seguePlace = places[indexPath.row]
+        }
         performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
     }
     
@@ -100,27 +114,43 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.contentInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
-        
         uid = (auth.currentUser?.uid)!
-        test();
+        loadData();
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Places"
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
+        
+        tableViewController.tableView.delegate = self
+        tableViewController.tableView.dataSource = self
+        
+        navigationItem.title = "Search"
     }
     
-    func test() {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        print("UPDATE")
+        filteredPlaceArray = places.filter({$0.name.contains(searchController.searchBar.text!)})
+        print(filteredPlaceArray)
+        tableView.reloadData()
+    }
+    
+    
+    
+    func loadData() {
         databaseReference.observe(.value) { (snapshot) in
             self.places.removeAll()
-            print("IN 1")
             for c in snapshot.children {
                 var userId = (c as? DataSnapshot)?.key ?? ""
                 self.databaseReference.child(userId).observe(.value, with: { (snapshot) in
                     self.places.removeAll()
-                    print("IN 2")
                     if let val = snapshot.value as? [String: Any?] {
                         var personName = val[DBGlobal.Name.rawValue]
                         if val[DBGlobal.LeasedPlaces.rawValue] != nil {
                             self.databaseReference.child(userId).child(DBGlobal.LeasedPlaces.rawValue).observe(.value, with: { (snapshot) in
                                 self.places.removeAll()
-                                print("IN 3")
                                 for c in snapshot.children {
                                         self.databaseReference.child(userId).child(DBGlobal.LeasedPlaces.rawValue).child(((c as? DataSnapshot)?.key)!).observe(.value, with: { (snapshot) in
                                             var place = Place()
@@ -151,8 +181,25 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                                                             place.address = "Address: " + (placeVal[DBGlobal.Specific.Address.rawValue] as! String)
                                                                             place.desc = placeVal[DBGlobal.Specific.Description.rawValue] as! String
                                                                             place.price = (placeVal[DBGlobal.Specific.Price.rawValue] as! String)
-                                                                            place.rating = (placeVal[DBGlobal.Specific.Rating.rawValue] as! String)
-                                                                            place.ratingNum = (placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String)
+                                                                            if let ratingNum = Double((placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String)) {
+                                                                                if ratingNum != 0 {
+                                                                                    place.ratingNum = String(ratingNum)
+                                                                                    if let rating = Double((placeVal[DBGlobal.Specific.Rating.rawValue] as! String)) {
+                                                                                        place.rating = String(rating/ratingNum)
+                                                                                    }
+                                                                                } else {
+                                                                                    place.ratingNum = String(0)
+                                                                                    place.rating = String(0)
+                                                                                }
+                                                                            }
+                                                                            
+                                                                            if let numRented = Int((placeVal[DBGlobal.Specific.NumRented.rawValue] as! String)) {
+                                                                                if numRented != 0 {
+                                                                                    place.numRented = String(numRented)
+                                                                                } else {
+                                                                                    place.numRented = String(0)
+                                                                                }
+                                                                            }
                                                                             place.admin = personName as! String
                                                                             
                                                                             var c = 0
@@ -165,7 +212,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                                                                 self.places.append(place)
                                                                             }
                                                                             
-                                                                            self.collectionView.reloadData()
+                                                                            self.tableView.reloadData()
                                                                         })
                                                                     }
                                                                     
@@ -177,7 +224,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                                             }
                                             
                                         })
-                                    
                                 }
                             })
                         }

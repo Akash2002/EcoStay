@@ -15,6 +15,8 @@ enum DBGlobal: String {
     case Name = "Name"
     case Phone = "Phone"
     case Email = "Email"
+    case BookedPlaces = "BookedPlaces"
+    case FinishedPlaces = "FinishedPlaces"
     
     enum Specific: String {
         case Address = "Address"
@@ -23,6 +25,12 @@ enum DBGlobal: String {
         case Price = "Price"
         case Rating = "Rating"
         case RatingNum = "RatingNum"
+        case NumRented = "NumRented"
+    }
+    
+    enum LeasedPlaceDetails: String {
+        case From = "FromWhen"
+        case To = "ToWhen"
     }
     
 }

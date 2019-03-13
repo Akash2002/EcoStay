@@ -13,9 +13,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var pwdField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var underline: UIView!
+    @IBOutlet weak var loginButton: UIButton!
     
     var email: String = ""
     var pwd: String = ""
@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        modButton()
+        //modButton()
         self.navigationController?.navigationBar.isHidden = true
         
         testSubstrings()
@@ -51,8 +51,8 @@ class LoginViewController: UIViewController {
             }
         }
         
-        if (!validEmail && !validPwd) {
-            Auth.auth().signIn(withEmail: "akashpalaniappan@gmail.com", password: "akash#123") { (user, error) in
+        if (validEmail && validPwd) {
+            Auth.auth().signIn(withEmail: email, password: pwd) { (user, error) in
                 if error != nil {
                     print("ERR")
                     CustomAlert().showAlert(headingAlert: "Could not sign in.", messageAlert: (error?.localizedDescription)!, actionTitle: "Retry", viewController: self, handleAction: { (action) in

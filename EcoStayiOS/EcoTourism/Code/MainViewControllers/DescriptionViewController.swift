@@ -14,12 +14,9 @@ class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.navigationItem.title = "Information"
         desc.text = SearchViewController.seguePlace.desc
         heading.text = SearchViewController.seguePlace.name + " - " + "Info"
-        
     }
     
-
 }

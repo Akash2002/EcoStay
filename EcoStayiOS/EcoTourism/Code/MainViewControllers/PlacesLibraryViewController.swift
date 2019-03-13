@@ -13,27 +13,30 @@ import FirebaseAuth
 class PlaceLibraryCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var fromToDateLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var currentImageView: UIImageView!
-    @IBOutlet weak var previousImageView: UIImageView!
+    @IBOutlet weak var numRentedLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     
 }
 
 class RentedPlace {
     var title = ""
     var fromToDate = ""
-    var current = false
+    var status = ""
     
-    init(title: String, fromToDate: String, current: Bool) {
+    init(title: String, fromToDate: String, status: String) {
         self.title = title
         self.fromToDate = fromToDate
-        self.current = current
+        self.status = status
+    }
+    
+    init(title: String, fromToDate: String) {
+        self.title = title
+        self.fromToDate = fromToDate
     }
     
     init() {
         
     }
-    
 }
 
 class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -41,12 +44,15 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var segmentControl: UISegmentedControl!
     var segmentValue = ""
     var place = RentedPlace()
-    var rentedPlaces = [RentedPlace]()
     var leasedPlaces = [Place]()
+    var rentedPlaces = [RentedPlace]()
+    var savedPlaces = [String]()
+    var alert = CustomAlert()
+    static var reviewPlace = ""
     
     var dbRef = Database.database().reference().child(Auth.auth().currentUser!.uid)
     
-    var segmentHeaders = ["Rented","Listed","Saved"]
+    var segmentHeaders = ["Rented", "Listed", "Saved"]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -54,73 +60,164 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         
         segmentValue = "Rented"
-        processDataBooked()
         processDataLeased()
+        processDataSaved()
+        processDataRented()
         
-        tableView.layer.cornerRadius = 10
-        tableView.layer.borderWidth = 2
-        tableView.layer.borderColor = UIColor.clear.cgColor
-        tableView.layer.masksToBounds = true
-        
-        print(DateUtility.isDateInRange(date1: DateUtility.getDateDate(date: "01/22/2002"), date2: DateUtility.getDateDate(date: "02/22/2002"), compareDate: DateUtility.getDateDate(date: "02/17/2002")))
+        alert.hasRated = false
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentValue {
-        case "Rented":
-            return rentedPlaces.count
-        case "Listed":
-            return leasedPlaces.count
-        default:
-            return rentedPlaces.count
+            case "Listed":
+                return leasedPlaces.count
+            case "Saved":
+                return savedPlaces.count
+            case "Rented":
+                return rentedPlaces.count
+            default:
+                return rentedPlaces.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if segmentValue == "Rented" {
+            let rate = UITableViewRowAction(style: .normal, title: "Rate") { (action, indexPath) in
+                self.alert.ratingActionSheet(place: self.rentedPlaces[indexPath.row], headingAlert: "Rate", messageAlert: "Rate", actionTitle: "Submit", viewController: self, navigationController: self.navigationController!)
+            }
+            let review = UITableViewRowAction(style: .normal, title: "Review") { (action, indexPath) in
+                self.performSegue(withIdentifier: "toReviewSegue", sender: self)
+                PlacesLibraryViewController.reviewPlace = self.rentedPlaces[indexPath.row].title
+            }
+            rate.backgroundColor = UIColor(red: 0, green: 100, blue: 148)
+            review.backgroundColor = UIColor(red: 199, green: 49, blue: 79)
+            return [review, rate]
+        } else if segmentValue == "Saved" {
+            let delete = UITableViewRowAction(style: .normal, title: "Delete") { (action, indexPath) in
+                Database.database().reference().child(Auth.auth().currentUser!.uid).child("BookmarkedPlaces").child(self.savedPlaces[indexPath.row]).removeValue()
+                
+                self.navigationController?.popViewController(animated: true)
+                
+            }
+            delete.backgroundColor = .red
+            return [delete]
+        } else {
+            let delete = UITableViewRowAction(style: .normal, title: "Delete") { (action, indexPath) in
+                Database.database().reference().child(Auth.auth().currentUser!.uid).child("Leased Places").child(self.leasedPlaces[indexPath.row].name).removeValue()
+                
+                self.navigationController?.popViewController(animated: true)
+            }
+            delete.backgroundColor = .red
+            return [delete]
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? PlaceLibraryCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlaceLibraryCell
         switch segmentValue {
             case "Rented":
-                cell?.titleLabel.text = rentedPlaces[indexPath.row].title
-                cell?.fromToDateLabel.text = rentedPlaces[indexPath.row].fromToDate
-                if (place.current) {
-                    cell?.currentImageView.isHidden = true
-                    cell?.previousImageView.isHidden = false
+                var status = rentedPlaces[indexPath.row].status
+                cell.titleLabel.text = rentedPlaces[indexPath.row].title
+                cell.fromToDateLabel.text = rentedPlaces[indexPath.row].fromToDate
+                cell.numRentedLabel.text = status
+                
+                if status == "Upcoming" {
+                    cell.numRentedLabel.textColor = UIColor(red: 0, green: 100, blue: 148)
+                } else if status == "Past" {
+                    cell.numRentedLabel.textColor = UIColor(red: 199, green: 49, blue: 79)
                 } else {
-                    cell?.currentImageView.isHidden = false
-                    cell?.previousImageView.isHidden = true
+                    cell.numRentedLabel.textColor = UIColor(red: 0, green: 164, blue: 85)
                 }
-                return cell!
+                
+                cell.fromToDateLabel.isHidden = false
+                cell.ratingLabel.isHidden = true
+                cell.numRentedLabel.isHidden = false
+                return cell
             case "Listed":
-                cell?.titleLabel.text = leasedPlaces[indexPath.row].name
-                cell?.fromToDateLabel.text = leasedPlaces[indexPath.row].price
-                return cell!
+                cell.titleLabel.text = leasedPlaces[indexPath.row].name
+                cell.fromToDateLabel.text = "$" + leasedPlaces[indexPath.row].price + "/night"
+                cell.numRentedLabel.text = "Num Rented: " + leasedPlaces[indexPath.row].numRented
+                cell.numRentedLabel.textColor = UIColor(red: 111, green: 113, blue: 121)
+                
+                cell.ratingLabel.text = "⭑ \(leasedPlaces[indexPath.row].rating)"
+                cell.fromToDateLabel.isHighlighted = false
+                cell.ratingLabel.isHidden = false
+                cell.numRentedLabel.isHidden = false
+                return cell
+            case "Saved":
+                cell.titleLabel.text = savedPlaces[indexPath.row]
+                cell.fromToDateLabel.isHidden = true
+                cell.ratingLabel.isHidden = true
+                cell.numRentedLabel.isHidden = true
+                return cell
             default: return UITableViewCell()
         }
     }
     
     @IBAction func onSegmentValueChange(_ sender: Any) {
         segmentValue = segmentHeaders[segmentControl.selectedSegmentIndex]
-        print("Segment \(segmentValue)")
         tableView.reloadData()
     }
     
-    func processDataBooked () {
+    func processDataRented() {
         dbRef.observe(.value) { (snapshot) in
+            self.rentedPlaces.removeAll()
             if let value = snapshot.value as? [String: Any?] {
                 if value["BookedPlaces"] != nil {
+                    self.rentedPlaces.removeAll()
                     self.dbRef.child("BookedPlaces").observe(.value, with: { (snapshot) in
-                        for places in snapshot.children {
-                            self.dbRef.child("BookedPlaces").child((places as? DataSnapshot)!.key).observe(.value, with: { (snapshot) in
-                                if let value = snapshot.value as? [String: Any?] {
-                                    self.place.title = (places as? DataSnapshot)!.key
-                                    self.place.fromToDate = (value["FromWhen"] as! String) + " to " + (value["ToWhen"] as! String)
-                                    self.place.current = DateUtility.isDateInRange(date1: DateUtility.getDateDate(date: value["FromWhen"] as! String), date2: DateUtility.getDateDate(date: value["ToWhen"] as! String), compareDate: DateUtility.getDateDate(date: DateUtility.getCurrentDate()))
-                                    self.rentedPlaces.append(self.place)
-                                    DispatchQueue.main.async(execute: {
-                                        self.tableView.reloadData()
-                                    })
+                        for place in snapshot.children {
+                            self.dbRef.child("BookedPlaces").child((place as? DataSnapshot)!.key).observe(.value, with: { (snapshot) in
+                                if let val = snapshot.value as? [String: Any?] {
+                                    
+                                    if val["ToWhen"] != nil {
+                                        if val["FromWhen"] != nil {
+                                            var dateTo = DateUtility.getDateDate(date: val["ToWhen"] as! String)
+                                            var dateFrom = DateUtility.getDateDate(date: val["FromWhen"] as! String)
+                                            var currentDate = DateUtility.getDateDate(date: DateUtility.getCurrentDate())
+                                            var place = RentedPlace(title: (place as? DataSnapshot)!.key, fromToDate: (val["FromWhen"] as! String) + " - " + (val["ToWhen"] as! String))
+                                            
+                                            if DateUtility.isDateGreater(placeHolderDate: dateTo, dateToBeCompared: currentDate) {
+                                                place.status = "Past"
+                                            }
+                                            
+                                            if DateUtility.isDateInRange(date1: dateFrom, date2: dateTo, compareDate: currentDate) {
+                                                place.status = "Current"
+                                            }
+                                            
+                                            if DateUtility.isDateGreater(placeHolderDate: currentDate, dateToBeCompared: dateFrom) {
+                                                place.status = "Upcoming"
+                                            }
+                                            
+                                            self.rentedPlaces.append(place)
+                                            
+                                            DispatchQueue.main.async(execute: {
+                                                self.tableView.reloadData()
+                                            })
+                                        }
+                                    }
+                                    
+                                    
                                 }
+                            })
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+    func processDataSaved () {
+        dbRef.observe(.value) { (snapshot) in
+            self.savedPlaces.removeAll()
+            if let value = snapshot.value as? [String: Any?] {
+                if value["BookmarkedPlaces"] != nil {
+                    self.dbRef.child("BookmarkedPlaces").observe(.value, with: { (snapshot) in
+                        for places in snapshot.children {
+                            self.savedPlaces.append(((places as? DataSnapshot)?.key)!)
+                            DispatchQueue.main.async(execute: {
+                                self.tableView.reloadData()
                             })
                         }
                     })
@@ -131,9 +228,11 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
     
     func processDataLeased () {
         dbRef.observe(.value) { (snapshot) in
+            self.leasedPlaces.removeAll()
             if let val = snapshot.value as? [String: Any?] {
                 if val[DBGlobal.LeasedPlaces.rawValue] != nil {
                     self.dbRef.child(DBGlobal.LeasedPlaces.rawValue).observe(.value, with: { (snapshot) in
+                        self.leasedPlaces.removeAll()
                         for tempPlaces in snapshot.children {
                             self.dbRef.child(DBGlobal.LeasedPlaces.rawValue).child((tempPlaces as? DataSnapshot)!.key).observe(.value, with: { (snapshot) in
                                 if let val = snapshot.value as? [String: Any?] {
@@ -145,7 +244,6 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
                                                         if placeVal[DBGlobal.Specific.Rating.rawValue] != nil {
                                                             if placeVal[DBGlobal.Specific.RatingNum.rawValue] != nil {
                                                                 if placeVal[DBGlobal.Specific.Amenities.rawValue] != nil {
-                                                                   print("INTOTHISSHIT")
                                                                     self.dbRef.child(DBGlobal.LeasedPlaces.rawValue).child((tempPlaces as? DataSnapshot)!.key).child(DBGlobal.Specific.Amenities.rawValue).observe(.value, with: { (snapshot) in
                                                                         if let amenityVal = snapshot.value as? [String: Int] {
                                                                             var tempAmenities: [Amenity] = []
@@ -164,13 +262,28 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
                                                                         place.address = "Address: " + (placeVal[DBGlobal.Specific.Address.rawValue] as! String)
                                                                         place.desc = placeVal[DBGlobal.Specific.Description.rawValue] as! String
                                                                         place.price = (placeVal[DBGlobal.Specific.Price.rawValue] as! String)
-                                                                        place.rating = (placeVal[DBGlobal.Specific.Rating.rawValue] as! String)
-                                                                        place.ratingNum = (placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String)
                                                                         
+                                                                        if let ratingNum = Double((placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String)) {
+                                                                            if ratingNum != 0 {
+                                                                                place.ratingNum = String(ratingNum)
+                                                                                if let rating = Double((placeVal[DBGlobal.Specific.Rating.rawValue] as! String)) {
+                                                                                    place.rating = String(rating/ratingNum)
+                                                                                }
+                                                                            } else {
+                                                                                place.ratingNum = String(0)
+                                                                                place.rating = String(0)
+                                                                            }
+                                                                        }
+                                                                        
+                                                                        if let numRented = Int((placeVal[DBGlobal.Specific.NumRented.rawValue] as! String)) {
+                                                                            if numRented != 0 {
+                                                                                place.numRented = String(numRented)
+                                                                            } else {
+                                                                                place.numRented = String(0)
+                                                                            }
+                                                                        }
                                                                         self.leasedPlaces.append(place)
                                                                         
-                                                                        print(place.name)
-                                                                       
                                                                         DispatchQueue.main.async(execute: {
                                                                             self.tableView.reloadData()
                                                                         })

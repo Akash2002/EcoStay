@@ -10,10 +10,11 @@ import Foundation
 
 class DateUtility {
     
+    
     static func getCurrentDate () -> String {
         let date = Date()
-        let cal = Calendar.current
         
+        var cal: Calendar = Calendar.current
         let hour = cal.component(.hour, from: date)
         let minute = cal.component(.minute, from: date)
         
@@ -21,7 +22,7 @@ class DateUtility {
         let month = cal.component(.month, from: date)
         let day = cal.component(.day, from: date)
         
-        return String(month) + "-" + String(day) + "-" + String(year) + " " + String(hour) + ":" + String(minute)
+        return String(month) + "-" + String(day) + "-" + String(year)
     }
     
     static func getDateDate(date: String) -> Date {
@@ -59,19 +60,37 @@ class DateUtility {
     static func getDateRange (from: Date, to: Date) -> [Date] {
         var dates = [Date]()
         var fromDate = from
-        while fromDate < to {
-            fromDate = Calendar.current.date(byAdding: .day, value: 1, to: fromDate)!
+        while fromDate <= to {
             dates.append(fromDate)
+            fromDate = Calendar.current.date(byAdding: .day, value: 1, to: fromDate)!
         }
         return dates
     }
     
     static func isDateInRange (date1: Date, date2: Date, compareDate: Date) -> Bool {
-        if (compareDate < date2) && (compareDate > date1) {
+        if (compareDate <= date2) && (compareDate >= date1) {
             return true
         } else {
             return false
         }
+    }
+    
+    static func isDateGreater (placeHolderDate: Date, dateToBeCompared: Date) -> Bool {
+        if (dateToBeCompared > placeHolderDate) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func addDaysToDate (date: Date, numDaysToBeAdded: Int) -> String {
+        var cal: Calendar = Calendar.current
+        var newDate = cal.date(byAdding: Calendar.Component.day, value: numDaysToBeAdded, to: date)!
+        var tyear = cal.component(Calendar.Component.year, from: newDate)
+        var tmonth = cal.component(Calendar.Component.month, from: newDate)
+        var tday = cal.component(Calendar.Component.day, from: newDate)
+        var completeDateString2 = String(tmonth) + "-" + String(tday) + "-" + String(tyear);
+        return completeDateString2
     }
     
 }
