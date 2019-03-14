@@ -126,9 +126,9 @@ public class BrowseListingInfo extends AppCompatActivity {
                         temp += rate.getRating();
                         temp /= (Float.parseFloat(map.get("NumRated").toString()) + 1);
                         DatabaseReference ref2 = database.getReference(getIntent().getExtras().get("User") + "/Leased Places/" + getIntent().getExtras().get("Listing Path") + "/Rating");
-                        ref2.setValue(temp);
+                        ref2.setValue(Float.toString(temp));
                         ref2 = database.getReference(getIntent().getExtras().get("User") + "/Leased Places/" + getIntent().getExtras().get("Listing Path") + "/NumRated");
-                        ref2.setValue(Float.parseFloat(map.get("NumRated").toString()) + 1);
+                        ref2.setValue(map.get("NumRated").toString() + 1);
                     }
 
                     @Override

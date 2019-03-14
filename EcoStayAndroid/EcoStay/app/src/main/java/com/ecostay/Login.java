@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Intent goToHome = new Intent(getApplicationContext(), Home.class);
+                                Intent goToHome = new Intent(getApplicationContext(), Controller.class);
                                 startActivity(goToHome);
                             }
                         }

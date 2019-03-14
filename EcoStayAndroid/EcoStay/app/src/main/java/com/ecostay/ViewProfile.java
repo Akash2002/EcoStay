@@ -1,13 +1,19 @@
 package com.ecostay;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
@@ -24,7 +30,7 @@ import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
-public class ViewProfile extends AppCompatActivity {
+public class ViewProfile extends Fragment {
 
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
@@ -33,54 +39,25 @@ public class ViewProfile extends AppCompatActivity {
 
     TextInputEditText name, email, phone, password;
 
-    BottomNavigationView bottomNavigationView;
+    View v;
 
     private ViewPager mViewPager;
+    private FragmentActivity myContext;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Intent nextScreen;
-
-                    switch(item.getItemId()){
-                        case R.id.navigation_search:
-                            nextScreen = new Intent(getApplicationContext(), Home.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_browse:
-                            nextScreen = new Intent(getApplicationContext(), Browse.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_createListing:
-                            nextScreen = new Intent(getApplicationContext(), ViewListings.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_profile:
-                            return true;
-                    }
-
-                    return false;
-                }
-            };
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_profile);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.activity_view_profile, container, false);
 
-        bottomNavigationView = findViewById(R.id.btmNav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-
-        name = findViewById(R.id.edttxtNameDisplay);
-        email = findViewById(R.id.edttxtEmailDisplay);
-        phone = findViewById(R.id.edttxtPhoneDisplay);
+        name = v.findViewById(R.id.edttxtNameDisplay);
+        email = v.findViewById(R.id.edttxtEmailDisplay);
+        phone = v.findViewById(R.id.edttxtPhoneDisplay);
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
 
-        mViewPager = findViewById(R.id.viewpagerProfile);
+        mViewPager = v.findViewById(R.id.viewpagerProfile);
         setUpViewPager(mViewPager);
 
         ref = database.getReference(currentUser.getUid());
@@ -100,14 +77,22 @@ public class ViewProfile extends AppCompatActivity {
 
             }
         });
+
+        return v;
     }
 
     private void setUpViewPager(ViewPager viewPager){
-        SectionViewAdapter adapter = new SectionViewAdapter(getSupportFragmentManager());
+        SectionViewAdapter adapter = new SectionViewAdapter(myContext.getSupportFragmentManager());
         adapter.addFragment(new CurrentBooking(), "Current Booking");
         adapter.addFragment(new PastBookings(), "Past Bookings");
         adapter.addFragment(new ViewBookedListings(), "Upcoming Bookings");
         adapter.addFragment(new ViewBookmarked(), "Book marked");
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onAttach(Activity activity){
+        myContext = (FragmentActivity) activity;
+        super.onAttach(myContext);
     }
 }

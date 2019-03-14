@@ -100,11 +100,15 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         
         if !SearchViewController.didFilter {
             var cell: PlaceCell = tableView.dequeueReusableCell(withIdentifier: "placeTableCell", for: indexPath) as! PlaceCell
-            var model = places[indexPath.row]
+            var model = Place()
             if searchController.isActive && searchController.searchBar.text != "" {
                 model = filteredPlaceArray[indexPath.row]
             } else {
-                model = places[indexPath.row]
+                if !SearchViewController.didFilter {
+                    model = places[indexPath.row]
+                } else {
+                    model = filteredOptionDetailPlaceArray[indexPath.row]
+                }
             }
             
             cell.titleLabel.text = model.name

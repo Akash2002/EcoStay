@@ -19,23 +19,12 @@
         android:layout_height="80dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/btmNav"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rvViewListings"
         app:layout_constraintEnd_toEndOf="@+id/rvViewListings"
         android:id="@+id/btnNewListing"
-        android:pointerIcon="alias"/>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/btmNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/home_navigation">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        android:src="@drawable/ic_add_circle_outline_black_24dp"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"

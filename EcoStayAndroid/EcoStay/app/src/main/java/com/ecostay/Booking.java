@@ -1,13 +1,18 @@
 package com.ecostay;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CalendarView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,7 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Booking extends AppCompatActivity {
+public class Booking extends Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
@@ -34,54 +39,23 @@ public class Booking extends AppCompatActivity {
 
     MaterialButton submit, startDate, endDate;
 
+    View v;
+
     CalendarView cal;
     Calendar start = new com.ecostay.Calendar();
     Calendar end = new com.ecostay.Calendar();
     int control = 1;
 
-    BottomNavigationView bottomNavigationView;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Intent nextScreen;
-
-                    switch(item.getItemId()){
-                        case R.id.navigation_search:
-                            nextScreen = new Intent(getApplicationContext(), Home.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_browse:
-                            nextScreen = new Intent(getApplicationContext(), Browse.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_createListing:
-                            nextScreen = new Intent(getApplicationContext(), ViewListings.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_profile:
-                            nextScreen = new Intent(getApplicationContext(), ViewProfile.class);
-                            startActivity(nextScreen);
-                            return true;
-                    }
-
-                    return false;
-                }
-            };
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.activity_booking, container, false;
 
-        submit = findViewById(R.id.btnConfirmBook);
+        submit = v.findViewById(R.id.btnConfirmBook);
 
-        bottomNavigationView = findViewById(R.id.btmNav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-
-        startDate = findViewById(R.id.btnStartDate);
-        endDate = findViewById(R.id.btnEndDate);
+        startDate = v.findViewById(R.id.btnStartDate);
+        endDate = v.findViewById(R.id.btnEndDate);
 
         startDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +71,7 @@ public class Booking extends AppCompatActivity {
             }
         });
 
-        cal = findViewById(R.id.calendarView);
+        cal = v.findViewById(R.id.calendarView);
 
         cal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -138,9 +112,11 @@ public class Booking extends AppCompatActivity {
                 ref.child("FromWhen").setValue(form.format(form.parse(start.toString(), new ParsePosition(0))));
                 ref.child("ToWhen").setValue(form.format(form.parse(end.toString(), new ParsePosition(0))));
 
-                Intent goBrowse = new Intent(getApplicationContext(), Browse.class);
+                Intent goBrowse = new Intent(v.getContext(), Browse.class);
                 startActivity(goBrowse);
             }
         });
+
+        return v;
     }
 }

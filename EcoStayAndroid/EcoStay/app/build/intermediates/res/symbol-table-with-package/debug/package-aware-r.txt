@@ -1307,8 +1307,12 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable draw_button
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_add_black_24dp
+drawable ic_add_black_64dp
+drawable ic_add_circle_outline_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
@@ -1442,6 +1446,8 @@ id checked
 id chip
 id chip_group
 id chronometer
+id clControl
+id clHome
 id clip_horizontal
 id clip_vertical
 id collapseActionView
@@ -1789,6 +1795,7 @@ layout activity_admin_view
 layout activity_booking
 layout activity_browse
 layout activity_browse_listing_info
+layout activity_controller
 layout activity_create_account
 layout activity_create_listing
 layout activity_edit_listing

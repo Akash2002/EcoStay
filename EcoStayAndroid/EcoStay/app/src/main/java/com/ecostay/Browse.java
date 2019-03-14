@@ -1,14 +1,20 @@
 package com.ecostay;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.InflateException;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,8 +27,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.zip.Inflater;
 
-public class Browse extends AppCompatActivity {
+public class Browse extends android.app.Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
@@ -33,44 +40,15 @@ public class Browse extends AppCompatActivity {
     ArrayList<String> mPrice = new ArrayList<>();
     ArrayList<String> mRating = new ArrayList<>();
 
-    BottomNavigationView bottomNavigationView;
+    View v;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Intent nextScreen;
-
-                    switch(item.getItemId()){
-                        case R.id.navigation_search:
-                            nextScreen = new Intent(getApplicationContext(), Home.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_browse:
-                            return true;
-                        case R.id.navigation_createListing:
-                            nextScreen = new Intent(getApplicationContext(), ViewListings.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_profile:
-                            nextScreen = new Intent(getApplicationContext(), ViewProfile.class);
-                            startActivity(nextScreen);
-                            return true;
-                    }
-
-                    return false;
-                }
-            };
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_browse);
-
-        bottomNavigationView = findViewById(R.id.btmNav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.activity_browse, container, false);
 
         initImageBitmaps();
+        return v;
     }
 
     private void initImageBitmaps(){
@@ -104,10 +82,10 @@ public class Browse extends AppCompatActivity {
     }
 
     private void initRecyclerView(){
-        RecyclerView recyclerView = findViewById(R.id.rvBrowse);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mLeaseNames, mImageNames, mUserID, mPrice, mRating, this);
+        RecyclerView recyclerView = v.findViewById(R.id.rvBrowse);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mLeaseNames, mImageNames, mUserID, mPrice, mRating, v.getContext());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
 
     }
 }

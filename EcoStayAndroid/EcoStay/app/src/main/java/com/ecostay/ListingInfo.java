@@ -3,6 +3,7 @@ package com.ecostay;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -101,6 +102,11 @@ public class ListingInfo extends AppCompatActivity {
                 goToBooking.putExtra("List Name", name.getText().toString());
                 goToBooking.putExtra("User", getIntent().getExtras().get("User").toString());
                 startActivity(goToBooking);
+
+                Fragment goToFragment = new Booking();
+                Bundle bundle = new Bundle();
+
+                goToFragment.setArguments(bundle);
             }
         });
 
