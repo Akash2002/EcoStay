@@ -15,5 +15,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/home_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:menu="@menu/home_navigation"
+        app:itemTextColor="@drawable/btm_nav_sel"
+        app:itemIconTint="@drawable/btm_nav_sel">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

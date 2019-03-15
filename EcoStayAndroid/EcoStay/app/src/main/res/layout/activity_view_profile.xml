@@ -8,6 +8,17 @@
     android:scrollbars="vertical"
     tools:context=".ViewProfile">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Profile"
+        app:titleTextColor="#006494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/tbProfile">
+    </androidx.appcompat.widget.Toolbar>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtNameLabel"
         android:layout_width="wrap_content"
@@ -16,14 +27,15 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbProfile"
         app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:editable="false"
-            android:text="Name:" />
+            android:text="Name:"
+            android:textColor="#009FB7"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -34,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txtNameLabel"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbProfile"
         app:boxBackgroundColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -55,13 +67,15 @@
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNameLabel"
-        app:boxBackgroundColor="@android:color/white">
+        app:boxBackgroundColor="@android:color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:editable="false"
-            android:text="Email:" />
+            android:text="Email:"
+            android:textColor="#009FB7"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -101,7 +115,8 @@
             android:editable="false"
             android:text="Phone Number:"
             android:textAlignment="viewEnd"
-            android:layout_gravity="end"/>
+            android:layout_gravity="end"
+            android:textColor="#009FB7"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -124,21 +139,12 @@
             android:layout_gravity="end"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnPassChange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtPhoneDisplay"
-        android:text="Change Password"/>
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpagerProfile"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btmNav"
-        app:layout_constraintTop_toBottomOf="@+id/btnPassChange">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPhoneDisplay">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayoutMyListings"
@@ -148,4 +154,5 @@
         </com.google.android.material.tabs.TabLayout>
 
     </androidx.viewpager.widget.ViewPager>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

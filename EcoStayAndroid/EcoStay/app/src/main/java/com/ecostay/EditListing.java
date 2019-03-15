@@ -29,47 +29,14 @@ public class EditListing extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
 
-    MaterialButton saveChanges;
+    MaterialButton saveChanges, delete;
     TextInputEditText name, address, description, price;
 
-    BottomNavigationView bottomNavigationView;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Intent nextScreen;
-
-                    switch(item.getItemId()){
-                        case R.id.navigation_search:
-                            nextScreen = new Intent(getApplicationContext(), Home.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_browse:
-                            nextScreen = new Intent(getApplicationContext(), Browse.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_createListing:
-                            nextScreen = new Intent(getApplicationContext(), ViewListings.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_profile:
-                            nextScreen = new Intent(getApplicationContext(), ViewProfile.class);
-                            startActivity(nextScreen);
-                            return true;
-                    }
-
-                    return false;
-                }
-            };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_listing);
-
-        bottomNavigationView = findViewById(R.id.btmNav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         saveChanges = findViewById(R.id.btnSaveChanges);
 
@@ -97,6 +64,7 @@ public class EditListing extends AppCompatActivity {
         address = findViewById(R.id.edttxtListingAddress);
         description = findViewById(R.id.edttxtListingDescription);
         price = findViewById(R.id.edttxtListingPrice);
+        delete = findViewById(R.id.btnDeleteListing);
 
         ref = database.getReference(user.getUid() + "/Leased Places/" + getIntent().getExtras().get("Listing Path"));
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -113,6 +81,13 @@ public class EditListing extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ref.removeValue();
             }
         });
     }

@@ -91,8 +91,8 @@ public class CurrentBooking extends Fragment {
     private void initRecyclerView(){
         if(mImageNames.size() > 0) {
             defaultMessage = this.getView().findViewById(R.id.txtDefaultCurrent);
-            defaultMessage.setVisibility(View.INVISIBLE);
-            Log.d("past", "rnn" + mImageNames.size());
+            //defaultMessage.setVisibility(View.INVISIBLE);
+            Log.d("current", "rnn" + mImageNames.size());
             RecyclerView recyclerView = this.getView().findViewById(R.id.rvCurrentBooking);
             RecyclerViewAdapter adapter = new RecyclerViewAdapter(mLeaseNames, mImageNames, mUserID, mPrice, mRating, this.getContext());
             recyclerView.setAdapter(adapter);

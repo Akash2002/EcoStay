@@ -60,11 +60,11 @@ public class ViewBookedListings extends Fragment {
 
     public void initListItems(){
 
-        mLeaseNames = new ArrayList<>();
-        mImageNames = new ArrayList<>();
-        mUserID = new ArrayList<>();
-        mPrice = new ArrayList<>();
-        mRating = new ArrayList<>();
+        mLeaseNames.clear();
+        mImageNames.clear();
+        mUserID.clear();
+        mPrice.clear();
+        mRating.clear();
 
         ref = database.getReference(user.getUid() + "/BookedPlaces");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -114,7 +114,8 @@ public class ViewBookedListings extends Fragment {
     }
 
     private void initRecyclerView(){
-        if(mLeaseNames.size() > 0) {
+        Log.d("UP", Integer.toString(mImageNames.size()));
+        if(mImageNames.size() > 0) {
             defaultMessage = this.getView().findViewById(R.id.txtDefaultFutureBooking);
             defaultMessage.setVisibility(View.INVISIBLE);
             RecyclerView recyclerView = this.getView().findViewById(R.id.rvUpcomingBookings);

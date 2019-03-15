@@ -10,15 +10,19 @@
         android:id="@+id/txtListingName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxStrokeColor="#006BF7"
+        app:hintTextColor="#006494"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp"
-        app:boxBackgroundColor="@android:color/white">
+        tools:layout_editor_absoluteX="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edttxtListingName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/edttxtListingName"
-            android:editable="false"/>
+            android:editable="false"
+            android:textColor="#006FB7"
+            android:textColorHighlight="#006494" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -32,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/edttxtListingAddress"
-            android:editable="false"/>
+            android:editable="false"
+            android:textColor="#006FB7"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,7 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/edttxtListingDescription"
-            android:editable="false"/>
+            android:editable="false"
+            android:textColor="#006FB7"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,7 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/edttxtListingPrice"
-            android:editable="false"/>
+            android:editable="false"
+            android:textColor="#006FB7"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -75,38 +82,32 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Book This Place"
+        app:backgroundTint="#006494"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtListingPrice" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/btmNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/home_navigation">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btmNav"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:progressTint="#D4AF37"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBookmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#006494"
         android:text="Bookmark This Listing"
-        android:id="@+id/btnBookmark"
-        app:layout_constraintTop_toBottomOf="@id/btnBook"
-        app:layout_constraintStart_toStartOf="parent"
+        app:backgroundTint="#006494"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

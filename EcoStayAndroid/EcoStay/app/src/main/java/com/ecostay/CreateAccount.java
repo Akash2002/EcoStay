@@ -64,7 +64,7 @@ public class CreateAccount extends AppCompatActivity {
                                 ref.child("BookedPlaces");
                                 ref.child("BookmarkedPlaces");
 
-                                Intent goHome = new Intent(getApplicationContext(), Home.class);
+                                Intent goHome = new Intent(getApplicationContext(), Controller.class);
                                 startActivity(goHome);
 
                             }else{

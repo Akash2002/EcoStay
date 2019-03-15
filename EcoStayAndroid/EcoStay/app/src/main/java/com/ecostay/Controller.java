@@ -15,7 +15,6 @@ public class Controller extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
-    ViewPager viewPager;
     Fragment goToFragment = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
@@ -51,12 +50,15 @@ public class Controller extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.btmNav);
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
-    }
-
-    @Override
-    public void onStart(){
-        super.onStart();
-        goToFragment = new Home();
-        getFragmentManager().beginTransaction().replace(R.id.clControl, goToFragment);
+        if(getIntent().hasExtra("Fragment")) {
+            if (getIntent().getExtras().get("Fragment").equals("Browse")) {
+                goToFragment = new Browse();
+            } else if (getIntent().getExtras().get("Fragment").equals("Listings")) {
+                goToFragment = new ViewListings();
+            }
+        }else{
+            goToFragment = new Home();
+        }
+        getFragmentManager().beginTransaction().replace(R.id.clControl, goToFragment).commit();
     }
 }

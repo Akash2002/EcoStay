@@ -1274,6 +1274,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable btm_nav_sel
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1427,11 +1428,11 @@ id btnConfirmBook
 id btnCreateAccount
 id btnCreateListing
 id btnDelete
+id btnDeleteListing
 id btnEdit
 id btnEndDate
 id btnLogin
 id btnNewListing
-id btnPassChange
 id btnSaveChanges
 id btnStartDate
 id buttonPanel
@@ -1604,6 +1605,7 @@ id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
 id sawtooth
+id sbBrowse
 id scale
 id screen
 id scroll
@@ -1661,6 +1663,10 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tbBrowse
+id tbHome
+id tbMyListings
+id tbProfile
 id text
 id text2
 id textInputLayout
