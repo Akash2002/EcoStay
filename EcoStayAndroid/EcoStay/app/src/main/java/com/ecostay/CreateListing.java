@@ -28,34 +28,6 @@ public class CreateListing extends AppCompatActivity {
     TextInputEditText name, description, address, type, price, bed, bath;
     Button createListing;
 
-    BottomNavigationView bottomNavigationView;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Intent nextScreen;
-
-                    switch(item.getItemId()){
-                        case R.id.navigation_search:
-                            nextScreen = new Intent(getApplicationContext(), Home.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_browse:
-                            nextScreen = new Intent(getApplicationContext(), Browse.class);
-                            startActivity(nextScreen);
-                            return true;
-                        case R.id.navigation_createListing:
-                            return true;
-                        case R.id.navigation_profile:
-                            nextScreen = new Intent(getApplicationContext(), ViewProfile.class);
-                            startActivity(nextScreen);
-                            return true;
-                    }
-
-                    return false;
-                }
-            };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +38,6 @@ public class CreateListing extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         ref = database.getReference(currentUser.getUid() + "/Listed Places");
-
-        bottomNavigationView = findViewById(R.id.btmNav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         createListing = findViewById(R.id.btnCreateListing);
         createListing.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +59,8 @@ public class CreateListing extends AppCompatActivity {
                 ref.setValue(newListing.getHashMap());
                 ref.child("Booked Dates");
 
-                Intent goHome = new Intent(getApplicationContext(), Home.class);
+                Intent goHome = new Intent(getApplicationContext(), Controller.class);
+                goHome.putExtra("Fragment", "Listings");
                 startActivity(goHome);
             }
         });

@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -81,9 +82,15 @@ public class RecyclerViewAdapterAdmin extends RecyclerView.Adapter<RecyclerViewA
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ref = database.getReference(mUserID.get(position) + "/LeasedPlaces/" + mLeaseNames.get(position));
-                ref.setValue(null);
-                Log.d("Admin", "DELETEING " + mUserID.get(position) + "/LeasedPlaces/" + mLeaseNames.get(position));
+                ref = database.getReference(mUserID.get(position) + "/Leased Places/" + mLeaseNames.get(position));
+                ref.removeValue();
+
+                mLeaseImage.remove(position);
+                mLeaseNames.remove(position);
+                mPrice.remove(position);
+                mRating.remove(position);
+                mUserID.remove(position);
+                notifyDataSetChanged();
             }
         });
     }
@@ -94,6 +101,16 @@ public class RecyclerViewAdapterAdmin extends RecyclerView.Adapter<RecyclerViewA
         mPrice = null;
         mRating = null;
         mUserID = null;
+    }
+
+    public void addItems(ArrayList<String> mLeaseNames, ArrayList<String> mLeaseImage, ArrayList<String> inUserID, ArrayList<String> inPrice, ArrayList<String> inRating, Context mContext) {
+        this.mLeaseNames = mLeaseNames;
+        this.mLeaseImage = mLeaseImage;
+        this.mUserID = inUserID;
+        this.mPrice = inPrice;
+        this.mRating = inRating;
+        this.mContext = mContext;
+        notifyDataSetChanged();
     }
 
     @Override

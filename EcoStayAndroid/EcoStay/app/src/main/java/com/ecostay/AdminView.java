@@ -27,6 +27,8 @@ public class AdminView extends AppCompatActivity {
     ArrayList<String> mPrice = new ArrayList<>();
     ArrayList<String> mRating = new ArrayList<>();
 
+    RecyclerViewAdapterAdmin adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +69,15 @@ public class AdminView extends AppCompatActivity {
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.rvAdmin);
-        RecyclerViewAdapterAdmin adapter = new RecyclerViewAdapterAdmin(mLeaseNames, mImageNames, mUserID, mPrice, mRating, this);
+        adapter = new RecyclerViewAdapterAdmin(mLeaseNames, mImageNames, mUserID, mPrice, mRating, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+    }
+
+    private void refreshRV(){
+        adapter.addItems(mLeaseNames, mImageNames, mUserID, mPrice, mRating, this);
+        adapter.notifyDataSetChanged();
 
     }
 }

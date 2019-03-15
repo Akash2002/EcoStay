@@ -30,7 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Booking extends Fragment {
+public class Booking extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
@@ -38,8 +38,6 @@ public class Booking extends Fragment {
     FirebaseUser user = mAuth.getCurrentUser();
 
     MaterialButton submit, startDate, endDate;
-
-    View v;
 
     CalendarView cal;
     Calendar start = new com.ecostay.Calendar();
@@ -49,13 +47,14 @@ public class Booking extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.activity_booking, container, false;
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_booking);
 
-        submit = v.findViewById(R.id.btnConfirmBook);
+        submit = findViewById(R.id.btnConfirmBook);
 
-        startDate = v.findViewById(R.id.btnStartDate);
-        endDate = v.findViewById(R.id.btnEndDate);
+        startDate = findViewById(R.id.btnStartDate);
+        endDate = findViewById(R.id.btnEndDate);
 
         startDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +70,7 @@ public class Booking extends Fragment {
             }
         });
 
-        cal = v.findViewById(R.id.calendarView);
+        cal = findViewById(R.id.calendarView);
 
         cal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -80,13 +79,13 @@ public class Booking extends Fragment {
 
                 switch(control){
                     case 0:
-                        end.set(year, month, dayOfMonth);
-                        String message = "End Date: " + month + "/" + dayOfMonth + "/" + year;
+                        end.set(year, month + 1, dayOfMonth);
+                        String message = "End Date: " + (month + 1) + "/" + dayOfMonth + "/" + year;
                         endDate.setText(message);
                         break;
                     case 1:
-                        start.set(year, month, dayOfMonth);
-                        String message1 = "Start Date: " + month + "/" + dayOfMonth + "/" + year;
+                        start.set(year, month + 1, dayOfMonth);
+                        String message1 = "Start Date: " + (month + 1) +"/" + dayOfMonth + "/" + year;
                         startDate.setText(message1);
                         break;
                     default:
@@ -112,11 +111,12 @@ public class Booking extends Fragment {
                 ref.child("FromWhen").setValue(form.format(form.parse(start.toString(), new ParsePosition(0))));
                 ref.child("ToWhen").setValue(form.format(form.parse(end.toString(), new ParsePosition(0))));
 
-                Intent goBrowse = new Intent(v.getContext(), Browse.class);
+                Intent goBrowse = new Intent(v.getContext(), Controller.class);
+                goBrowse.putExtra("Fragment", "Browse");
                 startActivity(goBrowse);
+
             }
         });
 
-        return v;
     }
 }

@@ -7,10 +7,50 @@
     tools:context=".Browse">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBrowse"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/rvBrowse"
-        app:layout_constraintBottom_toTopOf="@+id/btmNav">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sbBrowse"></androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rvBrowse"
+        app:layout_constraintTop_toBottomOf="@+id/tbBrowse"
+        android:id="@+id/sbBrowse"
+        app:queryHint="Search Listings"
+        android:tooltipText="Search Listings">
+    </androidx.appcompat.widget.SearchView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tbBrowse"
+        app:title="Browse"
+        app:titleTextColor="#006494">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter"
+            android:textColor="#006494"
+            android:textAlignment="viewEnd"
+            android:gravity="end"
+
+            />
+
+    </androidx.appcompat.widget.Toolbar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

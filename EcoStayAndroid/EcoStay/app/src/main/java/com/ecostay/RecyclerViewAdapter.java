@@ -1,7 +1,9 @@
 package com.ecostay;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -34,6 +37,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mPrice = inPrice;
         this.mRating = inRating;
         this.mContext = mContext;
+    }
+
+    public void addItems(ArrayList<String> mLeaseNames, ArrayList<String> mLeaseImage, ArrayList<String> inUserID, ArrayList<String> inPrice, ArrayList<String> inRating, Context mContext) {
+        this.mLeaseNames = mLeaseNames;
+        this.mLeaseImage = mLeaseImage;
+        this.mUserID = inUserID;
+        this.mPrice = inPrice;
+        this.mRating = inRating;
+        this.mContext = mContext;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -60,22 +73,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
 
-                Log.d("RecylcerViewAdapter", mUserID.get(position));
-
-                Intent goToListingInfo = new Intent(mContext, BrowseListingInfo.class);
-                goToListingInfo.putExtra("Listing Path", mLeaseNames.get(position));
-                goToListingInfo.putExtra("User", mUserID.get(position));
-                mContext.startActivity(goToListingInfo);
+                Intent goToBrowseListingInfo = new Intent(mContext.getApplicationContext(), BrowseListingInfo.class);
+                goToBrowseListingInfo.putExtra("Listing Path", mLeaseNames.get(position));
+                goToBrowseListingInfo.putExtra("User", mUserID.get(position));
+                mContext.startActivity(goToBrowseListingInfo);
             }
         });
     }
 
     public void clear(){
-        mLeaseNames = null;
-        mLeaseImage = null;
-        mPrice = null;
-        mRating = null;
-        mUserID = null;
+        mLeaseNames.clear();
+        mLeaseImage.clear();
+        mPrice.clear();
+        mRating.clear();
+        mUserID.clear();
+        notifyDataSetChanged();
     }
 
     @Override

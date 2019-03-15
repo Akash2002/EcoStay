@@ -8,23 +8,23 @@
     
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:id="@+id/rvViewListings"
         app:layout_constraintBottom_toTopOf="@+id/btmNav"
+        app:layout_constraintTop_toBottomOf="@+id/tbMyListings"
 
     />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:id="@+id/btnNewListing"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rvViewListings"
-        app:layout_constraintEnd_toEndOf="@+id/rvViewListings"
-        android:id="@+id/btnNewListing"
-        android:src="@drawable/ic_add_circle_outline_black_24dp"
-        />
+        android:src="@drawable/ic_add_black_64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
@@ -43,4 +43,15 @@
             android:editable="false"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:title="Listed"
+        app:titleTextColor="#006494"
+        android:id="@+id/tbMyListings">
+    </androidx.appcompat.widget.Toolbar>
 </androidx.constraintlayout.widget.ConstraintLayout>

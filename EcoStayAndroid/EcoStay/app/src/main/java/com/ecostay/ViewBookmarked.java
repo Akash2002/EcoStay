@@ -56,11 +56,11 @@ public class ViewBookmarked extends Fragment {
 
     public void initBookmarkedPlaces(){
 
-        mLeaseNames = new ArrayList<>();
-        mImageNames = new ArrayList<>();
-        mUserID = new ArrayList<>();
-        mPrice = new ArrayList<>();
-        mRating = new ArrayList<>();
+        mLeaseNames.clear();
+        mImageNames.clear();
+        mUserID.clear();
+        mPrice.clear();
+        mRating.clear();
 
         ref = database.getReference(user.getUid() + "/BookmarkedPlaces");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {

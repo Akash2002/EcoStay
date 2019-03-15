@@ -63,7 +63,7 @@ public class RecyclerViewAdapterMyListings extends RecyclerView.Adapter<Recycler
 
                 Log.d("RecylcerViewAdapter", mUserID.get(position));
 
-                Intent goToListingInfo = new Intent(mContext, ListingInfo.class);
+                Intent goToListingInfo = new Intent(mContext, EditListing.class);
                 goToListingInfo.putExtra("Listing Path", mLeaseNames.get(position));
                 goToListingInfo.putExtra("User", mUserID.get(position));
                 mContext.startActivity(goToListingInfo);
