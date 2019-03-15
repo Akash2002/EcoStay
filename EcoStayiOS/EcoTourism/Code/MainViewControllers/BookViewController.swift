@@ -117,6 +117,10 @@ class BookViewController: UIViewController {
                             }
                         }
                     }
+                } else {
+                    CustomAlert().showAlert(headingAlert: "Range not found", messageAlert: "Please select continuous range of dates", actionTitle: "Ok", viewController: self) { (action) in
+                        
+                    }
                 }
             }
         } else {
@@ -223,6 +227,21 @@ extension BookViewController: JTAppleCalendarViewDataSource, JTAppleCalendarView
     }
     
     func determineAvailability() {
+        
+        let dateFormatter = DateFormatter()
+        let date = Date()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let comp: DateComponents = Calendar.current.dateComponents([.year, .month], from: date)
+        let startOfMonth = Calendar.current.date(from: comp)!
+        print(startOfMonth)
+        
+        
+        var startDateRange = DateUtility.getDateRange(from: startOfMonth, to: DateUtility.getDateDate(date: DateUtility.getCurrentDate()))
+        
+        for x in startDateRange {
+            self.dateRange.append(x)
+        }
+        
         count = 0
         let dbRef = Database.database().reference()
         dbRef.observe(.value) { (snapshot) in

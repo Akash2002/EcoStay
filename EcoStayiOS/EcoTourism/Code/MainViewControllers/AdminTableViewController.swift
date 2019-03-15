@@ -25,24 +25,26 @@ class AdminTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = places[indexPath.row]
+        if indexPath.row < places.count {
+            cell?.textLabel?.text = places[indexPath.row]
+        }
         return cell!
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        var delete = UITableViewRowAction(style: .normal, title: "Delete") { (snapshot, indexPath) in
-            Database.database().reference().observe(.value) { (snapshot) in
-                for i in snapshot.children {
-                    Database.database().reference().child((i as? DataSnapshot)!.key).observe(.value, with: { (snapshot) in
+        print(places[indexPath.row])
+        var delete = UITableViewRowAction(style: .normal, title: "Delete") { (action, indexPath) in
+            Database.database().reference().observe(.value, with: { (snapshot) in
+                for key in snapshot.children {
+                    Database.database().reference().child((key as? DataSnapshot)!.key).observe(.value, with: { (snapshot) in
                         if let val = snapshot.value as? [String: Any] {
                             if val["Leased Places"] != nil {
-                                Database.database().reference().child((i as? DataSnapshot)!.key).child("Leased Places").observe(.value, with: { (snapshot) in
-                                    for place in snapshot.children {
-                                        print("Count: \(self.places.count) and Index: \(indexPath.row)")
-                                        if (indexPath.row < self.places.count) {
-                                            if (place as? DataSnapshot)!.key == self.places[indexPath.row] {
-                                                Database.database().reference().child((i as? DataSnapshot)!.key).child("Leased Places").child((place as? DataSnapshot)!.key).removeValue()
-                                                print(self.places[indexPath.row])
+                                Database.database().reference().child((key as? DataSnapshot)!.key).child("Leased Places").observe(.value, with: { (snapshot) in
+                                    for placeNameKey in snapshot.children {
+                                        if indexPath.row < self.places.count {
+                                            if (placeNameKey as? DataSnapshot)!.key == self.places[indexPath.row] {
+                                                Database.database().reference().child((key as? DataSnapshot)!.key).child("Leased Places").child((placeNameKey as? DataSnapshot)!.key).removeValue()
+                                                return
                                             }
                                         }
                                     }
@@ -51,7 +53,7 @@ class AdminTableViewController: UIViewController, UITableViewDelegate, UITableVi
                         }
                     })
                 }
-            }
+            })
         }
         return [delete]
     }

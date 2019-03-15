@@ -102,12 +102,18 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
             var cell: PlaceCell = tableView.dequeueReusableCell(withIdentifier: "placeTableCell", for: indexPath) as! PlaceCell
             var model = Place()
             if searchController.isActive && searchController.searchBar.text != "" {
-                model = filteredPlaceArray[indexPath.row]
+                if indexPath.row < filteredPlaceArray.count {
+                    model = filteredPlaceArray[indexPath.row]
+                }
             } else {
                 if !SearchViewController.didFilter {
-                    model = places[indexPath.row]
+                    if indexPath.row < places.count {
+                        model = places[indexPath.row]
+                    }
                 } else {
-                    model = filteredOptionDetailPlaceArray[indexPath.row]
+                    if indexPath.row < filteredOptionDetailPlaceArray.count {
+                        model = filteredOptionDetailPlaceArray[indexPath.row]
+                    }
                 }
             }
             
@@ -150,16 +156,20 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         performSegue(withIdentifier: "LeasedPlaceDetailSegue", sender: self)
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         uid = (auth.currentUser?.uid)!
-        loadData();
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Places"
+        searchController.searchBar.backgroundColor = UIColor.clear
+        searchController.searchBar.searchBarStyle = .minimal
         tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
         
@@ -172,6 +182,10 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         
         navigationItem.title = "Search"
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
     }
     
     @objc func onResetClicked () {

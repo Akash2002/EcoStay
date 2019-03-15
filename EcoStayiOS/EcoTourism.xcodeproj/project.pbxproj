@@ -35,6 +35,7 @@
 		83536E4C219CFBC80078522F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83536E4B219CFBC80078522F /* Assets.xcassets */; };
 		83536E4F219CFBC80078522F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83536E4D219CFBC80078522F /* LaunchScreen.storyboard */; };
 		83536E57219CFE100078522F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83536E56219CFE100078522F /* GoogleService-Info.plist */; };
+		8370EEBD223B957C0069DC9E /* AdminOpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370EEBC223B957C0069DC9E /* AdminOpeningViewController.swift */; };
 		8397E035221783B800C7AD14 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E034221783B800C7AD14 /* DateViewCell.swift */; };
 		8397E0372217867900C7AD14 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E0362217867900C7AD14 /* BookViewController.swift */; };
 		83BBD3602219C380000AC76D /* PlacesLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BBD35F2219C380000AC76D /* PlacesLibraryViewController.swift */; };
@@ -101,6 +102,7 @@
 		83536E4E219CFBC80078522F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83536E50219CFBC80078522F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83536E56219CFE100078522F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8370EEBC223B957C0069DC9E /* AdminOpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOpeningViewController.swift; sourceTree = "<group>"; };
 		8397E034221783B800C7AD14 /* DateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewCell.swift; sourceTree = "<group>"; };
 		8397E0362217867900C7AD14 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		83BBD35F2219C380000AC76D /* PlacesLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesLibraryViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				83D0E7D02237409A00C092BC /* AdminTableViewController.swift */,
 				83D0E7D22237F90000C092BC /* FilterViewController.swift */,
 				83E413BA22385E0100F85DDE /* GalleryViewController.swift */,
+				8370EEBC223B957C0069DC9E /* AdminOpeningViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				831C3323220D09CB00C73865 /* DescriptionViewController.swift in Sources */,
 				83FC3F5721F24718007D3C9E /* AmenitiesViewController.swift in Sources */,
 				834B670B2233613B00C66425 /* ReviewPlaceDetailViewController.swift in Sources */,
+				8370EEBD223B957C0069DC9E /* AdminOpeningViewController.swift in Sources */,
 				831C3325220D12BA00C73865 /* AmenitiesDescriptionViewController.swift in Sources */,
 				83C7498E21F2AA42007309BC /* ModTabBar.swift in Sources */,
 				83FC3F5B21F24718007D3C9E /* CreateAccount2ViewController.swift in Sources */,

@@ -61,11 +61,14 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         
         segmentValue = "Rented"
+        alert.hasRated = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
         processDataLeased()
         processDataSaved()
         processDataRented()
-        
-        alert.hasRated = false
         
     }
     
@@ -118,40 +121,51 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlaceLibraryCell
         switch segmentValue {
             case "Rented":
-                var status = rentedPlaces[indexPath.row].status
-                cell.titleLabel.text = rentedPlaces[indexPath.row].title
-                cell.fromToDateLabel.text = rentedPlaces[indexPath.row].fromToDate
-                cell.numRentedLabel.text = status
-                
-                if status == "Upcoming" {
-                    cell.numRentedLabel.textColor = UIColor(red: 0, green: 100, blue: 148)
-                } else if status == "Past" {
-                    cell.numRentedLabel.textColor = UIColor(red: 199, green: 49, blue: 79)
+                if indexPath.row < rentedPlaces.count {
+                    var status = rentedPlaces[indexPath.row].status
+                    cell.titleLabel.text = rentedPlaces[indexPath.row].title
+                    cell.fromToDateLabel.text = rentedPlaces[indexPath.row].fromToDate
+                    cell.numRentedLabel.text = status
+                    
+                    if status == "Upcoming" {
+                        cell.numRentedLabel.textColor = UIColor(red: 0, green: 100, blue: 148)
+                    } else if status == "Past" {
+                        cell.numRentedLabel.textColor = UIColor(red: 199, green: 49, blue: 79)
+                    } else {
+                        cell.numRentedLabel.textColor = UIColor(red: 0, green: 164, blue: 85)
+                    }
+                    
+                    cell.fromToDateLabel.isHidden = false
+                    cell.ratingLabel.isHidden = true
+                    cell.numRentedLabel.isHidden = false
+                    return cell
                 } else {
-                    cell.numRentedLabel.textColor = UIColor(red: 0, green: 164, blue: 85)
+                    return UITableViewCell()
                 }
-                
-                cell.fromToDateLabel.isHidden = false
-                cell.ratingLabel.isHidden = true
-                cell.numRentedLabel.isHidden = false
-                return cell
             case "Listed":
-                cell.titleLabel.text = leasedPlaces[indexPath.row].name
-                cell.fromToDateLabel.text = "$" + leasedPlaces[indexPath.row].price + "/night"
-                cell.numRentedLabel.text = "Num Rented: " + leasedPlaces[indexPath.row].numRented
-                cell.numRentedLabel.textColor = UIColor(red: 111, green: 113, blue: 121)
-                
-                cell.ratingLabel.text = "⭑ \(leasedPlaces[indexPath.row].rating)"
-                cell.fromToDateLabel.isHighlighted = false
-                cell.ratingLabel.isHidden = false
-                cell.numRentedLabel.isHidden = false
-                return cell
+                if indexPath.row < leasedPlaces.count {
+                    cell.titleLabel.text = leasedPlaces[indexPath.row].name
+                    cell.fromToDateLabel.text = "$" + leasedPlaces[indexPath.row].price + "/night"
+                    cell.numRentedLabel.text = "Num Rented: " + leasedPlaces[indexPath.row].numRented
+                    cell.numRentedLabel.textColor = UIColor(red: 111, green: 113, blue: 121)
+                    cell.ratingLabel.text = "⭑ \(leasedPlaces[indexPath.row].rating)"
+                    cell.fromToDateLabel.isHighlighted = false
+                    cell.ratingLabel.isHidden = false
+                    cell.numRentedLabel.isHidden = false
+                    return cell
+                } else {
+                    return UITableViewCell()
+                }
             case "Saved":
-                cell.titleLabel.text = savedPlaces[indexPath.row]
-                cell.fromToDateLabel.isHidden = true
-                cell.ratingLabel.isHidden = true
-                cell.numRentedLabel.isHidden = true
-                return cell
+                if indexPath.row < savedPlaces.count {
+                    cell.titleLabel.text = savedPlaces[indexPath.row]
+                    cell.fromToDateLabel.isHidden = true
+                    cell.ratingLabel.isHidden = true
+                    cell.numRentedLabel.isHidden = true
+                    return cell
+                } else {
+                    return UITableViewCell()
+                }
             default: return UITableViewCell()
         }
     }
@@ -171,8 +185,6 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.reloadData()
     }
     
-    
-    
     func processDataRented() {
         dbRef.observe(.value) { (snapshot) in
             self.rentedPlaces.removeAll()
@@ -182,6 +194,7 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
                     self.dbRef.child("BookedPlaces").observe(.value, with: { (snapshot) in
                         for place in snapshot.children {
                             self.dbRef.child("BookedPlaces").child((place as? DataSnapshot)!.key).observe(.value, with: { (snapshot) in
+                                self.rentedPlaces.removeAll()
                                 if let val = snapshot.value as? [String: Any?] {
                                     
                                     if val["ToWhen"] != nil {
@@ -203,10 +216,12 @@ class PlacesLibraryViewController: UIViewController, UITableViewDelegate, UITabl
                                                 place.status = "Upcoming"
                                             }
                                             
-                                            self.rentedPlaces.append(place)
-                                            
                                             DispatchQueue.main.async(execute: {
+                                                
+                                                self.rentedPlaces.append(place)
+                                                
                                                 self.tableView.reloadData()
+                                                
                                             })
                                         }
                                     }

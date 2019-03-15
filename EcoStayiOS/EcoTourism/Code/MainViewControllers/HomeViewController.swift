@@ -33,6 +33,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var places: [Place] = []
     static var personName = ""
+    static var userIDKey = ""
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if places.count < 10 {
@@ -132,6 +133,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                                                         place.address = "Address: " + (placeVal[DBGlobal.Specific.Address.rawValue] as! String)
                                                                         place.desc = placeVal[DBGlobal.Specific.Description.rawValue] as! String
                                                                         place.price = (placeVal[DBGlobal.Specific.Price.rawValue] as! String)
+                                                                        HomeViewController.userIDKey = userId
                                                                         if let ratingval = Double(placeVal[DBGlobal.Specific.Rating.rawValue] as! String) {
                                                                             if let ratingnum = Double(placeVal[DBGlobal.Specific.RatingNum.rawValue] as! String) {
                                                                                 if ratingnum != 0 {

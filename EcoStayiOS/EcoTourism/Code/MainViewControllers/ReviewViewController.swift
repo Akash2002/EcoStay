@@ -15,6 +15,8 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var reviewField: UITextView!
     
+    var hasReviewed = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = PlacesLibraryViewController.reviewPlace
@@ -37,6 +39,7 @@ class ReviewViewController: UIViewController {
                                         if (placeKey as? DataSnapshot)!.key == PlacesLibraryViewController.reviewPlace {
                                             print((placeKey as? DataSnapshot)!.key)
                                             Database.database().reference().child((i as? DataSnapshot)!.key).child(DBGlobal.LeasedPlaces.rawValue).child(PlacesLibraryViewController.reviewPlace).child("Reviews").child(HomeViewController.personName).setValue(userReview)
+                                            self.navigationController?.popViewController(animated: true)
                                             }
                                         }
                                     })

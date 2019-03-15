@@ -17,7 +17,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var underline: UIView!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var googleSignInButton: GIDSignInButton!
     
     static var uid = ""
     
@@ -28,7 +27,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
-        GIDSignIn.sharedInstance().uiDelegate = self
         
     }
     
@@ -69,13 +67,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
         }
         
-        if emailField.text == "admin" {
-            if pwdField.text == "keycodepassword" {
-                var storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let StoryBoardViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "AdminController")
-                self.present(StoryBoardViewController, animated: true, completion: nil)
-            }
-        }
+//        if emailField.text == "admin" {
+//            if pwdField.text == "keycodepassword" {
+//                var storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                let StoryBoardViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "AdminController")
+//                self.present(StoryBoardViewController, animated: true, completion: nil)
+//            }
+//        }
         
     }
     

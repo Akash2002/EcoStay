@@ -17,7 +17,7 @@ class ProfileCell: UITableViewCell {
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var hiddenText: UILabel!
-    var profileOptions = ["Rental History", "Logout"]
+    var profileOptions = ["Rental History", "About", "Logout"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return profileOptions.count
@@ -45,6 +45,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
             }
+        case "About":
+            performSegue(withIdentifier: "toAboutSegue", sender: self)
         default:
             print("Hello")
         }

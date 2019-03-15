@@ -11,7 +11,7 @@ import TTRangeSlider
 
 class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var types = ["House","Town Home", "Cottage", "Hut", "Treehouse"]
+    var types = ["House","Town Home", "Cabin", "Cottage", "Hut", "Treehouse"]
     var selectedTypes: [Int: String] = [:]
     
     @IBOutlet weak var priceRangeSlider: TTRangeSlider!
