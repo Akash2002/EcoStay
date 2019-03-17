@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
                 if(user.equals("admin") && pass.equals("admin")){
                     Intent goAdminView = new Intent(getApplicationContext(), AdminView.class);
                     startActivity(goAdminView);
-                }else {
+                }else{
                     mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {

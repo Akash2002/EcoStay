@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f8dfa20-3539-43f9-8702-7028bbe0cba2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/EcoStayiOS/EcoTourism.xcworkspace/xcuserdata/akashveerappan.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/EcoStayiOS/EcoTourism.xcworkspace/xcuserdata/akashveerappan.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EcoStayiOS/EcoTourism.xcworkspace/xcuserdata/akashveerappan.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/EcoStayiOS/EcoTourism.xcworkspace/xcuserdata/akashveerappan.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/Design/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/Design/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/FilterViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/FilterViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/LeaseViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/LeaseViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/PlacesLibraryViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/PlacesLibraryViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/ProfileViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/ProfileViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/SearchViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/EcoStayiOS/EcoTourism/Code/MainViewControllers/SearchViewController.swift" afterDir="false" />
-    </list>
+    <list default="true" id="3f8dfa20-3539-43f9-8702-7028bbe0cba2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +22,90 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayAndroid" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ecostay" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcoStay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcoStay" type="462c0819:PsiDirectoryNode" />
+              <item name="EcoStayiOS" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -65,7 +139,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="800" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="793" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32980973" />

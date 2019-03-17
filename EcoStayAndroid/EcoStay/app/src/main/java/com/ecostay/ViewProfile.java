@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
@@ -30,12 +31,15 @@ import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
+import javax.security.auth.login.LoginException;
+
 public class ViewProfile extends Fragment {
 
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
     FirebaseDatabase database;
     DatabaseReference ref;
+    Button logoutButton;
 
     TextInputEditText name, email, phone, password;
 
@@ -52,6 +56,7 @@ public class ViewProfile extends Fragment {
         name = v.findViewById(R.id.edttxtNameDisplay);
         email = v.findViewById(R.id.edttxtEmailDisplay);
         phone = v.findViewById(R.id.edttxtPhoneDisplay);
+        logoutButton = v.findViewById(R.id.logoutButton);
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -59,6 +64,15 @@ public class ViewProfile extends Fragment {
 
         mViewPager = v.findViewById(R.id.viewpagerProfile);
         setUpViewPager(mViewPager);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(v.getContext(), Login.class);
+                startActivity(intent);
+            }
+        });
 
         ref = database.getReference(currentUser.getUid());
         ref.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -9,15 +9,14 @@
     tools:context=".ViewProfile">
 
     <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
+        android:id="@+id/tbProfile"
+        android:layout_width="237dp"
         android:layout_height="wrap_content"
-        app:title="Profile"
-        app:titleTextColor="#006494"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/tbProfile">
-    </androidx.appcompat.widget.Toolbar>
+        app:title="Profile"
+        app:titleTextColor="#006494"></androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtNameLabel"
@@ -35,7 +34,7 @@
             android:layout_height="match_parent"
             android:editable="false"
             android:text="Name:"
-            android:textColor="#009FB7"/>
+            android:textColor="@color/mainColor" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -75,7 +74,7 @@
             android:layout_height="match_parent"
             android:editable="false"
             android:text="Email:"
-            android:textColor="#009FB7"/>
+            android:textColor="@color/mainColor" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -112,11 +111,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="end"
             android:editable="false"
             android:text="Phone Number:"
             android:textAlignment="viewEnd"
-            android:layout_gravity="end"
-            android:textColor="#009FB7"/>
+            android:textColor="@color/mainColor" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -154,5 +153,17 @@
         </com.google.android.material.tabs.TabLayout>
 
     </androidx.viewpager.widget.ViewPager>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Logout"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

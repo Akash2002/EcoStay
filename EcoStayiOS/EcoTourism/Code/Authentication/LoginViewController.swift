@@ -54,8 +54,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
         }
         
-        if (!validEmail && !validPwd) {
-            Auth.auth().signIn(withEmail: "akashpalaniappan@gmail.com", password: "akash#123") { (user, error) in
+        if (validEmail && validPwd) {
+            Auth.auth().signIn(withEmail: email, password: pwd) { (user, error) in
                 if error != nil {
                     print("ERR")
                     CustomAlert().showAlert(headingAlert: "Could not sign in.", messageAlert: (error?.localizedDescription)!, actionTitle: "Retry", viewController: self, handleAction: { (action) in

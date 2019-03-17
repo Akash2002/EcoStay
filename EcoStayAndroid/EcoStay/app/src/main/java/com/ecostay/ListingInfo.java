@@ -50,9 +50,9 @@ public class ListingInfo extends AppCompatActivity {
                 LeasedKeys keys = new LeasedKeys();
                 HashMap map = (HashMap) dataSnapshot.getValue();
                 name.setText(dataSnapshot.getKey());
-                address.setText(map.get(keys.getAddress()).toString());
+                address.setText(("Address: " + map.get(keys.getAddress()).toString()));
                 description.setText(map.get(keys.getDescription()).toString());
-                price.setText(map.get(keys.getPrice()).toString());
+                price.setText(("$" + map.get(keys.getPrice()).toString() + "/night"));
             }
 
             @Override

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
@@ -110,10 +111,11 @@ public class Booking extends AppCompatActivity {
                 ref = database.getReference(getIntent().getExtras().get("User") + "/Leased Places/" + getIntent().getExtras().get("List Name") + "/Booked Dates/" + user.getUid());
                 ref.child("FromWhen").setValue(form.format(form.parse(start.toString(), new ParsePosition(0))));
                 ref.child("ToWhen").setValue(form.format(form.parse(end.toString(), new ParsePosition(0))));
-
+                Toast.makeText(getApplicationContext(), "Succesfully booked", Toast.LENGTH_SHORT).show();
                 Intent goBrowse = new Intent(v.getContext(), Controller.class);
                 goBrowse.putExtra("Fragment", "Browse");
                 startActivity(goBrowse);
+
 
             }
         });

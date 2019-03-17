@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Theo.GUBBSINC\\Desktop\\EcoStay\\EcoStayAndroid\\EcoStay\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-as\\values-as.xml",
+            "outputFile": "/Users/akashveerappan/Desktop/Coding/EcoStay/EcoStayAndroid/EcoStay/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-as/values-as.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Theo.GUBBSINC\\.gradle\\caches\\transforms-2\\files-2.1\\eeed4574fe0ca51c3eb803f7a208c71f\\res\\values-as\\values.xml",
+                    "source": "/Users/akashveerappan/.gradle/caches/transforms-2/files-2.1/127ec187aff579b7626b1cbc3fa301df/res/values-as/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Theo.GUBBSINC\\.gradle\\caches\\transforms-2\\files-2.1\\e3a3206ee206438320fdf788ea49e897\\res\\values-as\\values.xml",
+                    "source": "/Users/akashveerappan/.gradle/caches/transforms-2/files-2.1/2087562f9f8ad989439f3a15f11b0e6f/res/values-as/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

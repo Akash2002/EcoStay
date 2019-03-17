@@ -34,7 +34,7 @@ class LeaseViewController: UIViewController, CLLocationManagerDelegate, UIPicker
     var databaseReference: DatabaseReference = Database.database().reference()
     
     var currentUID: String = ""
-    var types = ["House","Town Home", "Cabin",``` "Cottage", "Hut", "Treehouse"]
+    var types = ["House","Town Home", "Cabin", "Cottage", "Hut", "Treehouse"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

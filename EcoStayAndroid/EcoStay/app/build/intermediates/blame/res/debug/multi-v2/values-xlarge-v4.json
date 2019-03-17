@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Theo.GUBBSINC\\Desktop\\EcoStay\\EcoStayAndroid\\EcoStay\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
+            "outputFile": "/Users/akashveerappan/Desktop/Coding/EcoStay/EcoStayAndroid/EcoStay/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Theo.GUBBSINC\\.gradle\\caches\\transforms-2\\files-2.1\\3371670db0cff853722a98b8a1ba8fa0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "source": "/Users/akashveerappan/.gradle/caches/transforms-2/files-2.1/bbdcd74aaf88a99458dc9ada9d6127fb/res/values-xlarge-v4/values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

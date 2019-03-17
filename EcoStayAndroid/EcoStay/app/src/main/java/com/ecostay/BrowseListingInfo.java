@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,7 +31,6 @@ public class BrowseListingInfo extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
-
     RatingBar rate;
 
     @Override
@@ -53,9 +53,9 @@ public class BrowseListingInfo extends AppCompatActivity {
                 LeasedKeys keys = new LeasedKeys();
                 HashMap map = (HashMap) dataSnapshot.getValue();
                 name.setText(dataSnapshot.getKey());
-                address.setText(map.get(keys.getAddress()).toString());
+                address.setText(("Address: " + map.get(keys.getAddress()).toString()));
                 description.setText(map.get(keys.getDescription()).toString());
-                price.setText(map.get(keys.getPrice()).toString());
+                price.setText(("$" + map.get(keys.getPrice()).toString() + "/night"));
                 rate.setRating(Float.parseFloat(map.get(keys.getRating()).toString()));
             }
 
@@ -80,6 +80,7 @@ public class BrowseListingInfo extends AppCompatActivity {
             public void onClick(View v) {
                 ref = database.getReference(getIntent().getExtras().get("User").toString() + "/BookmarkedPlaces");
                 ref.child(name.getText().toString()).setValue("0");
+                Toast.makeText(getApplicationContext(), "Bookmarked", Toast.LENGTH_SHORT).show();
             }
         });
 

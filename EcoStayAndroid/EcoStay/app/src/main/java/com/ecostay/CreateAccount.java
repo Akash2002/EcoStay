@@ -50,29 +50,33 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
-                mAuth.createUserWithEmailAndPassword(email.getText().toString(), newPass.getText().toString())
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                Profile newProfile = new Profile(name.getText().toString(), email.getText().toString(), phoneNumber.getText().toString(), birthday.getText().toString(), newPass.getText().toString());
+                if(confirmPassword.getText().toString().equals(newPass.getText().toString())) {
+                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), newPass.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Profile newProfile = new Profile(name.getText().toString(), email.getText().toString(), phoneNumber.getText().toString(), birthday.getText().toString(), newPass.getText().toString());
 
-                                currentUser = mAuth.getCurrentUser();
-                                ref = database.getReferenceFromUrl("https://ecotourism-7983b.firebaseio.com/").child(currentUser.getUid());
-                                ref.setValue(newProfile.getHashMap());
-                                ref.child("Leased Places");
-                                ref.child("BookedPlaces");
-                                ref.child("BookmarkedPlaces");
+                                        currentUser = mAuth.getCurrentUser();
+                                        ref = database.getReferenceFromUrl("https://ecotourism-7983b.firebaseio.com/").child(currentUser.getUid());
+                                        ref.setValue(newProfile.getHashMap());
+                                        ref.child("Leased Places");
+                                        ref.child("BookedPlaces");
+                                        ref.child("BookmarkedPlaces");
 
-                                Intent goHome = new Intent(getApplicationContext(), Controller.class);
-                                startActivity(goHome);
+                                        Intent goHome = new Intent(getApplicationContext(), Controller.class);
+                                        startActivity(goHome);
 
-                            }else{
-                                FirebaseAuthException e = (FirebaseAuthException )task.getException();
-                                System.out.println("NOt worked" + e);
-                            }
-                        }
-                    });
+                                    } else {
+                                        FirebaseAuthException e = (FirebaseAuthException) task.getException();
+                                        System.out.println("NOt worked" + e);
+                                    }
+                                }
+                            });
+                } else {
+                    Toast.makeText(getApplicationContext(), "Passwords don't match", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
