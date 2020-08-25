@@ -7,4 +7,4 @@ Tourism is one of the most profitable markets in our contemporary world. A lot o
 
 ### Solution
 -----------
-I decided to build a platform exclusively for ecotourism similar to that of Airbnb but which places emphasis on ecotourism and ecotourism only. Through this platform, people will be able to book places of stay that support nature, helping them appreciate the beauty of our Earth while also preserving our natural resources. I built this application on the iOS platform using Swift and Google Cloud Firebase services, while my friend helped out with Android. 
+I decided to build a platform exclusively for ecotourism similar to that of Airbnb but which places emphasis on ecotourism and ecotourism only. Through this platform, people will be able to book places of stay that support nature, helping them appreciate the beauty of our Earth while also preserving our natural resources. I built this application on the iOS platform using Swift and Google Cloud Firebase services, while my friend helped out with Android. Check the presentation out [here](https://1drv.ms/p/s!Aj41HCdmLcUrwkoYe3OATWmGH5KI?e=VVY9Wq)!
